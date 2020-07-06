@@ -1,0 +1,157 @@
+<div class="navbar navbar-expand-lg navbar-light navbar-orange">
+  <div class="float-left">
+  <a class="navbar-brand" href="#">Navbar</a></div>
+  <div class="float-right"><button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse " id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto ">
+      <li class="nav-item active">
+        <a class="nav-link" href="#"
+          >Home <span class="sr-only">(current)</span></a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Recipes</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Account
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Register</a>
+          <a class="dropdown-item" href="#">Login</a>
+        </div>
+      </li>
+
+      </li>
+    </ul>
+
+  </div>
+  </div>
+</div>
+<div id="wrapper">
+  <!-- sidebar code adapted from https://colorlib.com/wp/bootstrap-sidebar/ -->
+  <div id="sidebar-wrapper">
+    <aside class="sidebar">
+      <ul>
+        <li class="title heading">Allergens<button class="btn btn-default sidebar-toggle float-right"><svg class="bi bi-chevron-right" width="32" height="32" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z"/></svg></button></li>
+        <li class="list-group-item text-capitalize">
+          <img
+            class="icon-image"
+            src="{{url_for('static',filename='/images/icons/celery.png')}}"
+            alt="celery symbol"
+          />celery
+        </li>
+        <li class="list-group-item text-capitalize">
+          <img
+            class="icon-image"
+            src="{{url_for('static',filename='/images/icons/crustaceans.png')}}"
+            alt="crustaceans symbol"
+          />crustaceans
+        </li>
+        <li class="list-group-item text-capitalize">
+          <img
+            class="icon-image"
+            src="{{url_for('static',filename='/images/icons/eggs.png')}}"
+            alt="eggs symbol"
+          />eggs
+        </li>
+        <li class="list-group-item text-capitalize">
+          <img
+            class="icon-image"
+            src="{{url_for('static',filename='/images/icons/fish.png')}}"
+            alt="fish symbol"
+          />Fish
+        </li>
+        <li class="list-group-item text-capitalize">
+          <img
+            class="icon-image"
+            src="{{url_for('static',filename='/images/icons/lupin.png')}}"
+            alt="lupin symbol"
+          />lupin
+        </li>
+        <li class="list-group-item text-capitalize">
+          <img
+            class="icon-image"
+            src="{{url_for('static',filename='/images/icons/milk.png')}}"
+            alt="milk symbol"
+          />milk
+        </li>
+        <li class="list-group-item text-capitalize">
+          <img
+            class="icon-image"
+            src="{{url_for('static',filename='/images/icons/molluscs.png')}}"
+            alt="molluscs symbol"
+          />molluscs
+        </li>
+        <li class="list-group-item text-capitalize">
+          <img
+            class="icon-image"
+            src="{{url_for('static',filename='/images/icons/mustard.png')}}"
+            alt="mustard symbol"
+          />mustard
+        </li>
+        <li class="list-group-item text-capitalize">
+          <img
+            class="icon-image"
+            src="{{url_for('static',filename='/images/icons/peanut.png')}}"
+            alt="peanut symbol"
+          />peanut
+        </li>
+        <li class="list-group-item text-capitalize">
+          <img
+            class="icon-image"
+            src="{{url_for('static',filename='/images/icons/sesame.png')}}"
+            alt="sesame symbol"
+          />sesame
+        </li>
+        <li class="list-group-item text-capitalize">
+          <img
+            class="icon-image"
+            src="{{url_for('static',filename='/images/icons/soya.png')}}"
+            alt="soya symbol"
+          />soya
+        </li>
+        <li class="list-group-item text-capitalize">
+          <img
+            class="icon-image"
+            src="{{url_for('static',filename='/images/icons/sulphurdioxide.png')}}"
+            alt="sulphurdioxide symbol"
+          />sulphur dioxide
+        </li>
+        <li class="list-group-item text-capitalize">
+          <img
+            class="icon-image"
+            src="{{url_for('static',filename='/images/icons/treenut.png')}}"
+            alt="treenut symbol"
+          />treenut
+        </li>
+        <li class="list-group-item text-capitalize">
+          <img
+            class="icon-image"
+            src="{{url_for('static',filename='/images/icons/wheat.png')}}"
+            alt="wheat symbol"
+          />wheat
+        </li>
+      </ul>
+    </aside>
+  </div>
+</div>
