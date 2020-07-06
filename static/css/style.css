@@ -2,6 +2,149 @@
   font-family: "Comfortaa", cursive;
 }
 
-p {
+* {
   font-family: "Poiret One", cursive;
+}
+/* Nav bar */
+.navbar-orange {
+  background-color: #fe5d26;
+}
+.navbar {
+  display: flow-root;
+}
+/* Side nav bar - adapted from https://colorlib.com/wp/bootstrap-sidebar/ */
+#wrapper .list-group-item {
+  background-color: #fe5d26;
+  border: 0px;
+}
+
+#wrapper {
+  padding-left: 50px;
+  transition: all 0.5s ease;
+}
+#wrapper.toggled {
+  padding-left: 250px;
+}
+
+#sidebar-wrapper {
+  z-index: 1000;
+  position: fixed;
+  left: -200px;
+  width: 250px;
+  height: 100%;
+  overflow-y: auto;
+  background: #fe5d26;
+  padding-top: 15px;
+  transition: all 0.5s ease;
+}
+#wrapper.toggled #sidebar-wrapper {
+  left: -250px;
+  margin-left: 250px;
+}
+
+#page-content-wrapper {
+  width: 100%;
+  padding: 15px;
+}
+#wrapper.toggled #page-content-wrapper {
+  position: absolute;
+  margin-right: -50px;
+}
+
+/* Sidebar Styles */
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+}
+.sidebar li.title {
+  letter-spacing: 0.01em;
+  font-size: 2rem;
+  line-height: 4.2rem;
+}
+.sidebar ul {
+  margin: 0;
+  padding-left: 20px;
+  list-style: none;
+}
+.sidebar ul li {
+  display: block;
+}
+.sidebar ul li a {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  color: #000;
+}
+.sidebar ul li a [class*="icon"] {
+  margin-right: 15px;
+}
+.sidebar ul li a#main-toggle:after,
+.sidebar ul li a.dropdown-toggle:after {
+  right: 20px;
+  bottom: 5px;
+}
+.sidebar .sidebar__main {
+  border-bottom: 1px solid #000;
+}
+.sidebar .sidebar__toggled {
+  font-size: 2rem;
+  line-height: 3.4rem;
+}
+.sidebar ul li.title,
+.sidebar .sidebar__main--brand a {
+  color: #000;
+}
+
+.dropdown-toggle {
+  padding-right: 20px;
+}
+
+
+.sidebar__toggled {
+  border-bottom: 1px solid #444;
+}
+#sidebar #main-toggle:after {
+  font-size: 1em;
+  content: "\e055";
+}
+.sidebar .bi {
+  font-size: 1.5em;
+  margin-top: 10px;
+}
+
+@media (min-width: 768px) {
+  #wrapper {
+    padding-left: 250px;
+  }
+
+  #wrapper.toggled {
+    padding-left: 50px;
+  }
+
+  #sidebar-wrapper {
+    left: 250px;
+    margin-left: -250px;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    left: -200px;
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    padding: 20px;
+  }
+
+  #wrapper.toggled #page-content-wrapper {
+    position: relative;
+    margin-right: 50px;
+  }
+}
+
+/* allergen icons */
+.icon-image {
+  width: 50px;
+  height: 50px;
+  margin-right: 2em;
 }
