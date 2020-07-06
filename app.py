@@ -24,6 +24,39 @@ difficulty_db = mongo.db.difficulty
 mottos_db = mongo.db.mottos
 features_db = mongo.db.features
 
+'''
+ROUTES
+'''
+
+'''
+HOME PAGE
+'''
+
+
+@app.route('/')
+@app.route("/home")
+def home():
+    '''
+    Main home page.
+    '''
+    mottos = mottos_db.find({'_id': 0})
+    random_motto = ([motto for motto in mottos_db.aggregate
+                        ([{"$sample": {"size": 1}}])])
+    return render_template('home.html', featured_recipes=features_db,
+                           title='Home', random_motto=random_motto)
+
+'''
+RECIPE PAGE
+'''
+
+'''
+ADD/EDIT PAGE
+'''
+
+'''
+SE PAGE
+'''
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
