@@ -68,6 +68,89 @@ def add_recipe():
     return render_template("add_recipe.html", title='Add Recipe', cuisines=cuisines_db.find(), spice=spice_db.find(), diet=diet_db.find(), type=type_db.find(), difficulty=difficulty_db.find(), allergens=allergens_db.find())
 
 
+@app.route('/insert_recipe', methods=['GET', 'POST'])
+def insert_recipe():
+    # split ingredients and method outputs into lists, convert checkbox outputs to objects
+    ingredients = request.form.get("recipe_ingredients").splitlines()
+    method = request.form.get("recipe_method").splitlines()
+    diet = {"pescatarian": request.form.get("pescatarianDiet"),
+            "vegan": request.form.get("veganDiet"),
+            "none": request.form.get("noneDiet"),
+            "vegatarian": request.form.get("vegetarianDiet"),
+            "kosher": request.form.get("kosherDiet"),
+            "gluten": request.form.get("gluten freeDiet"),
+            "lacto": request.form.get("lacto freeDiet")}
+    spice = {"mild": request.form.get("mildSpice"),
+             "medium": request.form.get("mediumSpice"),
+             "hot": request.form.get("hotSpice")}
+    difficulty = {"easy": request.form.get("easyDiff"),
+                  "intermediate": request.form.get("intermediateDiff"),
+                  "hard": request.form.get("hardDiff")}
+    meal_type = {"breakfast": request.form.get("breakfastMeal"),
+                 "side": request.form.get("sideMeal"),
+                 "beverage": request.form.get("beverageMeal"),
+                 "main": request.form.get("mainMeal"),
+                 "desert": request.form.get("desertMeal"),
+                 "snack": request.form.get("snackMeal")}
+    cuisine = {"British": request.form.get("BritishCuisine"),
+               "Italian": request.form.get("ItalianCuisine"),
+               "Mexican": request.form.get("MexicanCuisine"),
+               "Spanish": request.form.get("SpanishCuisine"),
+               "American": request.form.get("AmericanCuisine"),
+               "Latin American": request.form.get("Latin AmericanCuisine"),
+               "Caribbean": request.form.get("CaribbeanCuisine"),
+               "Japanese": request.form.get("JapaneseCuisine"),
+               "South Asian": request.form.get("South AsianCuisine"),
+               "Central Asian": request.form.get("Central AsianCuisine"),
+               "Chinese": request.form.get("ChineseCuisine"),
+               "South-east Asian": request.form.get("South-east AsianCuisine"),
+               "Indian": request.form.get("IndianCuisine"),
+               "North African": request.form.get("North AfricanCuisine"),
+               "African": request.form.get("AfricanCuisine"),
+               "Eastern European": request.form.get("Eastern EuropeanCuisine"),
+               "Turkish": request.form.get("TurkishCuisine"),
+               "Persian": request.form.get("PersianCuisine"),
+               "European": request.form.get("EuropeanCuisine"),
+               "Middle Eastern": request.form.get("Middle EasternCuisine"),
+               "Festive": request.form.get("FestiveCuisine")}
+    allergens = {"Celery":request.form.get("CeleryAllergy"),
+"crustaceans": request.form.get("CrustaceansAllergy"),
+"eggs": request.form.get("EggsAllergy"),
+"fish": request.form.get("FishAllergy"),
+"lupin": request.form.get("LupinAllergy"),
+"milk": request.form.get("MilkAllergy"),
+"molluscs": request.form.get("MolluscsAllergy"),
+"mustard": request.form.get("MustardAllergy"),
+"peanut": request.form.get("PeanutAllergy"),
+"sesame": request.form.get("SesameAllergy"),
+"soya": request.form.get("SoyaAllergy"),
+"sulphur dioxide": request.form.get("Sulphur DioxideAllergy"),
+"treenut": request.form.get("TreenutAllergy"),
+"wheat":request.form.get("Wheat")}
+
+    if request.method == 'POST':
+        # after submitting form, insert new recipe
+        new_recipe = {
+            "recipe_title": request.form.get("recipe_title").strip(),
+            "recipe_description": request.form.get("recipe_description"),
+            "recipe_ingredients": ingredients,
+            "recipe_method": method,
+            "recipe_prep": request.form.get("recipe_prep"),
+            "recipe_servings": request.form.get("recipe_servings"),
+            "recipe_cuisine": cuisine,
+            "recipe_type": meal_type,
+            "recipe_diet": diet,
+            "recipe_spice": spice,
+            "recipe_difficulty": difficulty,
+            "recipe_allergens": allergens,
+            "image": request.form.get("image")
+        }
+        insert_recipe_intoDB = recipes_db.insert_one(new_recipe)
+        # updates "user recipes" list with recipe_id added in user collection
+        return redirect(url_for(
+            "home"))
+
+
 '''
 SE PAGE
 '''
