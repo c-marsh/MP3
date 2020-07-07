@@ -23,7 +23,8 @@ spice_db = mongo.db.spice
 difficulty_db = mongo.db.difficulty
 mottos_db = mongo.db.mottos
 features_db = mongo.db.features
-
+diet_db = mongo.db.diet
+allergens_db = mongo.db.allergens
 '''
 ROUTES
 '''
@@ -60,6 +61,12 @@ RECIPE PAGE
 '''
 ADD/EDIT PAGE
 '''
+
+
+@app.route('/add_recipe')
+def add_recipe():
+    return render_template("add_recipe.html", title='Add Recipe', cuisines=cuisines_db.find(), spice=spice_db.find(), diet=diet_db.find(), type=type_db.find(), difficulty=difficulty_db.find(), allergens=allergens_db.find())
+
 
 '''
 SE PAGE
