@@ -1,4 +1,5 @@
 <div class="container wrap">
-<p>{{random_motto}}</p>
-
+{%for motto in random_motto%}
+<p><em>"{{motto.motto}}"</em></p>
+{%endfor%}
 </div>

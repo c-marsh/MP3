@@ -3,13 +3,13 @@ from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
-if os.path.exists("env.py"):
-  import env
+# if os.path.exists("env.py"):
+#     import env
 
 app = Flask(__name__)
 # Config Settings & Environmental Variables located in env.py
 app.config['MONGODB_NAME'] = "cookbook"
-app.config['MONGO_URI'] = os.environ.get('MONGO_URI')
+app.config['MONGO_URI'] = "mongodb+srv://root:pMh9EHCNVwAtL5Y@cluster1-6gani.mongodb.net/cookbook?retryWrites=true&w=majority"
 
 
 mongo = PyMongo(app)
@@ -34,16 +34,24 @@ HOME PAGE
 
 
 @app.route('/')
-@app.route("/home")
+@app.route('/home')
 def home():
     '''
     Main home page.
     '''
-    mottos = mottos_db.find({'_id': 0})
+
     random_motto = ([motto for motto in mottos_db.aggregate
-                        ([{"$sample": {"size": 1}}])])
+                     ([{"$sample": {"size": 1}}])])
     return render_template('home.html', featured_recipes=features_db,
                            title='Home', random_motto=random_motto)
+
+
+@app.route('/recipe')
+def recipe():
+    random_motto = ([motto for motto in mottos_db.aggregate
+                     ([{"$sample": {"size": 1}}])])
+    return render_template("recipe.html", title='Recipe', random_motto=mongo.db.mottos)
+
 
 '''
 RECIPE PAGE
