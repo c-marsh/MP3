@@ -133,6 +133,7 @@
             id="recipe_title"
             name="recipe_title"
             value="{{recipe.recipe_title}}"
+            required
           />
         </div>
         <div class="form-group col-auto">
@@ -143,6 +144,7 @@
             id="recipe_prep"
             name="recipe_prep"
             value="{{recipe.recipe_prep}}"
+            required
           />
         </div>
         <div class="form-group col-auto">
@@ -155,6 +157,7 @@
             id="recipe_servings"
             name="recipe_servings"
             value="{{recipe.recipe_servings}}"
+            required
           />
         </div>
       </div>
@@ -167,9 +170,12 @@
             class="form-control"
             id="recipe_description"
             name="recipe_description"
-            flex-rows="3"
+            flex-rows="12"
             value="{{recipe.recipe_description}}"
-          ></textarea>
+            required
+          >
+{{recipe.recipe_description}}</textarea
+          >
           <span class="bmd-help">Max 300 letters</span>
         </div>
       </div>
@@ -183,8 +189,13 @@
             class="form-control"
             id="recipe_ingredients"
             name="recipe_ingredients"
-            flex-rows="3"
-          ></textarea>
+            flex-rows="12"
+            required
+          >
+{% for ingredient in recipe.recipe_ingredients -%}
+{{ingredient}}
+{% endfor -%}
+          </textarea>
           <span class="bmd-help">Use a new line for each ingredient</span>
         </div>
       </div>
@@ -196,13 +207,18 @@
             class="form-control"
             id="recipe_method"
             name="recipe_method"
+            required
             flex-rows="3"
-          ></textarea>
+          >
+{% for method in recipe.recipe_method -%}
+{{method}}
+{% endfor -%}
+          </textarea>
           <span class="bmd-help">Use a new line for each step</span>
         </div>
         <div class="form-group col-6">
           <label for="image" class="bmd-label-floating">Image Url</label>
-          <input type="text" class="form-control" id="image" name="image" />
+          <input type="text" class="form-control" id="image" name="image" value="{{recipe.recipe_image}}"/>
         </div>
       </div>
       <a href="{{url_for('home')}}"
