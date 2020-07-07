@@ -1,0 +1,151 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container input-group mt-5">
+<div class="row"></div>
+  <div class="col-4"><h3>Cuisine</h3>
+  <ul>
+    {% for each in cuisines %}
+    <li>
+      <div class="custom-control custom-switch">
+        <input
+          type="checkbox"
+          name="cuisine{{each.cuisine}}"
+          class="custom-control-input"
+          id="{{each.cuisine}}Switch"
+        />
+        <label class="custom-control-label" for="{{each.cuisine}}Switch"
+          >{{each.cuisine}}</label
+        >
+      </div>
+    </li>
+    {%endfor%}
+  </ul></div>
+  <div class="col-4">
+  <h3>Spice</h3>
+  <ul>
+    {% for each in spice %}
+    <li>
+      <div class="custom-control custom-switch">
+        <input
+          type="checkbox"
+          name="spice{{each.spice}}"
+          class="custom-control-input"
+          id="{{each.spice}}Switch"
+        />
+        <label class="custom-control-label" for="{{each.spice}}Switch"
+          >{{each.spice}}</label
+        >
+      </div>
+    </li>
+    {%endfor%}
+  </ul>
+  <h3>Diet</h3>
+  <ul>
+    {% for each in diet %}
+    <li>
+      <div class="custom-control custom-switch">
+        <input
+          type="checkbox"
+          name="diet{{each.diet}}"
+          class="custom-control-input"
+          id="{{each.diet}}Switch"
+        />
+        <label class="custom-control-label" for="{{each.diet}}Switch"
+          >{{each.diet}}</label
+        >
+      </div>
+    </li>
+    {%endfor%}
+  </ul>
+    <h3>Type</h3>
+  <ul>
+    {% for each in type %}
+    <li>
+      <div class="custom-control custom-switch">
+        <input
+          type="checkbox"
+          name="diet{{each.type}}"
+          class="custom-control-input"
+          id="{{each.type}}Switch"
+        />
+        <label class="custom-control-label" for="{{each.type}}Switch"
+          >{{each.type}}</label
+        >
+      </div>
+    </li>
+    {%endfor%}
+  </ul></div><div class="col-4">
+    <h3>Difficulty</h3>
+  <ul>
+    {% for each in difficulty %}
+    <li>
+      <div class="custom-control custom-switch">
+        <input
+          type="checkbox"
+          name="difficulty{{each.difficulty}}"
+          class="custom-control-input"
+          id="{{each.difficulty}}Switch"
+        />
+        <label class="custom-control-label" for="{{each.difficulty}}Switch"
+          >{{each.difficulty}}</label
+        >
+      </div>
+    </li>
+    {%endfor%}
+  </ul>
+    <h3>Allergen</h3>
+  <ul>
+    {% for each in allergens %}
+    <li>
+      <div class="custom-control custom-switch">
+        <input
+          type="checkbox"
+          name="diet{{each.allergen}}"
+          class="custom-control-input"
+          id="{{each.allergen}}Switch"
+        />
+        <label class="custom-control-label" for="{{each.allergen}}Switch"
+          >{{each.allergen}}</label
+        >
+      </div>
+    </li>
+    {%endfor%}
+  </ul></div>
+  <div class="flex-row">
+  <div class="form-group col-8">
+    <label for="exampleInputEmail1" class="bmd-label-floating">Title</label>
+    <input type="email" class="form-control" id="exampleInputEmail1">
+    
+  </div>
+<div class="form-group col-2">
+    <label for="exampleInputEmail1" class="bmd-label-floating">Prep Time</label>
+    <input type="email" class="form-control" id="exampleInputEmail1">
+    
+  </div>
+  <div class="form-group col-2">
+    <label for="exampleInputEmail1" class="bmd-label-floating">Servings</label>
+    <input type="email" class="form-control" id="exampleInputEmail1">
+    
+  </div>
+  </div><div class="flex-row">
+<div class="form-group col-8">
+    <label for="exampleTextarea" class="bmd-label-floating">Description</label>
+    <textarea class="form-control" id="exampleTextarea" flex-rows="3"></textarea>
+    <span class="bmd-help">Max 300 letters</span>
+  </div>  </div><div class="flex-row">
+<div class="form-group col-8">
+    <label for="exampleTextarea" class="bmd-label-floating">Ingredients</label>
+    <textarea class="form-control" id="exampleTextarea" flex-rows="3"></textarea>
+    <span class="bmd-help">Use a new line for each ingredient</span>
+  </div>
+   </div><div class="flex-row">
+<div class="form-group col-8">
+    <label for="exampleTextarea" class="bmd-label-floating">Method</label>
+    <textarea class="form-control" id="exampleTextarea" flex-rows="3"></textarea>
+        <span class="bmd-help">Use a new line for each step</span>
+  </div>
+<button class="btn btn-default">Cancel</button>
+  <button type="submit" class="btn btn-primary btn-raised">Submit</button>
+</div>
+</div>
+  </div>
+{% endblock %}
