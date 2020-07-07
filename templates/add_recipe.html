@@ -1,10 +1,10 @@
-{% extends 'base.html' %} {% block content %}
-<div class="container input-group mt-5">
-<form action="{{url_for('insert_recipe')}}" method="POST">
-  <div class="row"></div>
-  <div class="col-4">
+{% extends 'base.html' %} {% block content %}<form action="{{url_for('insert_recipe')}}" method="POST">
+<div class="input-group mt-5 container d-grid">
+
+  <div class="form-row align-items-center">
+  <div class="col-auto">
     <h3>Cuisine</h3>
-    <ul>
+    <ul id="cuisine=list">
       {% for each in cuisines %}
       <li>
         <div class="custom-control custom-switch">
@@ -23,7 +23,7 @@
     </ul>
   </div>
 
-  <div class="col-4">
+  <div class="col-auto">
     <h3>Spice</h3>
     <ul>
       {% for each in spice %}
@@ -82,7 +82,7 @@
     </ul>
   </div>
 
-  <div class="col-4">
+  <div class="col-auto">
     <h3>Difficulty</h3>
     <ul>
       {% for each in difficulty %}
@@ -120,10 +120,10 @@
       </li>
       {%endfor%}
     </ul>
-  </div>
-
-  <div class="flex-row">
-    <div class="form-group col-8">
+  </div></div>
+<div class="fields">
+  <div class="form-row align-items-center">
+    <div class="form-group col-6">
       <label for="recipe_title" class="bmd-label-floating">Title</label>
       <input
         type="text"
@@ -132,7 +132,7 @@
         name="recipe_title"
       />
     </div>
-    <div class="form-group col-2">
+    <div class="form-group col-auto">
       <label for="recipe_prep" class="bmd-label-floating">Prep Time</label>
       <input
         type="text"
@@ -141,7 +141,7 @@
         name="recipe_prep"
       />
     </div>
-    <div class="form-group col-2">
+    <div class="form-group col-auto">
       <label for="recipe_servings" class="bmd-label-floating">Servings</label>
       <input
         type="text"
@@ -151,8 +151,8 @@
       />
     </div>
   </div>
-  <div class="flex-row">
-    <div class="form-group col-8">
+  <div class="form-row">
+    <div class="form-group col-6">
       <label for="recipe_description" class="bmd-label-floating"
         >Description</label
       >
@@ -166,8 +166,8 @@
     </div>
   </div>
 
-  <div class="flex-row">
-    <div class="form-group col-8">
+  <div class="form-row">
+    <div class="form-group col-6">
       <label for="recipe_ingredients" class="bmd-label-floating"
         >Ingredients</label
       >
@@ -181,8 +181,8 @@
     </div>
   </div>
 
-  <div class="flex-row">
-    <div class="form-group col-8">
+  <div class="form-row">
+    <div class="form-group col-6">
       <label for="recipe_method" class="bmd-label-floating">Method</label>
       <textarea
         class="form-control"
@@ -192,7 +192,7 @@
       ></textarea>
       <span class="bmd-help">Use a new line for each step</span>
     </div>
-        <div class="form-group col-8">
+        <div class="form-group col-6">
       <label for="image" class="bmd-label-floating">Image Url</label>
       <input
         type="text"
@@ -201,14 +201,14 @@
         name="image"
       />
     </div>
-
+</div>
     <a href="{{url_for('home')}}"
       ><button class="btn btn-default">Cancel</button></a
     >
 
     <button type="submit" name="action" class="btn btn-primary btn-raised">Submit</button>
   </div>
-  </form>
+  
 </div>
-
+</form>
 {% endblock %}
