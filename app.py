@@ -113,20 +113,20 @@ def insert_recipe():
                "European": request.form.get("EuropeanCuisine"),
                "Middle Eastern": request.form.get("Middle EasternCuisine"),
                "Festive": request.form.get("FestiveCuisine")}
-    allergens = {"Celery":request.form.get("CeleryAllergy"),
-"crustaceans": request.form.get("CrustaceansAllergy"),
-"eggs": request.form.get("EggsAllergy"),
-"fish": request.form.get("FishAllergy"),
-"lupin": request.form.get("LupinAllergy"),
-"milk": request.form.get("MilkAllergy"),
-"molluscs": request.form.get("MolluscsAllergy"),
-"mustard": request.form.get("MustardAllergy"),
-"peanut": request.form.get("PeanutAllergy"),
-"sesame": request.form.get("SesameAllergy"),
-"soya": request.form.get("SoyaAllergy"),
-"sulphur dioxide": request.form.get("Sulphur DioxideAllergy"),
-"treenut": request.form.get("TreenutAllergy"),
-"wheat":request.form.get("Wheat")}
+    allergens = {"celery": request.form.get("CeleryAllergy"),
+                 "crustaceans": request.form.get("CrustaceansAllergy"),
+                 "eggs": request.form.get("EggsAllergy"),
+                 "fish": request.form.get("FishAllergy"),
+                 "lupin": request.form.get("LupinAllergy"),
+                 "milk": request.form.get("MilkAllergy"),
+                 "molluscs": request.form.get("MolluscsAllergy"),
+                 "mustard": request.form.get("MustardAllergy"),
+                 "peanut": request.form.get("PeanutAllergy"),
+                 "sesame": request.form.get("SesameAllergy"),
+                 "soya": request.form.get("SoyaAllergy"),
+                 "sulphur dioxide": request.form.get("Sulphur DioxideAllergy"),
+                 "treenut": request.form.get("TreenutAllergy"),
+                 "wheat": request.form.get("WheatAllergy")}
 
     if request.method == 'POST':
         # after submitting form, insert new recipe
@@ -146,7 +146,7 @@ def insert_recipe():
             "image": request.form.get("image")
         }
         insert_recipe_intoDB = recipes_db.insert_one(new_recipe)
-        # updates "user recipes" list with recipe_id added in user collection
+        
         return redirect(url_for(
             "home"))
 
