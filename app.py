@@ -25,9 +25,16 @@ mottos_db = mongo.db.mottos
 features_db = mongo.db.features
 diet_db = mongo.db.diet
 allergens_db = mongo.db.allergens
+
+'''
+Function returns a random sample of 1 record from the motto database
+'''
+
+
 '''
 ROUTES
 '''
+
 
 '''
 HOME PAGE
@@ -41,29 +48,44 @@ def home():
     Main home page.
     '''
     random_motto = (
-        [motto for motto in mottos_db.aggregate
-         ([{"$sample": {"size": 1}}])])
+    [motto for motto in mottos_db.aggregate
+     ([{"$sample": {"size": 1}}])])
     return render_template(
         'home.html',
-        featured_recipes=features_db,
+        recipe=recipes_db,
         title='Home',
         random_motto=random_motto)
 
 
-@app.route('/recipe')
-def recipe():
-    random_motto = (
-        [motto for motto in mottos_db.aggregate
-         ([{"$sample": {"size": 1}}])])
+'''
+RECIPE FILTER
+'''
+
+
+@app.route('/search')
+def search():
     return render_template(
         "recipe.html",
         title='Recipe',
-        random_motto=mongo.db.mottos)
+        recipe=recipes_db, random_motto=random_motto)
 
 
 '''
 RECIPE PAGE
 '''
+
+
+@app.route('/recipe/<recipe_id>')
+def recipe(recipe_id):
+    random_motto = (
+    [motto for motto in mottos_db.aggregate
+     ([{"$sample": {"size": 1}}])])
+    recipe = recipes_db.find_one({"_id": ObjectId(recipe_id)})
+    return render_template(
+        "recipe.html",
+        title='Recipe',
+        recipe=recipe, random_motto=random_motto)
+
 
 '''
 ADD RECIPE
@@ -75,6 +97,9 @@ def add_recipe():
     """
     Function routes databases to add recipe page
     """
+    random_motto = (
+    [motto for motto in mottos_db.aggregate
+     ([{"$sample": {"size": 1}}])])
     return render_template(
         "add_recipe.html",
         title='Add Recipe',
@@ -83,7 +108,8 @@ def add_recipe():
         diet=diet_db.find(),
         type=type_db.find(),
         difficulty=difficulty_db.find(),
-        allergens=allergens_db.find())
+        allergens=allergens_db.find(),
+        random_motto=random_motto)
 
 
 @app.route('/insert_recipe', methods=['GET', 'POST'])
@@ -142,7 +168,8 @@ def insert_recipe():
         insert_recipe_intoDB = recipes_db.insert_one(new_recipe)
 
         return redirect(url_for(
-            "home"))
+            "recipe",
+            recipe_id=insert_recipe_intoDB.inserted_id))
 
 
 '''
@@ -152,6 +179,9 @@ EDIT RECIPE
 
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
+    random_motto = (
+    [motto for motto in mottos_db.aggregate
+     ([{"$sample": {"size": 1}}])])
     recipe = recipes_db.find_one({"_id": ObjectId(recipe_id)})
     return render_template(
         "edit_recipe.html",
@@ -162,7 +192,8 @@ def edit_recipe(recipe_id):
         type=type_db.find(),
         difficulty=difficulty_db.find(),
         allergens=allergens_db.find(),
-        recipe=recipe)
+        recipe=recipe,
+        random_motto=random_motto)
 
 
 @app.route('/update_recipe/<recipe_id>', methods=['POST'])
