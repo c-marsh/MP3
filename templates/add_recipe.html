@@ -4,18 +4,20 @@
   <div class="form-row align-items-center">
   <div class="col-auto">
     <h3>Cuisine</h3>
-    <ul id="cuisine=list">
+    <ul id="cuisine-list">
       {% for each in cuisines %}
       <li>
-        <div class="custom-control custom-switch">
+        <div class="form-check">
           <input
             type="radio"
-            name="{{each.cuisine}}Cuisine"
+            name="cuisine"
             class="custom-control-input"
-            id="{{each.cuisine}}Switch"
+            id="{{each.cuisine}}Cuisine"
+            value="{{each.cuisine}}Cuisine"
+            
           />
           <label class="custom-control-label" for="{{each.cuisine}}Cuisine"
-            >{{each.cuisine}}</label
+            >{{each.cuisine.replace("_", " ").title()}}</label
           >
         </div>
       </li>
@@ -28,15 +30,16 @@
     <ul>
       {% for each in spice %}
       <li>
-        <div class="custom-control custom-switch">
+        <div class="custom-control form-check">
           <input
             type="radio"
-            name="{{each.spice}}Spice"
+            name="spice"
             class="custom-control-input"
             id="{{each.spice}}Spice"
+            value="{{each.spice}}Spice"
           />
           <label class="custom-control-label" for="{{each.spice}}Spice"
-            >{{each.spice}}</label
+            >{{each.spice.replace("_", " ").title()}}</label
           >
         </div>
       </li>
@@ -47,7 +50,7 @@
     <ul>
       {% for each in diet %}
       <li>
-        <div class="custom-control custom-switch">
+        <div class="custom-control form-check">
           <input
             type="checkbox"
             name="{{each.diet}}Diet"
@@ -55,7 +58,7 @@
             id="{{each.diet}}Diet"
           />
           <label class="custom-control-label" for="{{each.diet}}Diet"
-            >{{each.diet}}</label
+            >{{each.diet.replace("_", " ").title()}}</label
           >
         </div>
       </li>
@@ -66,15 +69,16 @@
     <ul>
       {% for each in type %}
       <li>
-        <div class="custom-control custom-switch">
+        <div class="custom-control form-check">
           <input
             type="radio"
-            name="{{each.type}}Meal"
+            name="meal"
             class="custom-control-input"
             id="{{each.type}}Meal"
+            value="{{each.type}}Meal"
           />
           <label class="custom-control-label" for="{{each.type}}Meal"
-            >{{each.type}}</label
+            >{{each.type.replace("_", " ").title()}}</label
           >
         </div>
       </li>
@@ -87,15 +91,16 @@
     <ul>
       {% for each in difficulty %}
       <li>
-        <div class="custom-control custom-switch">
+        <div class="custom-control form-check">
           <input
-            type="radio"Allergy
-            name="{{each.difficulty}}Diff"
+            type="radio"
+            name="difficulty"
             class="custom-control-input"
             id="{{each.difficulty}}Diff"
+            value="{{each.difficulty}}Diff"
           />
           <label class="custom-control-label" for="{{each.difficulty}}Diff"
-            >{{each.difficulty}}</label
+            >{{each.difficulty.replace("_", " ").title()}}</label
           >
         </div>
       </li>
@@ -106,7 +111,7 @@
     <ul>
       {% for each in allergens %}
       <li>
-        <div class="custom-control custom-switch">
+        <div class="custom-control form-check">
           <input
             type="checkbox"
             name="{{each.allergen}}Allergy"
@@ -114,7 +119,7 @@
             id="{{each.allergen}}Allergy"
           />
           <label class="custom-control-label" for="{{each.allergen}}Allergy"
-            >{{each.allergen}}</label
+            >{{each.allergen.replace("_", " ").title()}}</label
           >
         </div>
       </li>
@@ -130,6 +135,7 @@
         class="form-control"
         id="recipe_title"
         name="recipe_title"
+        required
       />
     </div>
     <div class="form-group col-auto">
@@ -139,6 +145,7 @@
         class="form-control"
         id="recipe_prep"
         name="recipe_prep"
+        required
       />
     </div>
     <div class="form-group col-auto">
@@ -148,6 +155,7 @@
         class="form-control"
         id="recipe_servings"
         name="recipe_servings"
+        required
       />
     </div>
   </div>
@@ -161,6 +169,7 @@
         id="recipe_description"
         name="recipe_description"
         flex-rows="3"
+        required
       ></textarea>
       <span class="bmd-help">Max 300 letters</span>
     </div>
@@ -175,7 +184,8 @@
         class="form-control"
         id="recipe_ingredients"
         name="recipe_ingredients"
-        flex-rows="3"
+        flex-rows="12"
+        required
       ></textarea>
       <span class="bmd-help">Use a new line for each ingredient</span>
     </div>
@@ -188,7 +198,8 @@
         class="form-control"
         id="recipe_method"
         name="recipe_method"
-        flex-rows="3"
+        flex-rows="12"
+        required
       ></textarea>
       <span class="bmd-help">Use a new line for each step</span>
     </div>
