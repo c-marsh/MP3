@@ -1,0 +1,44 @@
+{% extends 'base.html' %}{% block content %}
+<div class="container mt-5">
+  <h2>{{ recipe.recipe_title }}</h2>
+
+  <p>{{ recipe.recipe_description }}</p>
+
+  <p>{{ recipe.recipe_prep }}</p>
+
+  <ul>
+    {% for item in recipe.recipe_ingredients %}
+    <li>{{item}}</li>
+    {%endfor%}
+  </ul>
+  <ul>
+    {% for item in recipe.recipe_method %}
+    <li>{{item}}</li>
+    {%endfor%}
+  </ul>
+
+  {{ recipe.recipe_servings }}
+  <ul>
+    {% for key, value in recipe.recipe_diet.items() %}{%if value == "on"%}
+    <li>{{key.replace("_", " ").title()}}</li>
+    {%endif%} {%endfor%}
+  </ul>
+
+  <ul>
+    {% for key, value in recipe.recipe_allergens.items() %}{%if value == "on"%}
+    <li>{{key.replace("_", " ").title()}}</li>
+    {%endif%} {%endfor%}
+  </ul>
+
+  {{ recipe.recipe_type.replace("Meal", "").title() }} {{
+  recipe.recipe_spice.replace("Spice", "").title() }} {{
+  recipe.recipe_difficulty.replace("Diff", "").title() }}
+  <img
+    src="{{
+recipe.image
+}}"
+    alt=""
+    srcset=""
+  />
+</div>
+{% endblock %}
