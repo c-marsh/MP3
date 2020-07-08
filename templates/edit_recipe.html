@@ -43,17 +43,19 @@
 
         <h3>Diet</h3>
         <ul class="no-bullet">
-          {% for each in diet %}
+          {% for key, value in recipe.recipe_diet.items() %}
           <li>
             <div class="custom-control form-check">
               <input
                 type="checkbox"
-                name="{{each.diet}}Diet"
+                name="{{key}}Diet"
                 class="custom-control-input"
-                id="{{each.diet}}Diet"
+                id="{{key}}Diet"
+                {%if value ==
+              "on" %} checked {%endif%}
               />
-              <label class="custom-control-label" for="{{each.diet}}Diet"
-                >{{each.diet.replace("_", " ").title()}}</label
+              <label class="custom-control-label" for="{{key}}Diet"
+                >{{key.replace("_", " ").title()}}</label
               >
             </div>
           </li>
@@ -96,7 +98,7 @@
           {%endfor%}
         </ul>
 
-        <h3>Allergen {{recipe.recipe_allergens.fish}}</h3>
+        <h3>Allergen</h3>
         <ul class="no-bullet">
           {% for key, value in recipe.recipe_allergens.items() %}
 

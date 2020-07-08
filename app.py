@@ -186,43 +186,6 @@ def update_recipe(recipe_id):
         "kosher": request.form.get("kosherDiet"),
         "gluten": request.form.get("gluten freeDiet"),
         "lacto": request.form.get("lacto freeDiet")}
-    spice = {
-        "mild": request.form.get("mildSpice"),
-        "medium": request.form.get("mediumSpice"),
-        "hot": request.form.get("hotSpice")}
-    difficulty = {
-        "easy": request.form.get("easyDiff"),
-        "intermediate": request.form.get("intermediateDiff"),
-        "hard": request.form.get("hardDiff")}
-    meal_type = {
-        "breakfast": request.form.get("breakfastMeal"),
-        "side": request.form.get("sideMeal"),
-        "beverage": request.form.get("beverageMeal"),
-        "main": request.form.get("mainMeal"),
-        "desert": request.form.get("desertMeal"),
-        "snack": request.form.get("snackMeal")}
-    cuisine = {
-        "british": request.form.get("britishCuisine"),
-        "italian": request.form.get("italianCuisine"),
-        "mexican": request.form.get("mexicanCuisine"),
-        "spanish": request.form.get("spanishCuisine"),
-        "american": request.form.get("americanCuisine"),
-        "latin_american": request.form.get("latin_americanCuisine"),
-        "caribbean": request.form.get("caribbeanCuisine"),
-        "japanese": request.form.get("japaneseCuisine"),
-        "south_asian": request.form.get("south_asianCuisine"),
-        "central_asian": request.form.get("central_asianCuisine"),
-        "chinese": request.form.get("chineseCuisine"),
-        "south-east_asian": request.form.get("south-east_asianCuisine"),
-        "indian": request.form.get("indianCuisine"),
-        "north_african": request.form.get("north_africanCuisine"),
-        "african": request.form.get("africanCuisine"),
-        "eastern_european": request.form.get("eastern_europeanCuisine"),
-        "turkish": request.form.get("turkishCuisine"),
-        "persian": request.form.get("persianCuisine"),
-        "european": request.form.get("europeanCuisine"),
-        "middle_eastern": request.form.get("middle_easternCuisine"),
-        "festive": request.form.get("festiveCuisine")}
     allergens = {
         "celery": request.form.get("celeryAllergy"),
         "crustaceans": request.form.get("crustaceansAllergy"),
@@ -248,11 +211,11 @@ def update_recipe(recipe_id):
             "recipe_method": method,
             "recipe_prep": request.form.get("recipe_prep"),
             "recipe_servings": request.form.get("recipe_servings"),
-            "recipe_cuisine": cuisine,
-            "recipe_type": meal_type,
+            "recipe_cuisine": request.form.get("cuisine"),
+            "recipe_type": request.form.get("meal"),
             "recipe_diet": diet,
-            "recipe_spice": spice,
-            "recipe_difficulty": difficulty,
+            "recipe_spice": request.form.get("spice"),
+            "recipe_difficulty": request.form.get("difficulty"),
             "recipe_allergens": allergens,
             "image": request.form.get("image")
         })
