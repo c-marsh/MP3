@@ -1,225 +1,227 @@
-{% extends 'base.html' %} {% block content %}<form action="{{url_for('insert_recipe')}}" method="POST">
-<div class="input-group mt-5 container d-grid">
+{% extends 'base.html' %} {% block content %}
+<form action="{{url_for('insert_recipe')}}" method="POST">
+  <div class="input-group mt-5 container d-grid">
+    <div class="form-row align-items-center">
+      <div class="col-auto">
+        <h3>Cuisine</h3>
+        <ul id="cuisine-list" class="no-bullet">
+          <!-- loop through all cuisines  -->
+          {% for each in cuisines %}
+          <li class="">
+            <div class="form-check">
+              <input
+                type="radio"
+                name="cuisine"
+                class="custom-control-input"
+                id="{{each.cuisine}}Cuisine"
+                value="{{each.cuisine}}Cuisine"
+                required
+              />
+              <label class="custom-control-label" for="{{each.cuisine}}Cuisine"
+                >{{each.cuisine.replace("_", " ").title()}}</label
+              >
+            </div>
+          </li>
+          {%endfor%}
+        </ul>
+      </div>
 
-  <div class="form-row align-items-center">
-  <div class="col-auto">
-    <h3>Cuisine</h3>
-    <ul id="cuisine-list">
-      {% for each in cuisines %}
-      <li>
-        <div class="form-check">
-          <input
-            type="radio"
-            name="cuisine"
-            class="custom-control-input"
-            id="{{each.cuisine}}Cuisine"
-            value="{{each.cuisine}}Cuisine"
-            
-          />
-          <label class="custom-control-label" for="{{each.cuisine}}Cuisine"
-            >{{each.cuisine.replace("_", " ").title()}}</label
-          >
-        </div>
-      </li>
-      {%endfor%}
-    </ul>
-  </div>
+      <div class="col-auto">
+        <h3>Spice</h3>
+        <ul class="no-bullet">
+          {% for each in spice %}
+          <li>
+            <div class="custom-control form-check">
+              <input
+                type="radio"
+                name="spice"
+                class="custom-control-input"
+                id="{{each.spice}}Spice"
+                value="{{each.spice}}Spice"
+                
+              />
+              <label class="custom-control-label" for="{{each.spice}}Spice"
+                >{{each.spice.replace("_", " ").title()}}</label
+              >
+            </div>
+          </li>
+          {%endfor%}
+        </ul>
 
-  <div class="col-auto">
-    <h3>Spice</h3>
-    <ul>
-      {% for each in spice %}
-      <li>
-        <div class="custom-control form-check">
-          <input
-            type="radio"
-            name="spice"
-            class="custom-control-input"
-            id="{{each.spice}}Spice"
-            value="{{each.spice}}Spice"
-          />
-          <label class="custom-control-label" for="{{each.spice}}Spice"
-            >{{each.spice.replace("_", " ").title()}}</label
-          >
-        </div>
-      </li>
-      {%endfor%}
-    </ul>
+        <h3>Diet</h3>
+        <ul class="no-bullet">
+          {% for each in diet %}
+          <li>
+            <div class="custom-control form-check">
+              <input
+                type="checkbox"
+                name="{{each.diet}}Diet"
+                class="custom-control-input"
+                id="{{each.diet}}Diet"
+              />
+              <label class="custom-control-label" for="{{each.diet}}Diet"
+                >{{each.diet.replace("_", " ").title()}}</label
+              >
+            </div>
+          </li>
+          {%endfor%}
+        </ul>
 
-    <h3>Diet</h3>
-    <ul>
-      {% for each in diet %}
-      <li>
-        <div class="custom-control form-check">
-          <input
-            type="checkbox"
-            name="{{each.diet}}Diet"
-            class="custom-control-input"
-            id="{{each.diet}}Diet"
-          />
-          <label class="custom-control-label" for="{{each.diet}}Diet"
-            >{{each.diet.replace("_", " ").title()}}</label
-          >
-        </div>
-      </li>
-      {%endfor%}
-    </ul>
+        <h3>Type</h3>
+        <ul class="no-bullet">
+          {% for each in type %}
+          <li>
+            <div class="custom-control form-check">
+              <input
+                type="radio"
+                name="meal"
+                class="custom-control-input"
+                id="{{each.type}}Meal"
+                value="{{each.type}}Meal"
+                required
+              />
+              <label class="custom-control-label" for="{{each.type}}Meal"
+                >{{each.type.replace("_", " ").title()}}</label
+              >
+            </div>
+          </li>
+          {%endfor%}
+        </ul>
+      </div>
 
-    <h3>Type</h3>
-    <ul>
-      {% for each in type %}
-      <li>
-        <div class="custom-control form-check">
-          <input
-            type="radio"
-            name="meal"
-            class="custom-control-input"
-            id="{{each.type}}Meal"
-            value="{{each.type}}Meal"
-          />
-          <label class="custom-control-label" for="{{each.type}}Meal"
-            >{{each.type.replace("_", " ").title()}}</label
-          >
-        </div>
-      </li>
-      {%endfor%}
-    </ul>
-  </div>
+      <div class="col-auto">
+        <h3>Difficulty</h3>
+        <ul class="no-bullet">
+          {% for each in difficulty %}
+          <li>
+            <div class="custom-control form-check">
+              <input
+                type="radio"
+                name="difficulty"
+                class="custom-control-input"
+                id="{{each.difficulty}}Diff"
+                value="{{each.difficulty}}Diff"
+              />
+              <label class="custom-control-label" for="{{each.difficulty}}Diff"
+                >{{each.difficulty.replace("_", " ").title()}}</label
+              >
+            </div>
+          </li>
+          {%endfor%}
+        </ul>
 
-  <div class="col-auto">
-    <h3>Difficulty</h3>
-    <ul>
-      {% for each in difficulty %}
-      <li>
-        <div class="custom-control form-check">
-          <input
-            type="radio"
-            name="difficulty"
-            class="custom-control-input"
-            id="{{each.difficulty}}Diff"
-            value="{{each.difficulty}}Diff"
-          />
-          <label class="custom-control-label" for="{{each.difficulty}}Diff"
-            >{{each.difficulty.replace("_", " ").title()}}</label
-          >
-        </div>
-      </li>
-      {%endfor%}
-    </ul>
-
-    <h3>Allergen</h3>
-    <ul>
-      {% for each in allergens %}
-      <li>
-        <div class="custom-control form-check">
-          <input
-            type="checkbox"
-            name="{{each.allergen}}Allergy"
-            class="custom-control-input"
-            id="{{each.allergen}}Allergy"
-          />
-          <label class="custom-control-label" for="{{each.allergen}}Allergy"
-            >{{each.allergen.replace("_", " ").title()}}</label
-          >
-        </div>
-      </li>
-      {%endfor%}
-    </ul>
-  </div></div>
-<div class="fields">
-  <div class="form-row align-items-center">
-    <div class="form-group col-6">
-      <label for="recipe_title" class="bmd-label-floating">Title</label>
-      <input
-        type="text"
-        class="form-control"
-        id="recipe_title"
-        name="recipe_title"
-        required
-      />
+        <h3>Allergen</h3>
+        <ul class="no-bullet">
+          {% for each in allergens %}
+          <li>
+            <div class="custom-control form-check">
+              <input
+                type="checkbox"
+                name="{{each.allergen}}Allergy"
+                class="custom-control-input"
+                id="{{each.allergen}}Allergy"
+              />
+              <label class="custom-control-label" for="{{each.allergen}}Allergy"
+                >{{each.allergen.replace("_", " ").title()}}</label
+              >
+            </div>
+          </li>
+          {%endfor%}
+        </ul>
+      </div>
     </div>
-    <div class="form-group col-auto">
-      <label for="recipe_prep" class="bmd-label-floating">Prep Time</label>
-      <input
-        type="text"
-        class="form-control"
-        id="recipe_prep"
-        name="recipe_prep"
-        required
-      />
-    </div>
-    <div class="form-group col-auto">
-      <label for="recipe_servings" class="bmd-label-floating">Servings</label>
-      <input
-        type="text"
-        class="form-control"
-        id="recipe_servings"
-        name="recipe_servings"
-        required
-      />
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="form-group col-6">
-      <label for="recipe_description" class="bmd-label-floating"
-        >Description</label
-      >
-      <textarea
-        class="form-control"
-        id="recipe_description"
-        name="recipe_description"
-        flex-rows="3"
-        required
-      ></textarea>
-      <span class="bmd-help">Max 300 letters</span>
-    </div>
-  </div>
-
-  <div class="form-row">
-    <div class="form-group col-6">
-      <label for="recipe_ingredients" class="bmd-label-floating"
-        >Ingredients</label
-      >
-      <textarea
-        class="form-control"
-        id="recipe_ingredients"
-        name="recipe_ingredients"
-        flex-rows="12"
-        required
-      ></textarea>
-      <span class="bmd-help">Use a new line for each ingredient</span>
-    </div>
-  </div>
-
-  <div class="form-row">
-    <div class="form-group col-6">
-      <label for="recipe_method" class="bmd-label-floating">Method</label>
-      <textarea
-        class="form-control"
-        id="recipe_method"
-        name="recipe_method"
-        flex-rows="12"
-        required
-      ></textarea>
-      <span class="bmd-help">Use a new line for each step</span>
-    </div>
+    <div class="fields">
+      <div class="form-row align-items-center">
         <div class="form-group col-6">
-      <label for="image" class="bmd-label-floating">Image Url</label>
-      <input
-        type="text"
-        class="form-control"
-        id="image"
-        name="image"
-      />
-    </div>
-</div>
-    <a href="{{url_for('home')}}"
-      ><button class="btn btn-default">Cancel</button></a
-    >
+          <label for="recipe_title" class="bmd-label-floating">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="recipe_title"
+            name="recipe_title"
+            required
+          />
+        </div>
+        <div class="form-group col-auto">
+          <label for="recipe_prep" class="bmd-label-floating">Prep Time</label>
+          <input
+            type="text"
+            class="form-control"
+            id="recipe_prep"
+            name="recipe_prep"
+            required
+          />
+        </div>
+        <div class="form-group col-auto">
+          <label for="recipe_servings" class="bmd-label-floating"
+            >Servings</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="recipe_servings"
+            name="recipe_servings"
+            required
+          />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-6">
+          <label for="recipe_description" class="bmd-label-floating"
+            >Description</label
+          >
+          <textarea
+            class="form-control"
+            id="recipe_description"
+            name="recipe_description"
+            flex-rows="3"
+            required
+          ></textarea>
+          <span class="bmd-help">Max 300 letters</span>
+        </div>
+      </div>
 
-    <button type="submit" name="action" class="btn btn-primary btn-raised">Submit</button>
+      <div class="form-row">
+        <div class="form-group col-6">
+          <label for="recipe_ingredients" class="bmd-label-floating"
+            >Ingredients</label
+          >
+          <textarea
+            class="form-control"
+            id="recipe_ingredients"
+            name="recipe_ingredients"
+            flex-rows="12"
+            required
+          ></textarea>
+          <span class="bmd-help">Use a new line for each ingredient</span>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-6">
+          <label for="recipe_method" class="bmd-label-floating">Method</label>
+          <textarea
+            class="form-control"
+            id="recipe_method"
+            name="recipe_method"
+            flex-rows="12"
+            required
+          ></textarea>
+          <span class="bmd-help">Use a new line for each step</span>
+        </div>
+        <div class="form-group col-6">
+          <label for="image" class="bmd-label-floating">Image Url</label>
+          <input type="text" class="form-control" id="image" name="image" />
+        </div>
+      </div>
+      <a href="{{url_for('home')}}"
+        ><button class="btn btn-default">Cancel</button></a
+      >
+
+      <button type="submit" name="action" class="btn btn-primary btn-raised">
+        Submit
+      </button>
+    </div>
   </div>
-  
-</div>
 </form>
 {% endblock %}
