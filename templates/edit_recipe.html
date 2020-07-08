@@ -38,7 +38,8 @@
                 name="spice"
                 class="custom-control-input"
                 id="{{each.spice}}Spice"
-                value="{{each.spice}}Spice"
+                value="{{each.spice}}Spice"{%if recipe.recipe_spice.replace("Spice", "") == each.spice %}
+                checked {%endif%}
               />
               <label class="custom-control-label" for="{{each.spice}}Spice"
                 >{{each.spice.replace("_", " ").title()}}</label
@@ -77,7 +78,8 @@
                 name="meal"
                 class="custom-control-input"
                 id="{{each.type}}Meal"
-                value="{{each.type}}Meal"
+                value="{{each.type}}Meal"{%if recipe.recipe_type.replace("Meal", "") == each.type %}
+                checked {%endif%}
                 required
               />
               <label class="custom-control-label" for="{{each.type}}Meal"
@@ -100,7 +102,8 @@
                 name="difficulty"
                 class="custom-control-input"
                 id="{{each.difficulty}}Diff"
-                value="{{each.difficulty}}Diff"
+                value="{{each.difficulty}}Diff" {%if recipe.recipe_difficulty.replace("Diff", "") == each.difficulty %}
+                checked {%endif%}
               />
               <label class="custom-control-label" for="{{each.difficulty}}Diff"
                 >{{each.difficulty.replace("_", " ").title()}}</label
