@@ -5,19 +5,15 @@
       <div class="col-auto">
         <h3>Cuisine</h3>
         <ul id="cuisine-list" class="no-bullet">
-        <!-- loop through all cuisines  -->
+          <!-- loop through all cuisines  -->
           {% for each in cuisines %}
-          
+
           <li class="">
             <div class="form-check">
-              <input
-                type="radio"
-                name="cuisine"
-                class="custom-control-input"
-                id="{{each.cuisine}}Cuisine"
-                value="{{each.cuisine}}Cuisine" {%if recipe.recipe_cuisine.replace("Cuisine", "") == each.cuisine %}
-                checked {%endif%}
-              />
+              <input type="radio" name="cuisine" class="custom-control-input"
+              id="{{each.cuisine}}Cuisine" value="{{each.cuisine}}Cuisine" {%if
+              recipe.recipe_cuisine.replace("Cuisine", "") == each.cuisine %}
+              checked {%endif%} />
               <label class="custom-control-label" for="{{each.cuisine}}Cuisine"
                 >{{each.cuisine.replace("_", " ").title()}}</label
               >
@@ -33,14 +29,10 @@
           {% for each in spice %}
           <li>
             <div class="custom-control form-check">
-              <input
-                type="radio"
-                name="spice"
-                class="custom-control-input"
-                id="{{each.spice}}Spice"
-                value="{{each.spice}}Spice"{%if recipe.recipe_spice.replace("Spice", "") == each.spice %}
-                checked {%endif%}
-              />
+              <input type="radio" name="spice" class="custom-control-input"
+              id="{{each.spice}}Spice" value="{{each.spice}}Spice"{%if
+              recipe.recipe_spice.replace("Spice", "") == each.spice %} checked
+              {%endif%} />
               <label class="custom-control-label" for="{{each.spice}}Spice"
                 >{{each.spice.replace("_", " ").title()}}</label
               >
@@ -53,7 +45,7 @@
         <ul class="no-bullet">
           {% for each in diet %}
           <li>
-             <div class="custom-control form-check">
+            <div class="custom-control form-check">
               <input
                 type="checkbox"
                 name="{{each.diet}}Diet"
@@ -73,15 +65,10 @@
           {% for each in type %}
           <li>
             <div class="custom-control form-check">
-              <input
-                type="radio"
-                name="meal"
-                class="custom-control-input"
-                id="{{each.type}}Meal"
-                value="{{each.type}}Meal"{%if recipe.recipe_type.replace("Meal", "") == each.type %}
-                checked {%endif%}
-                required
-              />
+              <input type="radio" name="meal" class="custom-control-input"
+              id="{{each.type}}Meal" value="{{each.type}}Meal"{%if
+              recipe.recipe_type.replace("Meal", "") == each.type %} checked
+              {%endif%} required />
               <label class="custom-control-label" for="{{each.type}}Meal"
                 >{{each.type.replace("_", " ").title()}}</label
               >
@@ -97,14 +84,10 @@
           {% for each in difficulty %}
           <li>
             <div class="custom-control form-check">
-              <input
-                type="radio"
-                name="difficulty"
-                class="custom-control-input"
-                id="{{each.difficulty}}Diff"
-                value="{{each.difficulty}}Diff" {%if recipe.recipe_difficulty.replace("Diff", "") == each.difficulty %}
-                checked {%endif%}
-              />
+              <input type="radio" name="difficulty" class="custom-control-input"
+              id="{{each.difficulty}}Diff" value="{{each.difficulty}}Diff" {%if
+              recipe.recipe_difficulty.replace("Diff", "") == each.difficulty %}
+              checked {%endif%} />
               <label class="custom-control-label" for="{{each.difficulty}}Diff"
                 >{{each.difficulty.replace("_", " ").title()}}</label
               >
@@ -113,19 +96,17 @@
           {%endfor%}
         </ul>
 
-        <h3>Allergen</h3>
+        <h3>Allergen {{recipe.recipe_allergens.fish}}</h3>
         <ul class="no-bullet">
-          {% for each in allergens %}
+          {% for key, value in recipe.recipe_allergens.items() %}
+
           <li>
             <div class="custom-control form-check">
-              <input
-                type="checkbox"
-                name="{{each.allergen}}Allergy"
-                class="custom-control-input"
-                id="{{each.allergen}}Allergy"
-              />
-              <label class="custom-control-label" for="{{each.allergen}}Allergy"
-                >{{each.allergen.replace("_", " ").title()}}</label
+              <input type="checkbox" name="{{key}}Allergy"
+              class="custom-control-input" id="{{key}}Allergy" {%if value ==
+              "on" %} checked {%endif%} />
+              <label class="custom-control-label" for="{{key}}Allergy"
+                >{{key.replace("_", " ").title()}}</label
               >
             </div>
           </li>
@@ -228,7 +209,13 @@
         </div>
         <div class="form-group col-6">
           <label for="image" class="bmd-label-floating">Image Url</label>
-          <input type="text" class="form-control" id="image" name="image" value="{{recipe.recipe_image}}"/>
+          <input
+            type="text"
+            class="form-control"
+            id="image"
+            name="image"
+            value="{{recipe.recipe_image}}"
+          />
         </div>
       </div>
       <a href="{{url_for('home')}}"
