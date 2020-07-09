@@ -236,10 +236,12 @@ ul.no-bullet {
     height: 105px;
     overflow: hidden;
     border-radius: 4px 4px 0 0;
+    
 }
 .card .cover img{
     width: 100%;
-    margin-top: -90px;
+    fill:rgba(0, 0, 0, 0)
+    
 }
 .card .user{
     border-radius: 50%;
@@ -259,11 +261,13 @@ ul.no-bullet {
     box-shadow: none;
     padding: 10px 20px 20px;
 }
-.card .content .main {
-    min-height: 160px;
-}
 .card .back .content .main {
-    height: 215px;
+    height: 150px;
+    margin-top: 80px;
+}
+
+.card .content .main {
+    min-height: 130px;
 }
 .card .name {
     font-size: 22px;
@@ -289,36 +293,22 @@ ul.no-bullet {
     padding: 10px 0 0;
     text-align: center;
 }
-.card .footer .social-links{
-    font-size: 18px;
-}
-.card .footer .social-links a{
-    margin: 0 7px;
-}
-.card .footer .btn-simple{
-    margin-top: -6px;
-}
+
 .card .header {
     padding: 15px 20px;
     height: 90px;
 }
-.card .motto{
-    border-bottom: 1px solid #EEEEEE;
-    color: #999999;
-    font-size: 14px;
-    font-weight: 400;
-    padding-bottom: 10px;
-    text-align: center;
-}
+
 
 .card .stats-container{
 	width: 100%;
-	margin-top: 50px;
+	margin-top: 20px;
 }
 .card .stats{
 	display: block;
 	float: left;
 	width: 50%;
+    margin-bottom: 1em;
 	text-align: center;
 }
 
