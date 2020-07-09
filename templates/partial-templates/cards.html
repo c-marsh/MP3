@@ -1,35 +1,72 @@
-  <!-- Card -->
-  <div class="card mb-4">
-
-    <!--Card image-->
-    <div class="view overlay">
-      <img class="card-img-top" src="{{
+<!-- card layout from https://www.creative-tim.com/product/rotating-css-card -->
+<div class="card-container">
+  <div class="card">
+    <div class="front">
+      <div class="cover">
+        <img src="{{ url_for('static', filename='images/thumbs/')
+        }}{{recipe.recipe_type}}.png" alt="{{recipe.recipe_type}}" />
+      </div>
+      <div class="user bg-pan-right">
+        <img
+          class="img-circle "
+          src="{{
 recipe.image
 }}"
-        alt="Card image cap">
-      <a href="#!">
-        <div class="mask rgba-white-slight"></div>
-      </a>
+        />
+      </div>
+      <div class="content">
+        <div class="main">
+        <p class="profession">
+            <span class="badge badge-pill badge-secondary"
+              >{{ recipe.recipe_type.replace("Meal", "").title() }}</span
+            >
+            <span class="badge badge-pill badge-secondary"
+              >{{ recipe.recipe_spice.replace("Spice", "").title() }}</span
+            >
+            <span class="badge badge-pill badge-secondary"
+              >{{ recipe.recipe_difficulty.replace("Diff", "").title() }}</span
+            >
+          </p>
+          <h3 class="name">{{ recipe.recipe_title }}</h3>
+          
+        </div>
+        
+      </div>
     </div>
+    <!-- end front panel -->
+    <div class="back">
+      <div class="content">
+        <div class="main">
+          
+          <p class="text-center">
+            {{ recipe.recipe_description }}
+          </p>
 
-    <!--Card content-->
-    <div class="card-body">
-
-      <!--Title-->
-      <h4 class="card-title">{{ recipe.recipe_title }}</h4>
-      <!--Text-->
-      <p class="card-text"><span class="badge badge-pill badge-secondary">{{ recipe.recipe_type.replace("Meal", "").title() }}</span> <span class="badge badge-pill badge-secondary">{{
-  recipe.recipe_spice.replace("Spice", "").title() }}</span> <span class="badge badge-pill badge-secondary">{{
-  recipe.recipe_difficulty.replace("Diff", "").title() }}</span>
-  <p>{{ recipe.recipe_description }}</p>  <ul class="no-bullet">
-    {% for key, value in recipe.recipe_allergens.items() %}{%if value == "on"%}
-    <li><img class="recipe-icon" src="{{ url_for('static', filename='images/icons/') }}{{key}}.png" alt="{{key.replace('_', '')}}">
-</li>
-    {%endif%} {%endfor%}
-  </ul></p>
-      <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-      <button type="button" class="btn btn-light-blue btn-md">Read more</button>
-
+          <div class="stats-container">
+            <div class="stats">
+              <h4>{{ recipe.recipe_prep }}</h4>
+              <p>
+                Mins
+              </p>
+            </div>
+            <div class="stats">
+              <h4>{{ recipe.recipe_servings }}</h4>
+              <p>
+                Portions
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <a href="" class="name"><span class="badge badge-pill badge-secondary"
+              >More Info</span
+            ></a>
+      </div>
     </div>
-
   </div>
+  <!-- end back panel -->
+</div>
+<!-- end card -->
+
+<!-- end card-container -->
