@@ -1,5 +1,5 @@
 {% extends 'base.html' %}{% block content %}
-<div class="container mt-5">
+<div class="container">
   <h2>{{ recipe.recipe_title }}</h2>
   <span class="badge badge-pill badge-secondary">{{ recipe.recipe_type.replace("Meal", "").title() }}</span> <span class="badge badge-pill badge-secondary">{{
   recipe.recipe_spice.replace("Spice", "").title() }}</span> <span class="badge badge-pill badge-secondary">{{
