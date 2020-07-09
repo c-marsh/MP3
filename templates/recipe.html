@@ -1,43 +1,45 @@
 {% extends 'base.html' %}{% block content %}
 <div class="container mt-5">
   <h2>{{ recipe.recipe_title }}</h2>
+  <span class="badge badge-pill badge-secondary">{{ recipe.recipe_type.replace("Meal", "").title() }}</span> <span class="badge badge-pill badge-secondary">{{
+  recipe.recipe_spice.replace("Spice", "").title() }}</span> <span class="badge badge-pill badge-secondary">{{
+  recipe.recipe_difficulty.replace("Diff", "").title() }}</span>
+  <p>{{ recipe.recipe_description }}</p>  <ul class="no-bullet">
+    {% for key, value in recipe.recipe_allergens.items() %}{%if value == "on"%}
+    <li><img class="recipe-icon" src="{{ url_for('static', filename='images/icons/') }}{{key}}.png" alt="{{key.replace('_', '')}}">
+</li>
+    {%endif%} {%endfor%}
+  </ul>
 
-  <p>{{ recipe.recipe_description }}</p>
-
-  <p>{{ recipe.recipe_prep }}</p>
-
-  <ul>
+  <p>{{ recipe.recipe_prep }} mins</p> <p>{{ recipe.recipe_servings }} portions</p>
+ <h4>Ingredients</h4>
+  <ul class="no-bullet">
     {% for item in recipe.recipe_ingredients %}
-    <li>{{item}}</li>
+    <li>{{item}}</li><hl>
     {%endfor%}
   </ul>
-  <ul>
+  <h4>Method</h4>
+  <ul class="no-bullet">
     {% for item in recipe.recipe_method %}
-    <li>{{item}}</li>
+    <li>{{item}}</li><br>
     {%endfor%}
   </ul>
 
-  {{ recipe.recipe_servings }}
-  <ul>
+  
+  <ul class="no-bullet">
     {% for key, value in recipe.recipe_diet.items() %}{%if value == "on"%}
     <li>{{key.replace("_", " ").title()}}</li>
     {%endif%} {%endfor%}
   </ul>
 
-  <ul>
-    {% for key, value in recipe.recipe_allergens.items() %}{%if value == "on"%}
-    <li>{{key.replace("_", " ").title()}}</li>
-    {%endif%} {%endfor%}
-  </ul>
 
-  {{ recipe.recipe_type.replace("Meal", "").title() }} {{
-  recipe.recipe_spice.replace("Spice", "").title() }} {{
-  recipe.recipe_difficulty.replace("Diff", "").title() }}
+
+
   <img
     src="{{
 recipe.image
 }}"
-    alt=""
+    alt="image of {{ recipe.recipe_title }}"
     srcset=""
   />
 </div>
