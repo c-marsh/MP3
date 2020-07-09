@@ -1,50 +1,51 @@
 <div class="navbar navbar-expand-lg navbar-light navbar-orange fixed-top">
   <div class="float-left">
-  <a class="navbar-brand" href="#">Navbar</a></div>
-  <div class="float-right"><button
-    class="navbar-toggler"
-    type="button"
-    data-toggle="collapse"
-    data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-  >
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse " id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto ">
-      <li class="nav-item active">
-        <a class="nav-link" href="#"
-          >Home <span class="sr-only">(current)</span></a
-        >
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{url_for('recipe')}}">Recipes</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a
-          class="nav-link dropdown-toggle"
-          href="#"
-          id="navbarDropdown"
-          role="button"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          Account
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Register</a>
-          <a class="dropdown-item" href="#">Login</a>
-        </div>
-      </li>
-
-
-    </ul>
-
+    <a class="navbar-brand" href="#">{%for motto in random_motto%}
+  <p><em>"{{motto.motto}}"</em></p>
+  {%endfor%}</a>
   </div>
+  <div class="float-right">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{{url_for('home')}}"
+            >Home <span class="sr-only">(current)</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('search')}}">Recipes</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Account
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Register</a>
+            <a class="dropdown-item" href="#">Login</a>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 <div id="wrapper">
@@ -52,7 +53,23 @@
   <div id="sidebar-wrapper">
     <aside class="sidebar">
       <ul>
-        <li class="title heading">Allergens<button class="btn btn-default sidebar-toggle float-right"><svg class="bi bi-chevron-right" width="32" height="32" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z"/></svg></button></li>
+        <li class="title heading">
+          Allergens<button class="btn btn-default sidebar-toggle float-right">
+            <svg
+              class="bi bi-chevron-right"
+              width="32"
+              height="32"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z"
+              />
+            </svg>
+          </button>
+        </li>
         <li class="list-group-item text-capitalize">
           <img
             class="icon-image"
@@ -133,8 +150,8 @@
         <li class="list-group-item text-capitalize">
           <img
             class="icon-image"
-            src="{{url_for('static',filename='/images/icons/sulphurdioxide.png')}}"
-            alt="sulphurdioxide symbol"
+            src="{{url_for('static',filename='/images/icons/sulphur_dioxide.png')}}"
+            alt="sulphur dioxide symbol"
           />sulphur dioxide
         </li>
         <li class="list-group-item text-capitalize">
