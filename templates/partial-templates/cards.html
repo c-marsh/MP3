@@ -1,0 +1,35 @@
+  <!-- Card -->
+  <div class="card mb-4">
+
+    <!--Card image-->
+    <div class="view overlay">
+      <img class="card-img-top" src="{{
+recipe.image
+}}"
+        alt="Card image cap">
+      <a href="#!">
+        <div class="mask rgba-white-slight"></div>
+      </a>
+    </div>
+
+    <!--Card content-->
+    <div class="card-body">
+
+      <!--Title-->
+      <h4 class="card-title">{{ recipe.recipe_title }}</h4>
+      <!--Text-->
+      <p class="card-text"><span class="badge badge-pill badge-secondary">{{ recipe.recipe_type.replace("Meal", "").title() }}</span> <span class="badge badge-pill badge-secondary">{{
+  recipe.recipe_spice.replace("Spice", "").title() }}</span> <span class="badge badge-pill badge-secondary">{{
+  recipe.recipe_difficulty.replace("Diff", "").title() }}</span>
+  <p>{{ recipe.recipe_description }}</p>  <ul class="no-bullet">
+    {% for key, value in recipe.recipe_allergens.items() %}{%if value == "on"%}
+    <li><img class="recipe-icon" src="{{ url_for('static', filename='images/icons/') }}{{key}}.png" alt="{{key.replace('_', '')}}">
+</li>
+    {%endif%} {%endfor%}
+  </ul></p>
+      <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+      <button type="button" class="btn btn-light-blue btn-md">Read more</button>
+
+    </div>
+
+  </div>
