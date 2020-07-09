@@ -47,10 +47,12 @@ def home():
     '''
     Main home page.
     '''
+    recipe = (
+    [recipe for recipe in recipes_db.aggregate
+     ([{"$sample": {"size": 4}}])])
     random_motto = (
     [motto for motto in mottos_db.aggregate
      ([{"$sample": {"size": 1}}])])
-    recipe = mongo.db.recipes.find()
     return render_template(
         'home.html',
         recipe=recipe,

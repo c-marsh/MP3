@@ -1,21 +1,17 @@
 {% extends 'base.html' %}{% block content %}
-
+<div class="container justify-content-between">
 <!-- Card deck -->
-<div class="card-deck">
+<div class="card-deck ">
   <!-- Card -->
-{% for recipe in recipe %} {% include "partial-templates/cards.html" %} {%
-  endfor %}
-  <!-- Card -->
-{% for recipe in recipe %} {% include "partial-templates/cards.html" %} {%
-  endfor %}
-  <!-- Card -->
-{% for recipe in recipe %} {% include "partial-templates/cards.html" %} {%
-  endfor %}
-  <!-- Card -->
-{% for recipe in recipe %} {% include "partial-templates/cards.html" %} {%
-  endfor %}  
-</div>
-<!-- /Card deck -->
 
+{% for recipe in recipe %}
+<div class="col-md-4 col-sm-6"> 
+{% include "partial-templates/cards.html" %} </div>
+{%
+  endfor %}
+</div>
+<!-- </div> -->
+<!-- /Card deck -->
+</div>
 
 {% endblock %}
