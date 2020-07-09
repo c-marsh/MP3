@@ -1,0 +1,21 @@
+{% extends 'base.html' %}{% block content %}
+
+<!-- Card deck -->
+<div class="card-deck">
+  <!-- Card -->
+{% for recipe in recipe %} {% include "partial-templates/cards.html" %} {%
+  endfor %}
+  <!-- Card -->
+{% for recipe in recipe %} {% include "partial-templates/cards.html" %} {%
+  endfor %}
+  <!-- Card -->
+{% for recipe in recipe %} {% include "partial-templates/cards.html" %} {%
+  endfor %}
+  <!-- Card -->
+{% for recipe in recipe %} {% include "partial-templates/cards.html" %} {%
+  endfor %}  
+</div>
+<!-- /Card deck -->
+
+
+{% endblock %}

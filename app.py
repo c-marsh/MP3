@@ -50,9 +50,10 @@ def home():
     random_motto = (
     [motto for motto in mottos_db.aggregate
      ([{"$sample": {"size": 1}}])])
+    recipe = mongo.db.recipes.find()
     return render_template(
         'home.html',
-        recipe=recipes_db,
+        recipe=recipe,
         title='Home',
         random_motto=random_motto)
 
@@ -64,10 +65,14 @@ RECIPE FILTER
 
 @app.route('/search')
 def search():
+    random_motto = (
+    [motto for motto in mottos_db.aggregate
+     ([{"$sample": {"size": 1}}])])
+    recipe = recipes_db.find()
     return render_template(
-        "recipe.html",
-        title='Recipe',
-        recipe=recipes_db, random_motto=random_motto)
+        "search.html",
+        title='Search',
+        recipe=recipe, random_motto=random_motto)
 
 
 '''
