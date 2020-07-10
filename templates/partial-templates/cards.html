@@ -1,14 +1,17 @@
 <!-- card layout from https://www.creative-tim.com/product/rotating-css-card -->
-<div class="card-container">
-  <div class="card">
+<div class="card-container" data-role="recipe">
+  <div class="card" id="{{recipe._id}}">
     <div class="front">
       <div class="cover">
-        <img src="{{ url_for('static', filename='images/thumbs/')
-        }}{{recipe.recipe_type}}.png" alt="{{recipe.recipe_type}}" />
+        <img
+          src="{{ url_for('static', filename='images/thumbs/')
+        }}{{recipe.recipe_type}}.png"
+          alt="{{recipe.recipe_type}}"
+        />
       </div>
       <div class="user bg-pan-right">
         <img
-          class="img-circle "
+          class="img-circle"
           src="{{
 recipe.image
 }}"
@@ -16,7 +19,7 @@ recipe.image
       </div>
       <div class="content">
         <div class="main">
-        <p class="profession">
+          <p class="profession">
             <span class="badge badge-pill badge-secondary"
               >{{ recipe.recipe_type.replace("Meal", "").title() }}</span
             >
@@ -28,40 +31,36 @@ recipe.image
             >
           </p>
           <h3 class="name">{{ recipe.recipe_title }}</h3>
-          
         </div>
-        
       </div>
     </div>
     <!-- end front panel -->
     <div class="back">
       <div class="content">
+        <div class="stats-container">
+          <div class="stats">
+            <h4>{{ recipe.recipe_prep }}</h4>
+            <p>
+              Mins
+            </p>
+          </div>
+          <div class="stats">
+            <h4>{{ recipe.recipe_servings }}</h4>
+            <p>
+              Portions
+            </p>
+          </div>
+        </div>
         <div class="main">
-          
           <p class="text-center">
             {{ recipe.recipe_description }}
           </p>
-
-          <div class="stats-container">
-            <div class="stats">
-              <h4>{{ recipe.recipe_prep }}</h4>
-              <p>
-                Mins
-              </p>
-            </div>
-            <div class="stats">
-              <h4>{{ recipe.recipe_servings }}</h4>
-              <p>
-                Portions
-              </p>
-            </div>
-          </div>
         </div>
       </div>
       <div class="footer">
-        <a href="" class="name"><span class="badge badge-pill badge-secondary"
-              >More Info</span
-            ></a>
+        <a href="{{ url_for('recipe', recipe_id=recipe._id) }}" class="name"
+          ><span class="badge badge-pill badge-secondary">More Info</span></a
+        >
       </div>
     </div>
   </div>
@@ -70,3 +69,15 @@ recipe.image
 <!-- end card -->
 
 <!-- end card-container -->
+<script>
+  $(document).ready(function () {
+    $("#search").on("keyup", function () {
+      var value = $(this).val().toLowerCase();
+      $('div[data-role="recipe"]').filter(function () {
+        $(this).toggle(
+          $(this).find("h3").text().toLowerCase().indexOf(value) > -1
+        );
+      });
+    });
+  });
+</script>

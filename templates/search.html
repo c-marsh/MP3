@@ -1,21 +1,71 @@
 {% extends 'base.html' %}{% block content %}
 <div class="container">
-<!-- Card deck -->
-<div class="card-deck">
-  <!-- Card -->
-  {% for recipe in recipes %} {% include "partial-templates/cards.html" %} {%
-  endfor %}
+  <div class="bmd-layout-container bmd-drawer-f-t">
+    <header class="bmd-layout-header">
+      <div class="navbar navbar-light bg-faded">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="drawer"
+          data-target="#dw-s1"
+        >
+          <span class="sr-only">Toggle drawer</span>
+          <i class="material-icons">menu</i>
+        </button>
+        <!-- search form -->
+        <div class="bmd-form-group bmd-collapse-inline pull-xs-right mb-3">
+          <button
+            class="btn bmd-btn-icon"
+            for="search"
+            data-toggle="collapse"
+            data-target="#collapse-search"
+            aria-expanded="false"
+            aria-controls="collapse-search"
+          >
+            <i class="material-icons">search</i>
+          </button>
+          <span id="collapse-search" class="collapse">
+            <input
+              class="form-control"
+              type="text"
+              id="search"
+              placeholder="Enter your query..."
+            />
+          </span>
+        </div>
+      </div>
+    </header>
+    <div id="dw-s1" class="bmd-layout-drawer bg-faded">
+      <header>
+        <a class="navbar-brand">Title</a>
+      </header>
+      <ul class="list-group">
+        <a class="list-group-item">Link 1</a>
+        <a class="list-group-item">Link 2</a>
+        <a class="list-group-item">Link 3</a>
+      </ul>
+    </div>
+    <main class="bmd-layout-content">
+      <div class="container">
+        <p>Main content</p>
+      </div>
+    </main>
+  </div>
 
-  <!-- Card -->
-  {% for recipe in recipe %} {% include "partial-templates/cards.html" %} {%
-  endfor %}
-  <!-- Card -->
-    {% for recipe in recipe %} {% include "partial-templates/cards.html" %} {%
-  endfor %}
-  <!-- Card -->
-    {% for recipe in recipe %} {% include "partial-templates/cards.html" %} {%
-  endfor %}
+  <!-- Card deck -->
+  <div class="card-deck">
+    <!-- Card -->
+
+    {% for recipe in recipe %}
+    <div class="col-lg-4 col-sm-6" data-role="recipe">
+      {% include "partial-templates/cards.html" %}
+    </div>
+    {% endfor %}
+
+    <!-- </div> -->
+    <!-- /Card deck -->
+  </div>
+  <!-- /Card deck -->
 </div>
-<!-- /Card deck -->
-</div>
+
 {% endblock %}
