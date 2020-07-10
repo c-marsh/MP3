@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, url_for, flash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
@@ -10,7 +10,7 @@ app = Flask(__name__)
 # Config Settings & Environmental Variables located in env.py
 app.config['MONGODB_NAME'] = "cookbook"
 app.config['MONGO_URI'] = "mongodb+srv://root:pMh9EHCNVwAtL5Y@cluster1-6gani.mongodb.net/cookbook?retryWrites=true&w=majority"
-
+app.secret_key = "secret"
 
 mongo = PyMongo(app)
 
@@ -262,8 +262,16 @@ def update_recipe(recipe_id):
 
 
 '''
-SE PAGE
+DELETE RECIPE
 '''
+@app.route("/delete_recipe/<recipe_id>")
+def delete_recipe(recipe_id):
+    if recipes_db.default == 1:
+        flash("This recipe is a default recipe and cannot be deleted")
+    else:
+        flash("Recipe deleted")
+        recipes_db.remove({'_id': ObjectId(recipe_id)})
+    return redirect(url_for("home"))
 
 
 if __name__ == '__main__':
