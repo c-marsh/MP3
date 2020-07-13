@@ -1,8 +1,10 @@
 <div class="navbar navbar-expand-lg navbar-light navbar-orange fixed-top">
   <div class="float-left">
-    <a class="navbar-brand" href="#">{%for motto in random_motto%}
-  <p><em>"{{motto.motto}}"</em></p>
-  {%endfor%}</a>
+    <a class="navbar-brand" href="#"
+      >{%for motto in random_motto%}
+      <p><em>"{{motto.motto}}"</em></p>
+      {%endfor%}</a
+    >
   </div>
   <div class="float-right">
     <button
@@ -19,14 +21,27 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
+        {%if title == "Home"%}
         <li class="nav-item active">
           <a class="nav-link" href="{{url_for('home')}}"
             >Home <span class="sr-only">(current)</span></a
           >
         </li>
+        {%else%}
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('home')}}">Home </a>
+        </li>
+        {%endif%} {%if title == "Search"%}
+        <li class="nav-item active">
+          <a class="nav-link" href="{{url_for('search')}}"
+            >Recipes <span class="sr-only">(current)</span></a
+          >
+        </li>
+        {%else%}
         <li class="nav-item">
           <a class="nav-link" href="{{url_for('search')}}">Recipes</a>
         </li>
+        {%endif%}
         <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle"
