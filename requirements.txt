@@ -1,0 +1,9 @@
+Created temporary directory: /tmp/pip-ephem-wheel-cache-ncmt1c68
+click==7.1.2
+dnspython==1.16.0
+elasticsearch==7.8.0
+Flask==1.1.2
+Flask-PyMongo==2.3.0
+itsdangerous==1.1.0
+pymongo==3.10.1
+Werkzeug==1.0.1

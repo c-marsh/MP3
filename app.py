@@ -3,14 +3,16 @@ from flask import Flask, render_template, redirect, request, url_for, flash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
-# if os.path.exists("env.py"):
-#     import env
+# import env.py if it exists
+if os.path.exists("env.py"):
+    import env
 
 app = Flask(__name__)
 # Config Settings & Environmental Variables located in env.py
 app.config['MONGODB_NAME'] = "cookbook"
-app.config['MONGO_URI'] = "mongodb+srv://root:pMh9EHCNVwAtL5Y@cluster1-6gani.mongodb.net/cookbook?retryWrites=true&w=majority"
-app.secret_key = "secret"
+app.config['MONGO_URI'] = os.environ.get('MONGO_URI')
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
+
 
 mongo = PyMongo(app)
 
@@ -25,11 +27,6 @@ mottos_db = mongo.db.mottos
 features_db = mongo.db.features
 diet_db = mongo.db.diet
 allergens_db = mongo.db.allergens
-
-'''
-Function returns a random sample of 1 record from the motto database
-'''
-
 
 '''
 ROUTES
@@ -171,7 +168,7 @@ def insert_recipe():
             "recipe_difficulty": request.form.get("difficulty"),
             "recipe_allergens": allergens,
             "image": request.form.get("image"),
-            "default": "yes"
+            "default": None
         }
         insert_recipe_intoDB = recipes_db.insert_one(new_recipe)
         flash("This recipe has been added!")
@@ -258,7 +255,7 @@ def update_recipe(recipe_id):
             "recipe_difficulty": request.form.get("difficulty"),
             "recipe_allergens": allergens,
             "image": request.form.get("image"),
-            "default": "yes"
+            "default": None
         })
         flash("This recipe has been updated!")
         return redirect(url_for(
