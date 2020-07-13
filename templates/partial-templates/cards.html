@@ -3,6 +3,7 @@
   <div class="card" id="{{recipe._id}}">
     <div class="front">
       <div class="cover">
+      <!-- displays a different thumb depending on the type of meal -->
         <img
           src="{{ url_for('static', filename='images/thumbs/')
         }}{{recipe.recipe_type}}.png"
@@ -10,6 +11,7 @@
         />
       </div>
       <div class="user bg-pan-right">
+      <!-- displays the recipe image in the round  -->
         <img
           class="img-circle"
           src="{{
@@ -23,12 +25,15 @@ recipe.image
             <span class="badge badge-pill badge-secondary"
               >{{ recipe.recipe_type.replace("Meal", "").title() }}</span
             >
+            {%if recipe.recipe_spice == None %}{%else%}
             <span class="badge badge-pill badge-secondary"
               >{{ recipe.recipe_spice.replace("Spice", "").title() }}</span
             >
+            {%endif%}
+            {%if recipe.recipe_difficulty == None %}{%else%}
             <span class="badge badge-pill badge-secondary"
               >{{ recipe.recipe_difficulty.replace("Diff", "").title() }}</span
-            >
+            >{%endif%}
           </p>
           <h3 class="name">{{ recipe.recipe_title }}</h3>
         </div>

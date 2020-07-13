@@ -1,9 +1,17 @@
 {% extends 'base.html' %}{% block content %}
 <div class="container">
   <h2>{{ recipe.recipe_title }}</h2>
-  <span class="badge badge-pill badge-secondary">{{ recipe.recipe_type.replace("Meal", "").title() }}</span> <span class="badge badge-pill badge-secondary">{{
-  recipe.recipe_spice.replace("Spice", "").title() }}</span> <span class="badge badge-pill badge-secondary">{{
+  <span class="badge badge-pill badge-secondary">{{ recipe.recipe_type.replace("Meal", "").title() }}</span> 
+  
+  {%if recipe.recipe_spice == None %}{%else%}<span class="badge badge-pill badge-secondary">{{
+  recipe.recipe_spice.replace("Spice", "").title() }}</span> 
+ {%endif%} 
+
+ {%if recipe.recipe_difficulty == None %}{%else%}
+  <span class="badge badge-pill badge-secondary">{{
   recipe.recipe_difficulty.replace("Diff", "").title() }}</span>
+  {%endif%}
+
   <p>{{ recipe.recipe_description }}</p>  <ul class="no-bullet">
     {% for key, value in recipe.recipe_allergens.items() %}{%if value == "on"%}
     <li><img class="recipe-icon" src="{{ url_for('static', filename='images/icons/') }}{{key}}.png" alt="{{key.replace('_', '')}}">
