@@ -48,11 +48,11 @@ def home():
     Main home page.
     '''
     recipe = (
-    [recipe for recipe in recipes_db.aggregate
-     ([{"$sample": {"size": 4}}])])
+        [recipe for recipe in recipes_db.aggregate
+         ([{"$sample": {"size": 4}}])])
     random_motto = (
-    [motto for motto in mottos_db.aggregate
-     ([{"$sample": {"size": 1}}])])
+        [motto for motto in mottos_db.aggregate
+         ([{"$sample": {"size": 1}}])])
     return render_template(
         'home.html',
         recipe=recipe,
@@ -68,8 +68,8 @@ RECIPE FILTER
 @app.route('/search')
 def search():
     random_motto = (
-    [motto for motto in mottos_db.aggregate
-     ([{"$sample": {"size": 1}}])])
+        [motto for motto in mottos_db.aggregate
+         ([{"$sample": {"size": 1}}])])
     recipe = recipes_db.find()
     return render_template(
         "search.html",
@@ -85,8 +85,8 @@ RECIPE PAGE
 @app.route('/recipe/<recipe_id>')
 def recipe(recipe_id):
     random_motto = (
-    [motto for motto in mottos_db.aggregate
-     ([{"$sample": {"size": 1}}])])
+        [motto for motto in mottos_db.aggregate
+         ([{"$sample": {"size": 1}}])])
     recipe = recipes_db.find_one({"_id": ObjectId(recipe_id)})
     return render_template(
         "recipe.html",
@@ -105,8 +105,8 @@ def add_recipe():
     Function routes databases to add recipe page
     """
     random_motto = (
-    [motto for motto in mottos_db.aggregate
-     ([{"$sample": {"size": 1}}])])
+        [motto for motto in mottos_db.aggregate
+         ([{"$sample": {"size": 1}}])])
     return render_template(
         "add_recipe.html",
         title='Add Recipe',
@@ -188,8 +188,8 @@ EDIT RECIPE
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
     random_motto = (
-    [motto for motto in mottos_db.aggregate
-     ([{"$sample": {"size": 1}}])])
+        [motto for motto in mottos_db.aggregate
+         ([{"$sample": {"size": 1}}])])
     recipe = recipes_db.find_one({"_id": ObjectId(recipe_id)})
     return render_template(
         "edit_recipe.html",
@@ -266,10 +266,13 @@ def update_recipe(recipe_id):
 '''
 DELETE RECIPE
 '''
+
+
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
-    if recipes_db.default == "yes":
+    if recipes_db.default:
         flash("This recipe is a default recipe and cannot be deleted")
+        return redirect(url_for("home"))
     else:
         flash("Recipe deleted")
         recipes_db.delete_one({'_id': ObjectId(recipe_id)})
