@@ -1,6 +1,20 @@
 {% extends 'base.html' %}{% block content %}
 <div class="container">
-  <h2>{{ recipe.recipe_title }}</h2>
+<div class="btn-group">
+  <button class="btn dropdown-toggle" type="button" id="buttonMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   <h2>{{ recipe.recipe_title }}</h2>
+  </button>
+  <div class="dropdown-menu" aria-labelledby="buttonMenu1">
+    <a class="dropdown-item" href="{{url_for('edit_recipe', recipe_id=recipe._id)}}">Edit</a>
+    {% if recipe.default == None%}    <a class="dropdown-item" href="{{url_for('delete_recipe', recipe_id=recipe._id)}}">Delete</a>
+    {% else %}
+    <a class="dropdown-item disabled" href="{{url_for('cannot_delete_recipe', recipe_id=recipe._id)}}">Cannot be Deleted</a>
+    
+
+    {%endif%}
+  </div>
+</div>
+  
   <span class="badge badge-pill badge-secondary">{{ recipe.recipe_type.replace("Meal", "").title() }}</span> 
   
   {%if recipe.recipe_spice == None %}{%else%}<span class="badge badge-pill badge-secondary">{{
@@ -52,5 +66,5 @@ recipe.image
   />
 </div>
 
-<a type="button" href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="btn btn-danger">Danger</a>
+
 {% endblock %}

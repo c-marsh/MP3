@@ -174,6 +174,7 @@ def insert_recipe():
             "default": "yes"
         }
         insert_recipe_intoDB = recipes_db.insert_one(new_recipe)
+        flash("This recipe has been added!")
 
         return redirect(url_for(
             "recipe",
@@ -259,6 +260,7 @@ def update_recipe(recipe_id):
             "image": request.form.get("image"),
             "default": "yes"
         })
+        flash("This recipe has been updated!")
         return redirect(url_for(
             "home"))
 
@@ -270,12 +272,14 @@ DELETE RECIPE
 
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
-    if recipes_db.default:
-        flash("This recipe is a default recipe and cannot be deleted")
-        return redirect(url_for("home"))
-    else:
-        flash("Recipe deleted")
-        recipes_db.delete_one({'_id': ObjectId(recipe_id)})
+    flash("Recipe deleted")
+    recipes_db.delete_one({'_id': ObjectId(recipe_id)})
+    return redirect(url_for("home"))
+
+
+@app.route("/cannot_delete_recipe/<recipe_id>")
+def cannot_delete_recipe(recipe_id):
+    flash("This recipe is a default recipe and cannot be deleted")
     return redirect(url_for("home"))
 
 
