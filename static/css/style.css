@@ -12,6 +12,10 @@
     margin-left: 50px;
 }
 
+.alert {
+    margin-top: 70px;
+    margin-left: 50px;
+}
 
 /* Nav bar */
 .navbar-orange {
@@ -37,7 +41,7 @@
 #sidebar-wrapper {
   z-index: 1000;
   position: fixed;
-  top:50px;
+  top:60px;
   left: -200px;
   width: 250px;
   height: 100%;

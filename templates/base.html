@@ -7,63 +7,94 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <!-- Material Design for Bootstrap fonts and icons -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons"
+    />
 
     <!-- Material Design for Bootstrap CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
+      integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX"
+      crossorigin="anonymous"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600&family=Poiret+One&display=swap"
       rel="stylesheet"
+    /><link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='/css/snackbar.min.css')}}"
+    /><link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='/css/material.css')}}"
     />
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='/css/style.css')}}"
     />
-  <script
+    <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
       crossorigin="anonymous"
     ></script>
     <title>Document</title>
   </head>
-  <body >
+  <body>
+     
     <header>
       {% include "partial-templates/navbar.html" %}
     </header>
 
+     {%with messages = get_flashed_messages()%} {%if messages%} {%for message in
+    messages%}
+
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+  {{message}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{%endfor%} {%endif%} {%endwith%}
     <main id="container">
       {% block content %}{% endblock %}
     </main>
 
+
     <footer>
       {% include "partial-templates/footer.html" %}
+      
     </footer>
     <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <!-- <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script> -->
+    <!-- Popper.js, then Bootstrap JS -->
+
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
       integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
       crossorigin="anonymous"
     ></script>
-    <!-- Material Design for Bootstrap JS -->
-       <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
-    <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+    <!-- Material Design for Bootstrap JS -->    <script src="<link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='/js/snackbar.min.js')}}"></script>
+    <script
+      src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
+      integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
+      crossorigin="anonymous"
+    ></script>
     <script>
-    // toggle sidebar
+      $(document).ready(function () {
+        $("body").bootstrapMaterialDesign();
+      });
+    </script>
+    <script>
+      // toggle sidebar
       $(".sidebar-toggle").click(function (e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
       });
 
       $("[data-role=dropdown]").dropdown();
-
     </script>
- 
 
   </body>
 </html>

@@ -170,7 +170,8 @@ def insert_recipe():
             "recipe_spice": request.form.get("spice"),
             "recipe_difficulty": request.form.get("difficulty"),
             "recipe_allergens": allergens,
-            "image": request.form.get("image")
+            "image": request.form.get("image"),
+            "default": "yes"
         }
         insert_recipe_intoDB = recipes_db.insert_one(new_recipe)
 
@@ -255,7 +256,8 @@ def update_recipe(recipe_id):
             "recipe_spice": request.form.get("spice"),
             "recipe_difficulty": request.form.get("difficulty"),
             "recipe_allergens": allergens,
-            "image": request.form.get("image")
+            "image": request.form.get("image"),
+            "default": "yes"
         })
         return redirect(url_for(
             "home"))
@@ -266,11 +268,11 @@ DELETE RECIPE
 '''
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
-    if recipes_db.default == 1:
+    if recipes_db.default == "yes":
         flash("This recipe is a default recipe and cannot be deleted")
     else:
         flash("Recipe deleted")
-        recipes_db.remove({'_id': ObjectId(recipe_id)})
+        recipes_db.delete_one({'_id': ObjectId(recipe_id)})
     return redirect(url_for("home"))
 
 
