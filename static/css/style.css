@@ -1,20 +1,47 @@
 /*Global*/
-.heading, h1, h2, h3, h4, h5, h6 {
+.heading,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Comfortaa", cursive;
 }
 
 * {
   font-family: "Poiret One", cursive;
 }
+/* Font sizing */
+html {
+  font-size: 1rem;
+}
 
+@include media-breakpoint-up(sm) {
+  html {
+    font-size: 1.2rem;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  html {
+    font-size: 1.4rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  html {
+    font-size: 1.6rem;
+  }
+}
 #container {
-    margin-top: 100px;
-    margin-left: 50px;
+  margin-top: 100px;
+  margin-left: 50px;
 }
 
 .alert {
-    margin-top: 70px;
-    margin-left: 50px;
+  margin-top: 70px;
+  margin-left: 50px;
 }
 
 /* Nav bar */
@@ -23,6 +50,7 @@
 }
 .navbar {
   display: flow-root;
+  width: 100vw;
 }
 /* Side nav bar - adapted from https://colorlib.com/wp/bootstrap-sidebar/ */
 #wrapper .list-group-item {
@@ -41,7 +69,7 @@
 #sidebar-wrapper {
   z-index: 1000;
   position: fixed;
-  top:60px;
+  top: 60px;
   left: -200px;
   width: 250px;
   height: 100%;
@@ -137,197 +165,229 @@
   position: fixed;
   width: 50px;
   height: auto;
-  right: 20px; bottom: 20px;
+  right: 20px;
+  bottom: 20px;
 }
 
 /* --------------PAGES----------- */
 
 ul.no-bullet {
-    list-style-type: none;
+  list-style-type: none;
+}
+
+/* Recipe page */
+#recipe-modify-btn {
+  white-space: pre-wrap;
+}
+
+.recipe-icon {
+  width: 25px;
+}
+
+.recipe-image-container {
+  border-radius: 100%;
+  width: 100%;
+}
+
+.recipe-image {
+  width: 100%;
+  border-radius: 100%;
+}
+
+.recipe-image img {
+  vertical-align: middle;
+  border-radius: inherit;
+}
+
+div .stats:last-of-type{
+    border-left: solid;
+}
+
+.allergen-badges {
+    padding-top: 2em;
+    padding-bottom: 2em;
 }
 
 /*----------------Cards------------*/
 /* styling based on https://www.creative-tim.com/product/rotating-css-card */
 .btn:hover,
 .btn:focus,
-.btn:active{
-    outline: 0 !important;
+.btn:active {
+  outline: 0 !important;
 }
 /* entire container, keeps perspective */
 .card-container {
-	  -webkit-perspective: 800px;
-   -moz-perspective: 800px;
-     -o-perspective: 800px;
-        perspective: 800px;
-        margin-bottom: 30px;
+  -webkit-perspective: 800px;
+  -moz-perspective: 800px;
+  -o-perspective: 800px;
+  perspective: 800px;
+  margin-bottom: 30px;
 }
 /* flip the pane when hovered */
 .card-container:not(.manual-flip):hover .card,
-.card-container.hover.manual-flip .card{
-	-webkit-transform: rotateY( 180deg );
--moz-transform: rotateY( 180deg );
- -o-transform: rotateY( 180deg );
-    transform: rotateY( 180deg );
+.card-container.hover.manual-flip .card {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
-
 
 .card-container.static:hover .card,
 .card-container.static.hover .card {
-	-webkit-transform: none;
--moz-transform: none;
- -o-transform: none;
-    transform: none;
+  -webkit-transform: none;
+  -moz-transform: none;
+  -o-transform: none;
+  transform: none;
 }
 /* flip speed goes here */
 .card {
-	 -webkit-transition: -webkit-transform .5s;
-   -moz-transition: -moz-transform .5s;
-     -o-transition: -o-transform .5s;
-        transition: transform .5s;
--webkit-transform-style: preserve-3d;
-   -moz-transform-style: preserve-3d;
-     -o-transform-style: preserve-3d;
-        transform-style: preserve-3d;
-	position: relative;
+  -webkit-transition: -webkit-transform 0.5s;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  transition: transform 0.5s;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  position: relative;
 }
 
 /* hide back of pane during swap */
-.front, .back {
-	-webkit-backface-visibility: hidden;
-   -moz-backface-visibility: hidden;
-     -o-backface-visibility: hidden;
-        backface-visibility: hidden;
-	position: absolute;
-	top: 0;
-	left: 0;
-	background-color: #FFF;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.14);
+.front,
+.back {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.14);
 }
 
 /* front pane, placed above back */
 .front {
-	z-index: 2;
+  z-index: 2;
 }
 
 /* back, initially hidden pane */
 .back {
-		-webkit-transform: rotateY( 180deg );
-   -moz-transform: rotateY( 180deg );
-     -o-transform: rotateY( 180deg );
-        transform: rotateY( 180deg );
-        z-index: 3;
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  z-index: 3;
 }
 
-.back .btn-simple{
-    position: absolute;
-    left: 0;
-    bottom: 4px;
+.back .btn-simple {
+  position: absolute;
+  left: 0;
+  bottom: 4px;
 }
 /*        Style       */
 
+.card {
+  background: none repeat scroll 0 0 #ffffff;
+  border-radius: 4px;
+  color: #444444;
+}
+.card-container,
+.front,
+.back {
+  width: 100%;
+  height: 350px;
+  border-radius: 4px;
+}
+.card .cover {
+  height: 105px;
+  overflow: hidden;
+  border-radius: 4px 4px 0 0;
+}
+.card .cover img {
+  height: auto;
+  width: auto;
+}
+.card .user {
+  border-radius: 50%;
+  display: block;
+  height: 120px;
+  margin: -55px auto 0;
+  overflow: hidden;
+  width: 120px;
+}
+.card .user img {
+  background: none repeat scroll 0 0 #ffffff;
+  height: 100%;
+}
 
-.card{
-    background: none repeat scroll 0 0 #FFFFFF;
-    border-radius: 4px;
-    color: #444444;
-}
-.card-container, .front, .back {
-	width: 100%;
-	height: 350px;
-	border-radius: 4px;
-}
-.card .cover{
-    height: 105px;
-    overflow: hidden;
-    border-radius: 4px 4px 0 0;
-    
-}
-.card .cover img{
-    width: 100%;
-    fill:rgba(0, 0, 0, 0)
-    
-}
-.card .user{
-    border-radius: 50%;
-    display: block;
-    height: 120px;
-    margin: -55px auto 0;
-    overflow: hidden;
-    width: 120px;
-}
-.card .user img{
-    background: none repeat scroll 0 0 #FFFFFF;
-    height: 100%;
-}
-
-.card .content{
-    background-color: rgba(0, 0, 0, 0);
-    box-shadow: none;
-    padding: 10px 20px 20px;
+.card .content {
+  background-color: rgba(0, 0, 0, 0);
+  box-shadow: none;
+  padding: 10px 20px 20px;
 }
 .card .back .content .main {
-    height: 150px;
-    margin-top: 80px;
+  height: 150px;
+  margin-top: 80px;
 }
 
 .card .content .main {
-    min-height: 130px;
+  min-height: 130px;
 }
 .card .name {
-    font-size: 22px;
-    line-height: 28px;
-    margin: 10px 0 0;
-    text-align: center;
-    text-transform: capitalize;
+  font-size: 22px;
+  line-height: 28px;
+  margin: 10px 0 0;
+  text-align: center;
+  text-transform: capitalize;
 }
-.card h5{
-    margin: 5px 0;
-    font-weight: 400;
-    line-height: 20px;
+.card h5 {
+  margin: 5px 0;
+  font-weight: 400;
+  line-height: 20px;
 }
-.card .profession{
-    color: #999999;
-    text-align: center;
-    margin-bottom: 20px;
+.card .profession {
+  color: #999999;
+  text-align: center;
+  margin-bottom: 20px;
 }
 .card .footer {
-    border-top: 1px solid #EEEEEE;
-    color: #999999;
-    margin: 30px 0 0;
-    padding: 10px 0 0;
-    text-align: center;
+  border-top: 1px solid #eeeeee;
+  color: #999999;
+  margin: 30px 0 0;
+  padding: 10px 0 0;
+  text-align: center;
 }
 
 .card .header {
-    padding: 15px 20px;
-    height: 90px;
+  padding: 15px 20px;
+  height: 90px;
 }
 
+.card .stats-container, .stats-container {
+  width: 100%;
+  margin-top: 20px;
+}
+.card .stats, .stats {
+  display: block;
+  float: left;
+  width: 50%;
+  margin-bottom: 1em;
+  text-align: center;
+}
 
-.card .stats-container{
-	width: 100%;
-	margin-top: 20px;
+.card .stats:first-child {
+  border-right: 1px solid #eeeeee;
 }
-.card .stats{
-	display: block;
-	float: left;
-	width: 50%;
-    margin-bottom: 1em;
-	text-align: center;
+.card .stats:last-child {
+  border-left: 1px solid #eeeeee;
 }
-
-.card .stats:first-child{
-	border-right: 1px solid #EEEEEE;
+.card .stats h4 {
+  font-weight: 300;
+  margin-bottom: 5px;
 }
-.card .stats:last-child{
-	border-left: 1px solid #EEEEEE;
-}
-.card .stats h4{
-	font-weight: 300;
-	margin-bottom: 5px;
-}
-.card .stats p{
-	color: #777777;
+.card .stats p {
+  color: #777777;
 }
 
 /* ----------------------------------------------
@@ -345,69 +405,69 @@ ul.no-bullet {
 @-webkit-keyframes heartbeat {
   from {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
     -webkit-transform-origin: center center;
-            transform-origin: center center;
+    transform-origin: center center;
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
   }
   10% {
     -webkit-transform: scale(0.91);
-            transform: scale(0.91);
+    transform: scale(0.91);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
   }
   17% {
     -webkit-transform: scale(0.98);
-            transform: scale(0.98);
+    transform: scale(0.98);
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
   }
   33% {
     -webkit-transform: scale(0.87);
-            transform: scale(0.87);
+    transform: scale(0.87);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
   }
   45% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
   }
 }
 @keyframes heartbeat {
   from {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
     -webkit-transform-origin: center center;
-            transform-origin: center center;
+    transform-origin: center center;
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
   }
   10% {
     -webkit-transform: scale(0.91);
-            transform: scale(0.91);
+    transform: scale(0.91);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
   }
   17% {
     -webkit-transform: scale(0.98);
-            transform: scale(0.98);
+    transform: scale(0.98);
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
   }
   33% {
     -webkit-transform: scale(0.87);
-            transform: scale(0.87);
+    transform: scale(0.87);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
   }
   45% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
   }
 }
 
@@ -419,21 +479,21 @@ ul.no-bullet {
 @-webkit-keyframes flip-vertical-left {
   0% {
     -webkit-transform: rotateY(0);
-            transform: rotateY(0);
+    transform: rotateY(0);
   }
   100% {
     -webkit-transform: rotateY(-180deg);
-            transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
   }
 }
 @keyframes flip-vertical-left {
   0% {
     -webkit-transform: rotateY(0);
-            transform: rotateY(0);
+    transform: rotateY(0);
   }
   100% {
     -webkit-transform: rotateY(-180deg);
-            transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
   }
 }
 
@@ -443,8 +503,8 @@ ul.no-bullet {
  * ----------------------------------------
  */
 .bg-pan-left {
-	-webkit-animation: bg-pan-left 8s ease-in-out infinite alternate-reverse both;
-	        animation: bg-pan-left 8s ease-in-out infinite alternate-reverse both;
+  -webkit-animation: bg-pan-left 8s ease-in-out infinite alternate-reverse both;
+  animation: bg-pan-left 8s ease-in-out infinite alternate-reverse both;
 }
 @-webkit-keyframes bg-pan-left {
   0% {
@@ -468,8 +528,8 @@ ul.no-bullet {
  * ----------------------------------------
  */
 .bg-pan-right {
-	-webkit-animation: bg-pan-right 8s both;
-	        animation: bg-pan-right 8s both;
+  -webkit-animation: bg-pan-right 8s both;
+  animation: bg-pan-right 8s both;
 }
 
 @-webkit-keyframes bg-pan-right {
@@ -496,60 +556,60 @@ ul.no-bullet {
 @-webkit-keyframes jello-horizontal {
   0% {
     -webkit-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
   }
   30% {
     -webkit-transform: scale3d(1.25, 0.75, 1);
-            transform: scale3d(1.25, 0.75, 1);
+    transform: scale3d(1.25, 0.75, 1);
   }
   40% {
     -webkit-transform: scale3d(0.75, 1.25, 1);
-            transform: scale3d(0.75, 1.25, 1);
+    transform: scale3d(0.75, 1.25, 1);
   }
   50% {
     -webkit-transform: scale3d(1.15, 0.85, 1);
-            transform: scale3d(1.15, 0.85, 1);
+    transform: scale3d(1.15, 0.85, 1);
   }
   65% {
     -webkit-transform: scale3d(0.95, 1.05, 1);
-            transform: scale3d(0.95, 1.05, 1);
+    transform: scale3d(0.95, 1.05, 1);
   }
   75% {
     -webkit-transform: scale3d(1.05, 0.95, 1);
-            transform: scale3d(1.05, 0.95, 1);
+    transform: scale3d(1.05, 0.95, 1);
   }
   100% {
     -webkit-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
   }
 }
 @keyframes jello-horizontal {
   0% {
     -webkit-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
   }
   30% {
     -webkit-transform: scale3d(1.25, 0.75, 1);
-            transform: scale3d(1.25, 0.75, 1);
+    transform: scale3d(1.25, 0.75, 1);
   }
   40% {
     -webkit-transform: scale3d(0.75, 1.25, 1);
-            transform: scale3d(0.75, 1.25, 1);
+    transform: scale3d(0.75, 1.25, 1);
   }
   50% {
     -webkit-transform: scale3d(1.15, 0.85, 1);
-            transform: scale3d(1.15, 0.85, 1);
+    transform: scale3d(1.15, 0.85, 1);
   }
   65% {
     -webkit-transform: scale3d(0.95, 1.05, 1);
-            transform: scale3d(0.95, 1.05, 1);
+    transform: scale3d(0.95, 1.05, 1);
   }
   75% {
     -webkit-transform: scale3d(1.05, 0.95, 1);
-            transform: scale3d(1.05, 0.95, 1);
+    transform: scale3d(1.05, 0.95, 1);
   }
   100% {
     -webkit-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
   }
 }

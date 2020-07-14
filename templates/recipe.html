@@ -1,70 +1,133 @@
 {% extends 'base.html' %}{% block content %}
+<!-- main recipe image -->
 <div class="container">
-<div class="btn-group">
-  <button class="btn dropdown-toggle" type="button" id="buttonMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-   <h2>{{ recipe.recipe_title }}</h2>
-  </button>
-  <div class="dropdown-menu" aria-labelledby="buttonMenu1">
-    <a class="dropdown-item" href="{{url_for('edit_recipe', recipe_id=recipe._id)}}">Edit</a>
-    {% if recipe.default == None%}    <a class="dropdown-item" href="{{url_for('delete_recipe', recipe_id=recipe._id)}}">Delete</a>
-    {% else %}
-    <a class="dropdown-item disabled" href="{{url_for('cannot_delete_recipe', recipe_id=recipe._id)}}">Cannot be Deleted</a>
-    
-
-    {%endif%}
-  </div>
-</div>
-  
-  <span class="badge badge-pill badge-secondary">{{ recipe.recipe_type.replace("Meal", "").title() }}</span> 
-  
-  {%if recipe.recipe_spice == None %}{%else%}<span class="badge badge-pill badge-secondary">{{
-  recipe.recipe_spice.replace("Spice", "").title() }}</span> 
- {%endif%} 
-
- {%if recipe.recipe_difficulty == None %}{%else%}
-  <span class="badge badge-pill badge-secondary">{{
-  recipe.recipe_difficulty.replace("Diff", "").title() }}</span>
-  {%endif%}
-
-  <p>{{ recipe.recipe_description }}</p>  <ul class="no-bullet">
-    {% for key, value in recipe.recipe_allergens.items() %}{%if value == "on"%}
-    <li><img class="recipe-icon" src="{{ url_for('static', filename='images/icons/') }}{{key}}.png" alt="{{key.replace('_', '')}}">
-</li>
-    {%endif%} {%endfor%}
-  </ul>
-
-  <p>{{ recipe.recipe_prep }} mins</p> <p>{{ recipe.recipe_servings }} portions</p>
- <h4>Ingredients</h4>
-  <ul class="no-bullet">
-    {% for item in recipe.recipe_ingredients %}
-    <li>{{item}}</li><hl>
-    {%endfor%}
-  </ul>
-  <h4>Method</h4>
-  <ul class="no-bullet">
-    {% for item in recipe.recipe_method %}
-    <li>{{item}}</li><br>
-    {%endfor%}
-  </ul>
-
-  
-  <ul class="no-bullet">
-    {% for key, value in recipe.recipe_diet.items() %}{%if value == "on"%}
-    <li>{{key.replace("_", " ").title()}}</li>
-    {%endif%} {%endfor%}
-  </ul>
-
-
-
-
-  <img
-    src="{{
+  <div class="recipe-image-container">
+    <img
+      class="recipe-image"
+      src="{{
 recipe.image
 }}"
-    alt="image of {{ recipe.recipe_title }}"
-    srcset=""
-  />
-</div>
+      alt="image of {{ recipe.recipe_title }}"
+      srcset=""
+    />
+  </div>
 
+  <!-- title and modify button group -->
+  <div class="btn-group">
+    <button
+      class="btn dropdown-toggle"
+      type="button"
+      id="recipe-modify-btn"
+      data-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded="false"
+    >
+      <h2>{{ recipe.recipe_title }}</h2>
+    </button>
+    <!-- drop menu -->
+    <div class="dropdown-menu" aria-labelledby="recipe-modify-btn">
+      <a
+        class="dropdown-item"
+        href="{{url_for('edit_recipe', recipe_id=recipe._id)}}"
+        >Edit</a
+      >
+      <!-- display greyed out and unable to delete for default recipes -->
+      {% if recipe.default == None%}
+      <a
+        class="dropdown-item"
+        href="{{url_for('delete_recipe', recipe_id=recipe._id)}}"
+        >Delete</a
+      >
+      {% else %}
+      <a
+        class="dropdown-item disabled"
+        href="{{url_for('cannot_delete_recipe', recipe_id=recipe._id)}}"
+        >Cannot be Deleted</a
+      >
+      {%endif%}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <!-- badges for meal criteria -->
+      <div class="badges row justify-content-center">
+      <span class="badge badge-pill badge-secondary"
+          ><i class="fas fa-globe"></i> {{ recipe.recipe_cuisine.replace("Cuisine", "").replace("_", " ").title() }}</span
+        >
+        <span class="badge badge-pill badge-secondary"
+          ><i class="fas fa-utensils"></i> {{ recipe.recipe_type.replace("Meal", "").title() }}</span
+        >
+
+        {%if recipe.recipe_spice == None %}{%else%}<span
+          class="badge badge-pill badge-secondary"
+          ><i class="fas fa-pepper-hot"></i> {{ recipe.recipe_spice.replace("Spice", "").title() }}</span
+        >
+        {%endif%} {%if recipe.recipe_difficulty == None %}{%else%}
+        <span class="badge badge-pill badge-secondary"
+          ><i class="fas fa-graduation-cap"></i> {{ recipe.recipe_difficulty.replace("Diff", "").title() }}</span
+        >
+        {%endif%} {% for key, value in recipe.recipe_diet.items() %}{%if value
+        == "on"%}
+        <span class="badge badge-pill badge-secondary"
+          ><i class="fas fa-seedling"></i> {{key.replace("_", " ").title()}}</span
+        >
+        {%endif%} {%endfor%}
+      </div>
+      <!-- badges for allergens -->
+      <div class="allergen-badges row justify-content-center">
+        {% for key, value in recipe.recipe_allergens.items() %}{%if value ==
+        "on"%}
+        <span class="badge badge-pill badge-secondary"
+          ><img
+            class="recipe-icon"
+            src="{{ url_for('static', filename='images/icons/') }}{{key}}.png"
+            alt="{{key.replace('_', '')}}"
+          />
+        </span>
+        {%endif%} {%endfor%}
+      </div>
+
+      <!-- recipe description -->
+      <div class="recipe-desc d-inline-block">
+      <blockquote class="blockquote">
+        <p class="lead">{{ recipe.recipe_description }}</p>
+      </blockquote>
+      </div>
+
+      
+    </div>
+    <div class="col-12 col-lg-6">
+    <!-- time/portions -->
+      <div class="stats-container">
+        <div class="stats">
+          <h4>{{ recipe.recipe_prep }}</h4>
+          <p>
+            Mins
+          </p>
+        </div>
+        <div class="stats">
+          <h4>{{ recipe.recipe_servings }}</h4>
+          <p>
+            Portions
+          </p>
+        </div>
+      </div>
+      <h4>Ingredients</h4>
+      <ul class="list-unstyled no-bullet">
+        {% for item in recipe.recipe_ingredients %}
+        <li>{{item}}</li>
+        <hl></hl>
+        {%endfor%}
+      </ul>
+    </div>
+  </div>
+  <h4>Method</h4>
+  <ul class="list-unstyled no-bullet">
+    {% for item in recipe.recipe_method %}
+    <li>{{item}}</li>
+    <br />
+    {%endfor%}
+  </ul>
+</div>
 
 {% endblock %}
