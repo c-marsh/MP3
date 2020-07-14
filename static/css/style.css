@@ -11,15 +11,23 @@ h6 {
 
 * {
   font-family: "Poiret One", cursive;
+
 }
 /* Font sizing */
 html {
+  font-size: 0.75rem;
+}
+
+h3 {
   font-size: 1rem;
 }
 
 @include media-breakpoint-up(sm) {
   html {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+  }
+  h3 {
+    font-size: 1.75rem;
   }
 }
 
@@ -27,20 +35,22 @@ html {
   html {
     font-size: 1.4rem;
   }
+ 
 }
 
 @include media-breakpoint-up(lg) {
   html {
     font-size: 1.6rem;
   }
+  
 }
 #container {
-  margin-top: 100px;
+  margin-top: 5em;
   margin-left: 50px;
 }
 
 .alert {
-  margin-top: 70px;
+  margin-top: 50px;
   margin-left: 50px;
 }
 
@@ -69,7 +79,7 @@ html {
 #sidebar-wrapper {
   z-index: 1000;
   position: fixed;
-  top: 60px;
+  top: 50px;
   left: -200px;
   width: 250px;
   height: 100%;
@@ -199,13 +209,13 @@ ul.no-bullet {
   border-radius: inherit;
 }
 
-div .stats:last-of-type{
-    border-left: solid;
+div .stats:last-of-type {
+  border-left: solid;
 }
 
 .allergen-badges {
-    padding-top: 2em;
-    padding-bottom: 2em;
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 
 /*----------------Cards------------*/
@@ -250,6 +260,7 @@ div .stats:last-of-type{
   -o-transform-style: preserve-3d;
   transform-style: preserve-3d;
   position: relative;
+  font-size: 1rem;
 }
 
 /* hide back of pane during swap */
@@ -364,11 +375,13 @@ div .stats:last-of-type{
   height: 90px;
 }
 
-.card .stats-container, .stats-container {
+.card .stats-container,
+.stats-container {
   width: 100%;
   margin-top: 20px;
 }
-.card .stats, .stats {
+.card .stats,
+.stats {
   display: block;
   float: left;
   width: 50%;
