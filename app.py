@@ -71,7 +71,13 @@ def search():
     return render_template(
         "search.html",
         title='Search',
-        recipe=recipe, random_motto=random_motto)
+        recipe=recipe,
+        cuisines=cuisines_db.find(),
+        spice=spice_db.find(),
+        diet=diet_db.find(),
+        type=type_db.find(),
+        difficulty=difficulty_db.find(),
+        allergens=allergens_db.find(),random_motto=random_motto)
 
 
 '''
@@ -88,7 +94,8 @@ def recipe(recipe_id):
     return render_template(
         "recipe.html",
         title='Recipe',
-        recipe=recipe, random_motto=random_motto)
+        recipe=recipe,
+        random_motto=random_motto)
 
 
 '''
@@ -127,7 +134,7 @@ def insert_recipe():
     ingredients = request.form.get("recipe_ingredients").splitlines()
     method = request.form.get("recipe_method").splitlines()
 
-    # Convertcheckbox outputs to objects
+    # Convert checkbox outputs to objects
     diet = {
         "pescatarian": request.form.get("pescatarianDiet"),
         "vegan": request.form.get("veganDiet"),

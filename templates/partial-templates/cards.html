@@ -1,5 +1,23 @@
 <!-- card layout from https://www.creative-tim.com/product/rotating-css-card -->
-<div class="card-container" data-role="recipe">
+<div
+  class="card-container recipe-card"
+  data-role="recipe"
+  data-id="{{recipe.title}}"
+  data-category="{{recipe.recipe_cuisine}} 
+  {{recipe.recipe_type}} 
+  {{recipe.recipe_spice}} 
+  {{recipe.recipe_difficulty}} 
+  {% for key, value in recipe.recipe_diet.items() %}
+  {%if value == 'on' %}
+  {{key}}
+  {%endif%}
+  {%endfor%}
+  {% for key, value in recipe.recipe_allergens.items() %}
+  {%if value == 'on' %}
+  {{key}}
+  {%endif%}
+  {%endfor%}"
+>
   <div class="card" id="{{recipe._id}}">
     <div class="front">
       <div class="cover">
