@@ -2,6 +2,14 @@
 <!-- main recipe image -->
 <div class="container">
   <div class="recipe-image-container">
+    {%if recipe.image == ""%}
+    <img
+      class="recipe-image"
+      src="{{url_for('static',filename='images/default/default-recipe.jpg')}}"
+      alt="image of ingredients"
+      srcset=""
+    />
+    {%else%}
     <img
       class="recipe-image"
       src="{{
@@ -9,7 +17,7 @@ recipe.image
 }}"
       alt="image of {{ recipe.recipe_title }}"
       srcset=""
-    />
+    />{%endif%}
   </div>
 
   <!-- title and modify button group -->
@@ -51,25 +59,31 @@ recipe.image
     <div class="col-12 col-lg-6">
       <!-- badges for meal criteria -->
       <div class="badges row justify-content-center">
-      <span class="badge badge-pill badge-secondary"
-          ><i class="fas fa-globe"></i> {{ recipe.recipe_cuisine.replace("Cuisine", "").replace("_", " ").title() }}</span
+        <span class="badge badge-pill badge-secondary"
+          ><i class="fas fa-globe"></i> {{
+          recipe.recipe_cuisine.replace("Cuisine", "").replace("_", " ").title()
+          }}</span
         >
         <span class="badge badge-pill badge-secondary"
-          ><i class="fas fa-utensils"></i> {{ recipe.recipe_type.replace("Meal", "").title() }}</span
+          ><i class="fas fa-utensils"></i> {{ recipe.recipe_type.replace("Meal",
+          "").title() }}</span
         >
 
         {%if recipe.recipe_spice == None %}{%else%}<span
           class="badge badge-pill badge-secondary"
-          ><i class="fas fa-pepper-hot"></i> {{ recipe.recipe_spice.replace("Spice", "").title() }}</span
+          ><i class="fas fa-pepper-hot"></i> {{
+          recipe.recipe_spice.replace("Spice", "").title() }}</span
         >
         {%endif%} {%if recipe.recipe_difficulty == None %}{%else%}
         <span class="badge badge-pill badge-secondary"
-          ><i class="fas fa-graduation-cap"></i> {{ recipe.recipe_difficulty.replace("Diff", "").title() }}</span
+          ><i class="fas fa-graduation-cap"></i> {{
+          recipe.recipe_difficulty.replace("Diff", "").title() }}</span
         >
         {%endif%} {% for key, value in recipe.recipe_diet.items() %}{%if value
         == "on"%}
         <span class="badge badge-pill badge-secondary"
-          ><i class="fas fa-seedling"></i> {{key.replace("_", " ").title()}}</span
+          ><i class="fas fa-seedling"></i> {{key.replace("_", "
+          ").title()}}</span
         >
         {%endif%} {%endfor%}
       </div>
@@ -89,15 +103,13 @@ recipe.image
 
       <!-- recipe description -->
       <div class="recipe-desc d-inline-block">
-      <blockquote class="blockquote">
-        <p class="lead">{{ recipe.recipe_description }}</p>
-      </blockquote>
+        <blockquote class="blockquote">
+          <p class="lead">{{ recipe.recipe_description }}</p>
+        </blockquote>
       </div>
-
-      
     </div>
     <div class="col-12 col-lg-6">
-    <!-- time/portions -->
+      <!-- time/portions -->
       <div class="stats-container">
         <div class="stats">
           <h4>{{ recipe.recipe_prep }}</h4>
