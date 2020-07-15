@@ -63,6 +63,7 @@ class RecipeForm(FlaskForm):
     image = URLField(
         'url',
         [validators.Optional()])
+    
 
 
 '''
@@ -274,6 +275,7 @@ def edit_recipe(recipe_id):
     random_motto = (
         [motto for motto in mottos_db.aggregate
          ([{"$sample": {"size": 1}}])])
+    form = RecipeForm()
     recipe = recipes_db.find_one({"_id": ObjectId(recipe_id)})
     return render_template(
         "edit_recipe.html",
@@ -285,6 +287,7 @@ def edit_recipe(recipe_id):
         difficulty=difficulty_db.find(),
         allergens=allergens_db.find(),
         recipe=recipe,
+        form=form,
         random_motto=random_motto)
 
 
