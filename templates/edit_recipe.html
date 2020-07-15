@@ -74,7 +74,7 @@
               class="form-control"
               id="recipe_description"
               name="recipe_description"
-              flex-rows="5"
+              rows="5"
               maxlength="300"
               value="{{recipe.recipe_description}}"
               required
@@ -94,7 +94,7 @@
               class="form-control"
               id="recipe_ingredients"
               name="recipe_ingredients"
-              flex-rows="12"
+              rows="10"
               required
             >
 {% for ingredient in recipe.recipe_ingredients -%}
@@ -114,7 +114,7 @@
               id="recipe_method"
               name="recipe_method"
               required
-              flex-rows="3"
+              rows="10"
             >
 {% for method in recipe.recipe_method -%}
 {{method}}
@@ -157,6 +157,7 @@
               <div class="custom-control form-check">
                 <input type="radio" name="spice" class="custom-control-input"
                 id="{{each.spice}}Spice" value="{{each.spice}}Spice"{%if
+                recipe.recipe_spice != None and
                 recipe.recipe_spice.replace("Spice", "") == each.spice %}
                 checked {%endif%} />
                 <label class="custom-control-label" for="{{each.spice}}Spice"
@@ -209,9 +210,9 @@
               <div class="custom-control form-check">
                 <input type="radio" name="difficulty"
                 class="custom-control-input" id="{{each.difficulty}}Diff"
-                value="{{each.difficulty}}Diff" {%if
-                recipe.recipe_difficulty.replace("Diff", "") == each.difficulty
-                %} checked {%endif%} />
+                value="{{each.difficulty}}Diff" {%if recipe.recipe_difficulty !=
+                None and recipe.recipe_difficulty.replace("Diff", "") ==
+                each.difficulty %} checked {%endif%} />
                 <label
                   class="custom-control-label"
                   for="{{each.difficulty}}Diff"
