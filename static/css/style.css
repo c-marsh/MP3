@@ -11,11 +11,10 @@ h6 {
 
 * {
   font-family: "Poiret One", cursive;
-
 }
 /* Font sizing */
 html {
-  font-size: 0.75rem;
+  font-size: 1rem;
 }
 
 h3 {
@@ -35,14 +34,12 @@ h3 {
   html {
     font-size: 1.4rem;
   }
- 
 }
 
 @include media-breakpoint-up(lg) {
   html {
     font-size: 1.6rem;
   }
-  
 }
 #container {
   margin-top: 5em;
@@ -50,7 +47,7 @@ h3 {
 }
 
 .alert {
-  margin-top: 50px;
+  margin-top: 70px;
   margin-left: 50px;
 }
 
@@ -79,7 +76,7 @@ h3 {
 #sidebar-wrapper {
   z-index: 1000;
   position: fixed;
-  top: 50px;
+  top: 70px;
   left: -200px;
   width: 250px;
   height: 100%;
@@ -209,6 +206,12 @@ ul.no-bullet {
   border-radius: inherit;
 }
 
+.btn-group,
+.btn-group-vertical {
+  position: relative;
+  margin: 0px 1px;
+}
+
 div .stats:last-of-type {
   border-left: solid;
 }
@@ -219,8 +222,8 @@ div .stats:last-of-type {
 }
 /* -----search page----- */
 #search {
-    font-size: 2rem;
-} 
+  font-size: 2rem;
+}
 
 /*----------------Cards------------*/
 /* styling based on https://www.creative-tim.com/product/rotating-css-card */
