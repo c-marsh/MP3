@@ -56,7 +56,7 @@
             form-control", minlength="10", maxlength="150",
             rows="5",render_kw={'required': True}) }}
 
-            <span class="bmd-help">Max 300 letters</span>
+            <span class="bmd-help">Max 150 letters</span>
           </div>
         </div>
 
@@ -65,7 +65,7 @@
             <label for="recipe_ingredients" class="bmd-label-floating"
               >Ingredients<span class="align-top muted asterisk">*</span></label
             >{{ form.recipe_ingredients(id="recipe_ingredients", class="validate
-            form-control", minlength="10", maxlength="300", rows="10",
+            form-control", minlength="10", rows="10",
             render_kw={'required': True}) }}
 
             <span class="bmd-help">Use a new line for each ingredient</span>
@@ -78,7 +78,7 @@
               >Method<span class="align-top muted asterisk">*</span></label
             >
             {{ form.recipe_method(id="recipe_method", class="validate
-            form-control", minlength="10", maxlength="300", rows="10",
+            form-control", minlength="10", rows="10",
             render_kw={'required': True}) }}
 
             <span class="bmd-help">Use a new line for each step</span>
