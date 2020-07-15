@@ -1,6 +1,7 @@
 {% extends 'base.html' %}{% block content %}
 <!-- main recipe image -->
 <div class="container">
+
   <div class="recipe-image-container">
     {% if recipe.image == "" %}
     <img
@@ -21,19 +22,20 @@ recipe.image
   </div>
 
   <!-- title and modify button group -->
+  <div class="row align-contents-center">
   <div class="btn-group">
     <button
-      class="btn dropdown-toggle"
+      class="btn bmd-btn-icon dropdown-toggle"
       type="button"
-      id="recipe-modify-btn"
+      id="ex2"
       data-toggle="dropdown"
       aria-haspopup="true"
       aria-expanded="false"
     >
-      <h2>{{ recipe.recipe_title }}</h2>
+      <i class="material-icons">more_vert</i>
     </button>
     <!-- drop menu -->
-    <div class="dropdown-menu" aria-labelledby="recipe-modify-btn">
+    <div class="dropdown-menu dropdown-menu-left" aria-labelledby="ex2">
       <a
         class="dropdown-item"
         href="{{url_for('edit_recipe', recipe_id=recipe._id)}}"
@@ -55,6 +57,8 @@ recipe.image
       {% endif %}
     </div>
   </div>
+  <h2>{{ recipe.recipe_title }}</h2>
+</div>
   <div class="row">
     <div class="col-12 col-lg-6">
       <!-- badges for meal criteria -->
@@ -79,8 +83,8 @@ recipe.image
           ><i class="fas fa-graduation-cap"></i> {{
           recipe.recipe_difficulty.replace("Diff", "").title() }}</span
         >
-        {% endif %} {% for key, value in recipe.recipe_diet.items() %}{% if value
-        == "on"%}
+        {% endif %} {% for key, value in recipe.recipe_diet.items() %}{% if
+        value == "on"%}
         <span class="badge badge-pill badge-secondary"
           ><i class="fas fa-seedling"></i> {{key.replace("_", "
           ").title()}}</span
