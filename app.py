@@ -3,9 +3,9 @@ from flask_pymongo import PyMongo
 from flask import Flask, render_template, redirect, request, url_for, flash
 import os
 from flask_wtf import FlaskForm
-from wtforms import Form, BooleanField, StringField, TextAreaField, validators
+from wtforms import StringField
 from wtforms.fields.html5 import URLField, IntegerField
-from wtforms.validators import DataRequired, Length
+from wtforms.validators import DataRequired, Length, NumberRange, Optional
 from wtforms.widgets import TextArea
 
 # import env.py if it exists
@@ -37,33 +37,32 @@ allergens_db = mongo.db.allergens
 class RecipeForm(FlaskForm):
     recipe_title = StringField(
         'Title',
-        [validators.DataRequired(),
-         validators.Length(min=3, max=30)])
+        [DataRequired(),
+         Length(min=3, max=30)])
     recipe_description = StringField(
         u'Description',
-        [validators.DataRequired(),
-         validators.Length(min=10, max=150)],
+        [DataRequired(),
+         Length(min=10, max=150)],
         widget=TextArea())
     recipe_servings = IntegerField(
         'Portions',
-        [validators.DataRequired(),
-         validators.NumberRange(min=1, max=100)])
+        [DataRequired(),
+         NumberRange(min=1, max=100)])
     recipe_prep = IntegerField(
         'Prep',
-        [validators.DataRequired(),
-         validators.NumberRange(min=1, max=2000)])
+        [DataRequired(),
+         NumberRange(min=1, max=2000)])
     recipe_ingredients = StringField(
         u'Ingredients',
-        [validators.DataRequired()],
+        [DataRequired()],
         widget=TextArea())
     recipe_method = StringField(
         u'Method',
-        [validators.DataRequired()],
+        [DataRequired()],
         widget=TextArea())
     image = URLField(
         'url',
-        [validators.Optional()])
-    
+        [Optional()])
 
 
 '''
@@ -261,8 +260,7 @@ def insert_recipe():
                            diet=diet_db.find(),
                            type=type_db.find(),
                            difficulty=difficulty_db.find(),
-                           allergens=allergens_db.find(),
-                           random_motto=random_motto)
+                           allergens=allergens_db.find())
 
 
 '''
