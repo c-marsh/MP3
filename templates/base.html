@@ -61,6 +61,19 @@
       {% include "partial-templates/footer.html" %}
       
     </footer>
+
+    <script>
+  $(document).ready(function () {
+    $("#search").on("keyup", function () {
+      var value = $(this).val().toLowerCase();
+      $('div[data-role="recipe"]').filter(function () {
+        $(this).toggle(
+          $(this).find("h3").text().toLowerCase().indexOf(value) > -1
+        );
+      });
+    });
+  });
+</script>
     <!-- Optional JavaScript -->
     <!-- Popper.js, then Bootstrap JS -->
 
@@ -69,19 +82,13 @@
       integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
       crossorigin="anonymous"
     ></script>
-    <!-- Material Design for Bootstrap JS -->    <script src="<link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='js/snackbar.min.js')}}"></script>
+    <!-- Material Design for Bootstrap JS -->    
     <script
       src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
       integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
       crossorigin="anonymous"
     ></script>
-    <script>
-      $(document).ready(function () {
-        $("body").bootstrapMaterialDesign();
-      });
-    </script>
+    
     <script>
       // toggle sidebar
       $(".sidebar-toggle").click(function (e) {
@@ -91,6 +98,10 @@
 
       $("[data-role=dropdown]").dropdown();
     </script>
-
+<script>
+      $(document).ready(function () {
+        $("body").bootstrapMaterialDesign();
+      });
+    </script>
   </body>
 </html>

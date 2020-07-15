@@ -90,15 +90,4 @@
 <!-- end card -->
 
 <!-- end card-container -->
-<script>
-  $(document).ready(function () {
-    $("#search").on("keyup", function () {
-      var value = $(this).val().toLowerCase();
-      $('div[data-role="recipe"]').filter(function () {
-        $(this).toggle(
-          $(this).find("h3").text().toLowerCase().indexOf(value) > -1
-        );
-      });
-    });
-  });
-</script>
+
