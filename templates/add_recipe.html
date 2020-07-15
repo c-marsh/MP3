@@ -1,14 +1,18 @@
 {% extends 'base.html' %} {% block content %}
 <div class="container">
-<!-- Form for adding recipes -->
+  <!-- Form for adding recipes -->
   <form action="{{url_for('insert_recipe')}}" method="POST" autocomplete="off">
     <div class="">
       <div class="fields">
         <div class="form-row align-items-center">
           <div class="form-group col-8">
-            <label for="recipe_title" class="bmd-label-floating">Title<span class="align-top muted asterisk">*</span></label>
+            <label for="recipe_title" class="bmd-label-floating"
+              >Title<span class="align-top muted asterisk">*</span></label
+            >
 
-{{ form.recipe_title(id="recipe_title", class="validate form-control", minlength="3", maxlength="30", render_kw={'autofocus': True}, render_kw={'required': True}) }}
+            {{ form.recipe_title(id="recipe_title", class="validate
+            form-control", minlength="3", maxlength="30",
+            render_kw={'autofocus': True}, render_kw={'required': True}) }}
 
             <span class="bmd-help">Max 30 letters</span>
           </div>
@@ -17,15 +21,9 @@
               >Prep Time<span class="align-top muted asterisk">*</span></label
             >
 
-            {{ form.recipe_prep(id="recipe_prep",  class="validate form-control", render_kw={'required': True}) }}
+            {{ form.recipe_prep(id="recipe_prep", class="validate form-control",
+            render_kw={'required': True}) }}
 
-            <!-- <input
-              type="text"
-              class="form-control"
-              id="recipe_prep"
-              name="recipe_prep"
-              required
-            /> -->
             <span class="bmd-help">In minutes</span>
           </div>
         </div>
@@ -33,23 +31,18 @@
           <div class="form-group col-8">
             <label for="image" class="bmd-label-floating">Image Url</label>
 
-            {{ form.image(id="image",  class="validate form-control")}}
-            <span class="bmd-help">Please provide full URL starting with http://</span>
-
-            <!-- <input type="text" class="form-control" id="image" name="image" /> -->
+            {{ form.image(id="image", class="validate form-control")}}
+            <span class="bmd-help"
+              >Please provide full URL starting with http://</span
+            >
           </div>
           <div class="form-group col-4">
             <label for="recipe_servings" class="bmd-label-floating"
               >Servings<span class="align-top muted asterisk">*</span></label
             >
-            {{ form.recipe_servings(id="recipe_servings", class="validate form-control", render_kw={'required': True})}}
-            <!-- <input
-              type="text"
-              class="form-control"
-              id="recipe_servings"
-              name="recipe_servings"
-              required
-            /> -->
+            {{ form.recipe_servings(id="recipe_servings", class="validate
+            form-control", render_kw={'required': True})}}
+
             <span class="bmd-help">Full number only</span>
           </div>
         </div>
@@ -59,15 +52,10 @@
             <label for="recipe_description" class="bmd-label-floating"
               >Description<span class="align-top muted asterisk">*</span></label
             >
-            {{ form.recipe_description(id="recipe_description", class="validate form-control", minlength="10", maxlength="150", rows="5",render_kw={'required': True}) }}
-            <!-- <textarea
-              class="form-control"
-              id="recipe_description"
-              name="recipe_description"
-              rows="5"
-              maxlength="300"
-              required
-            ></textarea> -->
+            {{ form.recipe_description(id="recipe_description", class="validate
+            form-control", minlength="10", maxlength="150",
+            rows="5",render_kw={'required': True}) }}
+
             <span class="bmd-help">Max 300 letters</span>
           </div>
         </div>
@@ -76,37 +64,32 @@
           <div class="form-group col-12">
             <label for="recipe_ingredients" class="bmd-label-floating"
               >Ingredients<span class="align-top muted asterisk">*</span></label
-            >{{ form.recipe_ingredients(id="recipe_ingredients", class="validate form-control", minlength="10", maxlength="300", rows="10", render_kw={'required': True}) }}
-            <!-- <textarea
-              class="form-control"
-              id="recipe_ingredients"
-              name="recipe_ingredients"
-              rows="10"
-              required
-            ></textarea> -->
+            >{{ form.recipe_ingredients(id="recipe_ingredients", class="validate
+            form-control", minlength="10", maxlength="300", rows="10",
+            render_kw={'required': True}) }}
+
             <span class="bmd-help">Use a new line for each ingredient</span>
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group col-12">
-            <label for="recipe_method" class="bmd-label-floating">Method<span class="align-top muted asterisk">*</span></label>
-            {{ form.recipe_method(id="recipe_method", class="validate form-control", minlength="10", maxlength="300", rows="10", render_kw={'required': True}) }}
-            <!-- <textarea
-              class="form-control"
-              id="recipe_method"
-              name="recipe_method"
-              rows="10"
-              required
-            ></textarea> -->
+            <label for="recipe_method" class="bmd-label-floating"
+              >Method<span class="align-top muted asterisk">*</span></label
+            >
+            {{ form.recipe_method(id="recipe_method", class="validate
+            form-control", minlength="10", maxlength="300", rows="10",
+            render_kw={'required': True}) }}
+
             <span class="bmd-help">Use a new line for each step</span>
           </div>
         </div>
       </div>
+      <!-- Checkbox section -->
       <div class="form-row justify-content-center">
         <div class="col-4">
           <h3>Cuisine<span class="align-top muted asterisk">*</span></h3>
-          <small class="muted ">Select One</small>
+          <small class="muted">Select One</small>
           <ul id="cuisine-list" class="list-unstyled no-bullet">
             <!-- loop through all cuisines  -->
             {% for each in cuisines %}
@@ -133,7 +116,7 @@
 
         <div class="col-4">
           <h3>Spice</h3>
-          <small class="muted ">Select One</small>
+          <small class="muted">Select One</small>
           <ul class="list-unstyled no-bullet">
             {% for each in spice %}
             <li>
@@ -154,7 +137,7 @@
           </ul>
 
           <h3>Diet</h3>
-          <small class="muted ">Select Applicable</small>
+          <small class="muted">Select Applicable</small>
           <ul class="list-unstyled no-bullet">
             {% for each in diet %}
             <li>
@@ -174,7 +157,7 @@
           </ul>
 
           <h3>Type<span class="align-top muted asterisk">*</span></h3>
-          <small class="muted ">Select One</small>
+          <small class="muted">Select One</small>
           <ul class="list-unstyled no-bullet">
             {% for each in type %}
             <li>
@@ -198,7 +181,7 @@
 
         <div class="col-4">
           <h3>Difficulty</h3>
-          <small class="muted ">Select One</small>
+          <small class="muted">Select One</small>
           <ul class="list-unstyled no-bullet">
             {% for each in difficulty %}
             <li>
@@ -221,7 +204,7 @@
           </ul>
 
           <h3>Allergen</h3>
-          <small class="muted ">Select Applicable</small>
+          <small class="muted">Select Applicable</small>
           <ul class="list-unstyled no-bullet">
             {% for each in allergens %}
             <li>
@@ -243,6 +226,8 @@
           </ul>
         </div>
       </div>
+
+      <!-- Submit/cancel buttons -->
       <div class="form-btns">
         <a href="{{url_for('home')}}"
           ><button class="btn btn-default">Cancel</button></a
