@@ -28,7 +28,11 @@
       href="{{ url_for('static', filename='css/style.css')}}"
     />
     <!-- Fontawesome -->
-    <script src="https://kit.fontawesome.com/5abc5382f4.js" crossorigin="anonymous" async></script>
+    <script
+      src="https://kit.fontawesome.com/5abc5382f4.js"
+      crossorigin="anonymous"
+      async
+    ></script>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -37,68 +41,78 @@
     <title>{{title}}</title>
   </head>
   <body>
-     
+
+    <!-- Nav Bar -->
     <header>
       {% include "partial-templates/navbar.html" %}
     </header>
 
-     {%with messages = get_flashed_messages()%} {%if messages%} {%for message in
+    <!-- Flash messages alert panel -->
+    {%with messages = get_flashed_messages()%} {%if messages%} {%for message in
     messages%}
-
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
-  {{message}}
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-{%endfor%} {%endif%} {%endwith%}
+      {{message}}
+      <button
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {%endfor%} {%endif%} {%endwith%}
+
+    <!-- Main Content -->
     <main id="container">
       {% block content %}{% endblock %}
     </main>
 
-
+    <!-- Footer Content -->
     <footer>
       {% include "partial-templates/footer.html" %}
-      
     </footer>
 
+    <!-- Script for search field -->
     <script>
-  $(document).ready(function () {
-    $("#search").on("keyup", function () {
-      var value = $(this).val().toLowerCase();
-      $('div[data-role="recipe"]').filter(function () {
-        $(this).toggle(
-          $(this).find("h3").text().toLowerCase().indexOf(value) > -1
-        );
+      $(document).ready(function () {
+        $("#search").on("keyup", function () {
+          var value = $(this).val().toLowerCase();
+          $('div[data-role="recipe"]').filter(function () {
+            $(this).toggle(
+              $(this).find("h3, span, p").text().toLowerCase().indexOf(value) > -1
+            );
+          });
+        });
       });
-    });
-  });
-</script>
-    <!-- Optional JavaScript -->
-    <!-- Popper.js, then Bootstrap JS -->
+    </script>
 
+    <!-- Popper.js, then Bootstrap JS -->
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
       integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
       crossorigin="anonymous"
     ></script>
-    <!-- Material Design for Bootstrap JS -->    
+
+    <!-- Material Design for Bootstrap JS -->
     <script
       src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
       integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
       crossorigin="anonymous"
     ></script>
-    
+
+    <!-- Script for sidebar toggles -->
     <script>
       // toggle sidebar
       $(".sidebar-toggle").click(function (e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
       });
-
       $("[data-role=dropdown]").dropdown();
     </script>
-<script>
+
+    <!-- Script for Materialize style wave effect -->
+    <script>
       $(document).ready(function () {
         $("body").bootstrapMaterialDesign();
       });

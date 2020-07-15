@@ -217,6 +217,10 @@ div .stats:last-of-type {
   padding-top: 2em;
   padding-bottom: 2em;
 }
+/* -----search page----- */
+#search {
+    font-size: 2rem;
+} 
 
 /*----------------Cards------------*/
 /* styling based on https://www.creative-tim.com/product/rotating-css-card */
