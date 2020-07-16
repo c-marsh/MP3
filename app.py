@@ -252,15 +252,6 @@ def insert_recipe():
         "recipe",
         recipe_id=insert_recipe_intoDB.inserted_id))
 
-    return render_template('add_recipe.html',
-                           # form=RecipeForm(),
-                           title='Add Recipe',
-                           cuisines=cuisines_db.find(),
-                           spice=spice_db.find(),
-                           diet=diet_db.find(),
-                           type=type_db.find(),
-                           difficulty=difficulty_db.find(),
-                           allergens=allergens_db.find())
 
 
 '''
@@ -346,7 +337,8 @@ def update_recipe(recipe_id):
         })
         flash("This recipe has been updated!")
         return redirect(url_for(
-            "home"))
+        "recipe",
+        recipe_id=recipe_id))
 
 
 '''
