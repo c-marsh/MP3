@@ -187,8 +187,12 @@ ul.no-bullet {
   white-space: pre-wrap;
 }
 
+.btn.bmd-btn-icon {
+    margin-top: 0.25rem; 
+}
+
 .recipe-icon {
-  width: 25px;
+  width: 50px;
 }
 
 .recipe-image-container {
@@ -220,6 +224,41 @@ div .stats:last-of-type {
   padding-top: 2em;
   padding-bottom: 2em;
 }
+
+.lead {
+    font-size: 1.75rem;
+    font-weight: 200;
+    font-style: oblique;
+} 
+.badge-recipe-cuisine {
+    margin-top: 20px;
+    font-size: 175%;
+}
+
+.badge-recipe-meal, .badge-recipe-spice{
+    margin-top: 20px;
+    font-size: 125%;
+}
+.badge-recipe-diff{
+    margin-top: 20px;
+    font-size: 200%;
+}
+
+.badge-recipe-diet{
+    margin-top: 20px;
+    font-size: 100%;
+}
+.recipe-list-title{
+     font-size: 2rem;
+ }
+
+ .ingredient, .method-step {
+     font-size: 1.5rem;
+     line-height: 2rem;
+ }
+ .ingredient, .recipe-list-title-ingredient {
+     text-align: end;
+ }
 /* -----search page----- */
 #search {
   font-size: 2rem;
