@@ -1,86 +1,90 @@
 {% extends 'base.html' %}{% block content %}
 <!-- main recipe image -->
 <div class="container">
-<div class="row recipe-header">
-   <div class="col-12 col-lg-4 pt-5 pb-5 border-right">
-   <div class="recipe-image-container">
-    {% if recipe.image == "" %}
-    <img
-      class="recipe-image"
-      src="{{url_for('static',filename='images/default/default-recipe.jpg')}}"
-      alt="image of ingredients"
-      srcset=""
-    />
-    {% else %}
-    <img
-      class="recipe-image"
-      src="{{
+  <div class="row recipe-header align-items-center">
+    <div class="col-12 col-lg-4 pt-5 pb-3">
+      <div class="recipe-image-container">
+        {% if recipe.image == "" %}
+        <img
+          class="recipe-image"
+          src="{{url_for('static',filename='images/default/default-recipe.jpg')}}"
+          alt="image of ingredients"
+          srcset=""
+        />
+        {% else %}
+        <img
+          class="recipe-image"
+          src="{{
 recipe.image
 }}"
-      alt="image of {{ recipe.recipe_title }}"
-      srcset=""
-    />{% endif %}
-  </div></div>
-
-  <!-- title and modify button group -->
-  <div class="col-12 col-lg-8 pt-5 pb-5">
-  <div class="btn-group">
-  <h1 class="text-uppercase">{{ recipe.recipe_title }}</h1>
-    <button
-      class="btn bmd-btn-icon dropdown-toggle"
-      type="button"
-      id="ex2"
-      data-toggle="dropdown"
-      aria-haspopup="true"
-      aria-expanded="false"
-    >
-      <i class="material-icons">more_vert</i>
-    </button>
-    <!-- drop menu -->
-    <div class="dropdown-menu dropdown-menu-left" aria-labelledby="ex2">
-      <a
-        class="dropdown-item"
-        href="{{url_for('edit_recipe', recipe_id=recipe._id)}}"
-        >Edit</a
-      >
-      <!-- display greyed out and unable to delete for default recipes -->
-      {% if recipe.default == None %}
-      <a
-        class="dropdown-item"
-        href="{{url_for('delete_recipe', recipe_id=recipe._id)}}"
-        >Delete</a
-      >
-      {% else %}
-      <a
-        class="dropdown-item disabled"
-        href="{{url_for('cannot_delete_recipe', recipe_id=recipe._id)}}"
-        >Cannot be Deleted</a
-      >
-      {% endif %}
+          alt="image of {{ recipe.recipe_title }}"
+          srcset=""
+        />{% endif %}
+      </div>
     </div>
-  </div>
-  
-  <!-- recipe description -->
+
+    <!-- title and modify button group -->
+    <div class="col-12 col-lg-8 pt-5 pb-3">
+      <div class="btn-group">
+        <h1 class="text-uppercase">{{ recipe.recipe_title }}</h1>
+        <button
+          class="btn bmd-btn-icon dropdown-toggle"
+          type="button"
+          id="ex2"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <i class="material-icons">more_vert</i>
+        </button>
+        <!-- drop menu -->
+        <div class="dropdown-menu dropdown-menu-left" aria-labelledby="ex2">
+          <a
+            class="dropdown-item"
+            href="{{url_for('edit_recipe', recipe_id=recipe._id)}}"
+            >Edit</a
+          >
+          <!-- display greyed out and unable to delete for default recipes -->
+          {% if recipe.default == None %}
+          <a
+            class="dropdown-item"
+            href="{{url_for('delete_recipe', recipe_id=recipe._id)}}"
+            >Delete</a
+          >
+          {% else %}
+          <a
+            class="dropdown-item disabled"
+            href="{{url_for('cannot_delete_recipe', recipe_id=recipe._id)}}"
+            >Cannot be Deleted</a
+          >
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- recipe description -->
       <div class="recipe-desc d-inline-block pt-5">
         <blockquote class="blockquote">
           <p class="lead">{{ recipe.recipe_description }}</p>
         </blockquote>
       </div>
-</div></div>
-  <div class="row"><div class="col-12 col-md-6 col-lg-4 border-right">
+    </div>
+  </div>
+  <div class="row pt-3">
+    <div class="col-12 col-md-6 col-lg-4 custom-border-right">
       <!-- time/portions -->
 
-      <h4 class="recipe-list-title recipe-list-title-ingredient">Ingredients</h4>
+      <h4 class="recipe-list-title recipe-list-title-ingredient">
+        Ingredients
+      </h4>
       <ul class="list-unstyled no-bullet ingredient-list">
         {% for item in recipe.recipe_ingredients %}
-        <li class="ingredient">{{item.title()}}
-        </li>
-        
+        <li class="ingredient">{{item.title()}}</li>
+
         {% endfor %}
       </ul>
     </div>
     <div class="col-12 col-md-6 col-lg-3">
-          <div class="stats-container">
+      <div class="stats-container">
         <div class="stats">
           <h4>{{ recipe.recipe_prep }}</h4>
           <p>
@@ -95,68 +99,67 @@ recipe.image
         </div>
       </div>
       <!-- badges for meal criteria -->
-      <div class="badges row justify-content-center ">
-        <span class="badge badge-pill badge-secondary badge-recipe-cuisine"
+      <div class="badges row justify-content-center">
+        <span class="badge badge-pill badge-primary badge-recipe-cuisine"
           ><i class="fas fa-globe"></i> {{
           recipe.recipe_cuisine.replace("Cuisine", "").replace("_", " ").title()
           }}</span
-        > 
-      </div><div class="badges row justify-content-center ">
-        <span class="badge badge-pill badge-secondary badge-recipe-meal"
+        >
+      </div>
+      <div class="badges row justify-content-center">
+        <span class="badge badge-pill badge-primary badge-recipe-meal"
           ><i class="fas fa-utensils"></i> {{ recipe.recipe_type.replace("Meal",
           "").title() }}</span
-        > 
+        >
 
         {% if recipe.recipe_spice == None %}{% else %}<span
-          class="badge badge-pill badge-secondary badge-recipe-spice ml-1"
+          class="badge badge-pill badge-primary badge-recipe-spice ml-1"
           ><i class="fas fa-pepper-hot"></i> {{
           recipe.recipe_spice.replace("Spice", "").title() }}</span
-        > 
-        </div><div class="badges row justify-content-center ">
+        >
+      </div>
+      <div class="badges row justify-content-center">
         {% endif %} {% if recipe.recipe_difficulty == None %}{% else %}
-        <span class="badge badge-pill badge-secondary badge-recipe-diff"
+        <span class="badge badge-pill badge-primary badge-recipe-diff"
           ><i class="fas fa-graduation-cap"></i> {{
           recipe.recipe_difficulty.replace("Diff", "").title() }}</span
-        > 
+        >
         {% endif %} {% for key, value in recipe.recipe_diet.items() %}{% if
         value == "on"%}
-        </div><div class="badges row justify-content-center ">
-        <span class="badge badge-pill badge-secondary badge-recipe-diet"
+      </div>
+      <div class="badges row justify-content-center">
+        <span class="badge badge-pill badge-primary badge-recipe-diet"
           ><i class="fas fa-seedling"></i> {{key.replace("_", "
           ").title()}}</span
-        > 
+        >
         {% endif %} {% endfor %}
       </div>
       <!-- badges for allergens -->
       <div class="allergen-badges row justify-content-center">
         {% for key, value in recipe.recipe_allergens.items() %}{%if value ==
         "on"%}
-        <span class="badge badge-pill badge-secondary sidebar-toggle" 
+        <span class="badge badge-pill badge-primary sidebar-toggle"
           ><img
             class="recipe-icon"
             src="{{ url_for('static', filename='images/icons/') }}{{key}}.png"
             alt="{{key.replace('_', '')}}"
           />
-        </span> 
+        </span>
         {% endif %} {% endfor %}
       </div>
-
-      
     </div>
-      <div class="col-12 col-lg-4     border-left">
+    <div class="col-12 col-lg-4 custom-border-left">
       <!-- MEthods -->
 
       <h4 class="recipe-list-title">Method</h4>
-  <ul class="list-unstyled no-bullet method-list">
-    {% for item in recipe.recipe_method %}
-    <li class="method-step">{{item}}</li>
-    <br />
-    {% endfor %}
-  </ul>
+      <ul class="list-unstyled no-bullet method-list">
+        {% for item in recipe.recipe_method %}
+        <li class="method-step">{{item}}</li>
+        <br />
+        {% endfor %}
+      </ul>
     </div>
-    
   </div>
-  
 </div>
 
 {% endblock %}
