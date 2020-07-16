@@ -1,8 +1,10 @@
+Created temporary directory: /tmp/pip-ephem-wheel-cache-rplq07se
 click==7.1.2
 dnspython==1.16.0
-elasticsearch==7.8.0
 Flask==1.1.2
 Flask-PyMongo==2.3.0
+Flask-WTF==0.14.3
 itsdangerous==1.1.0
 pymongo==3.10.1
 Werkzeug==1.0.1
+WTForms==2.3.1
