@@ -1,4 +1,3 @@
-Created temporary directory: /tmp/pip-ephem-wheel-cache-rplq07se
 click==7.1.2
 dnspython==1.16.0
 Flask==1.1.2
