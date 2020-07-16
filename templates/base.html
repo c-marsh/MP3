@@ -15,9 +15,8 @@
     <!-- Material Design for Bootstrap CSS -->
     <link
       rel="stylesheet"
-      href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
-      integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX"
-      crossorigin="anonymous"
+      href="{{ url_for('static', filename='css/bootstrap-material-design.css')}}"
+      
     />
     <link
       href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600&family=Poiret+One&display=swap"
@@ -48,8 +47,8 @@
     </header>
 
     <!-- Flash messages alert panel -->
-    {%with messages = get_flashed_messages()%} {%if messages%} {%for message in
-    messages%}
+    {% with messages = get_flashed_messages() %} {% if messages %} {% for message in
+    messages %}
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
       {{message}}
       <button
@@ -61,7 +60,7 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    {%endfor%} {%endif%} {%endwith%}
+    {% endfor %} {% endif %} {% endwith %}
 
     <!-- Main Content -->
     <main id="container">
