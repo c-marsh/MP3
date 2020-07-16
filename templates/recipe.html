@@ -138,7 +138,7 @@ recipe.image
       <div class="allergen-badges row justify-content-center">
         {% for key, value in recipe.recipe_allergens.items() %}{%if value ==
         "on"%}
-        <span class="badge badge-pill badge-primary sidebar-toggle"
+        <span class="badge badge-pill badge-primary sidebar-toggle pointer"
           ><img
             class="recipe-icon"
             src="{{ url_for('static', filename='images/icons/') }}{{key}}.png"

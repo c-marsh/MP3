@@ -278,7 +278,9 @@ div .stats:last-of-type{
 .recipe-list-title{
      font-size: 2rem;
  }
-
+.pointer {
+    cursor: pointer;
+}
  .ingredient, .method-step {
      font-size: 1.5rem;
      line-height: 2rem;
