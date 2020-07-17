@@ -91,7 +91,7 @@ def home():
         'home.html',
         recipe=recipe,
         title='Home',
-        random_motto=random_motto)
+        random_motto=random_motto, allergens=allergens_db)
 
 
 '''
@@ -123,22 +123,16 @@ COLLECTIONS
 '''
 
 
-@ app.route('/pescatarian')
+@ app.route('/fish')
 def diets():
     # this works
     random_motto = (
         [motto for motto in mottos_db.aggregate
          ([{"$sample": {"size": 1}}])])
-    recipe = recipes_db.find({"recipe_diet.pescatarian": "on"})
+    recipe = recipes_db.find({"recipe_allergens.fish": None})
     return render_template("search.html",
-                           title='v',
+                           title='Fish free directory',
                            recipe=recipe,
-                           cuisines=cuisines_db.find(),
-                           spice=spice_db.find(),
-                           diet=diet_db.find(),
-                           type=type_db.find(),
-                           difficulty=difficulty_db.find(),
-                           allergens=allergens_db.find(),
                            random_motto=random_motto)
 
 
@@ -358,6 +352,27 @@ def cannot_delete_recipe(recipe_id):
     flash("This recipe is a default recipe and cannot be deleted")
     return redirect(url_for("home"))
 
+'''
+ERROR HANDLERS
+'''
+
+
+@app.errorhandler(404)
+def error_404(error):
+    '''
+    Returns 404 error (page not found) page
+    '''
+    return render_template('error-templates/oops-404.html', error=True,
+                           title="Page not found"), 404
+
+
+@app.errorhandler(500)
+def error_500(error):
+    '''
+    Returns 500 error (internal server error) page
+    '''
+    return render_template('oops/oops-500.html', error=True,
+                           title="Internal Server Error"), 500
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
