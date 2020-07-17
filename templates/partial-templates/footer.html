@@ -1,9 +1,9 @@
-<div class="container wrap">
+<div class="container-fluid page-footer"><div class="container wrap">
   {%for motto in random_motto%}
   <p><em>"{{motto.motto}}"</em></p>
   {%endfor%}
 </div>
-
+</div>
 <a href="{{url_for('add_recipe')}}">
 <span class="btn-group-lg" id="fab-button">
   <button type="button" class="btn btn-danger bmd-btn-fab">
