@@ -71,6 +71,11 @@ h3 {
   display: flow-root;
   width: 100vw;
 }
+
+.navbar-nav .nav-link {
+    font-family: "Comfortaa", cursive;
+    font-size: 1.2rem;
+}
 /* Side nav bar - adapted from https://colorlib.com/wp/bootstrap-sidebar/ */
 #wrapper .list-group-item {
   background-color: #fe5d26;
@@ -445,7 +450,11 @@ div .stats:last-of-type{
   padding: 10px 0 0;
   text-align: center;
 }
-
+.front-footer {
+text-align: center;
+background-color: #7EBC89;
+margin: 0;
+}
 .card .header {
   padding: 15px 20px;
   height: 90px;
