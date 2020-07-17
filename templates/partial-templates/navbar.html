@@ -1,9 +1,14 @@
 <div class="navbar navbar-expand-lg navbar-light navbar-orange fixed-top">
   <div class="float-left">
-    <a class="navbar-brand" href="#"
+    <a class="navbar-brand d-none d-md-block" href="{{url_for('home')}}"
       >{%for motto in random_motto%}
       <p><em>"{{motto.motto}}"</em></p>
       {%endfor%}</a
+    >
+    <a class="navbar-brand d-md-none" href="{{url_for('home')}}"
+      >
+      <p><em><i class="fas fa-utensils"></i></em></p>
+      </a
     >
   </div>
   <div class="float-right">
@@ -28,11 +33,11 @@
           >
         </li>
         {%else%}
-        <li class="nav-item">
+        <li class="nav-item nav-titles">
           <a class="nav-link" href="{{url_for('home')}}">Home </a>
         </li>
-        {%endif%} {%if title == "Search"%}
-        <li class="nav-item active">
+        {%endif%} {%if title == "Recipe Collection"%}
+        <li class="nav-item active nav-titles">
           <a class="nav-link" href="{{url_for('search')}}"
             >Recipes <span class="sr-only">(current)</span></a
           >
@@ -42,23 +47,7 @@
           <a class="nav-link" href="{{url_for('search')}}">Recipes</a>
         </li>
         {%endif%}
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            id="navbarDropdown"
-            role="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Account
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Register</a>
-            <a class="dropdown-item" href="#">Login</a>
-          </div>
-        </li>
+        
       </ul>
     </div>
   </div>
