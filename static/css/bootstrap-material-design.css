@@ -8384,7 +8384,7 @@ button:focus {
     .btn-group-raised .btn.btn-danger:hover,
     .btn-group-raised .btn-danger.custom-file-control:hover::before {
       color: #fff;
-      background-color: #f55549;
+      background-color: #FE5D26;
       border-color: #e11b0c; }
     .btn.bmd-btn-fab.btn-danger:focus, .bmd-btn-fab.btn-danger.custom-file-control:focus::before, .btn.bmd-btn-fab.btn-danger.focus, .bmd-btn-fab.btn-danger.focus.custom-file-control::before, .btn.btn-raised.btn-danger:focus, .btn-raised.btn-danger.custom-file-control:focus::before, .btn.btn-raised.btn-danger.focus, .btn-raised.btn-danger.focus.custom-file-control::before,
     .btn-group-raised .btn.btn-danger:focus,
@@ -8392,7 +8392,7 @@ button:focus {
     .btn-group-raised .btn.btn-danger.focus,
     .btn-group-raised .btn-danger.focus.custom-file-control::before {
       color: #fff;
-      background-color: #f55549;
+      background-color: #FE5D26;
       border-color: #e11b0c; }
     .btn.bmd-btn-fab.btn-danger:active, .bmd-btn-fab.btn-danger.custom-file-control:active::before, .btn.bmd-btn-fab.btn-danger.active, .bmd-btn-fab.btn-danger.active.custom-file-control::before,
     .open > .btn.bmd-btn-fab.btn-danger.dropdown-toggle,
@@ -8406,7 +8406,7 @@ button:focus {
     .open > .btn-group-raised .btn.btn-danger.dropdown-toggle,
     .open > .btn-group-raised .btn-danger.dropdown-toggle.custom-file-control::before {
       color: #fff;
-      background-color: #f55549;
+      background-color: #FE5D26;
       border-color: #e11b0c; }
       .btn.bmd-btn-fab.btn-danger:active:hover, .bmd-btn-fab.btn-danger.custom-file-control:active:hover::before, .btn.bmd-btn-fab.btn-danger:active:focus, .bmd-btn-fab.btn-danger.custom-file-control:active:focus::before, .btn.bmd-btn-fab.btn-danger:active.focus, .bmd-btn-fab.btn-danger.custom-file-control:active.focus::before, .btn.bmd-btn-fab.btn-danger.active:hover, .bmd-btn-fab.btn-danger.active.custom-file-control:hover::before, .btn.bmd-btn-fab.btn-danger.active:focus, .bmd-btn-fab.btn-danger.active.custom-file-control:focus::before, .btn.bmd-btn-fab.btn-danger.active.focus, .bmd-btn-fab.btn-danger.active.focus.custom-file-control::before,
       .open > .btn.bmd-btn-fab.btn-danger.dropdown-toggle:hover,
@@ -8440,13 +8440,13 @@ button:focus {
       .open > .btn-group-raised .btn.btn-danger.dropdown-toggle.focus,
       .open > .btn-group-raised .btn-danger.dropdown-toggle.focus.custom-file-control::before {
         color: #fff;
-        background-color: #f55549;
+        background-color: #FE5D26;
         border-color: #a21309; }
     .open > .btn.bmd-btn-fab.btn-danger.dropdown-toggle.bmd-btn-icon, .open > .bmd-btn-fab.btn-danger.dropdown-toggle.bmd-btn-icon.custom-file-control::before, .open > .btn.btn-raised.btn-danger.dropdown-toggle.bmd-btn-icon, .open > .btn-raised.btn-danger.dropdown-toggle.bmd-btn-icon.custom-file-control::before, .open > .btn-group-raised .btn.btn-danger.dropdown-toggle.bmd-btn-icon, .open > .btn-group-raised .btn-danger.dropdown-toggle.bmd-btn-icon.custom-file-control::before {
       color: inherit;
       background-color: #903339; }
       .open > .btn.bmd-btn-fab.btn-danger.dropdown-toggle.bmd-btn-icon:hover, .open > .bmd-btn-fab.btn-danger.dropdown-toggle.bmd-btn-icon.custom-file-control:hover::before, .open > .btn.btn-raised.btn-danger.dropdown-toggle.bmd-btn-icon:hover, .open > .btn-raised.btn-danger.dropdown-toggle.bmd-btn-icon.custom-file-control:hover::before, .open > .btn-group-raised .btn.btn-danger.dropdown-toggle.bmd-btn-icon:hover, .open > .btn-group-raised .btn-danger.dropdown-toggle.bmd-btn-icon.custom-file-control:hover::before {
-        background-color: #f55549; }
+        background-color: #FE5D26; }
     .btn.bmd-btn-fab.btn-danger.disabled:focus, .bmd-btn-fab.btn-danger.disabled.custom-file-control:focus::before, .btn.bmd-btn-fab.btn-danger.disabled.focus, .bmd-btn-fab.btn-danger.disabled.focus.custom-file-control::before, .btn.bmd-btn-fab.btn-danger:disabled:focus, .bmd-btn-fab.btn-danger.custom-file-control:disabled:focus::before, .btn.bmd-btn-fab.btn-danger:disabled.focus, .bmd-btn-fab.btn-danger.custom-file-control:disabled.focus::before, .btn.btn-raised.btn-danger.disabled:focus, .btn-raised.btn-danger.disabled.custom-file-control:focus::before, .btn.btn-raised.btn-danger.disabled.focus, .btn-raised.btn-danger.disabled.focus.custom-file-control::before, .btn.btn-raised.btn-danger:disabled:focus, .btn-raised.btn-danger.custom-file-control:disabled:focus::before, .btn.btn-raised.btn-danger:disabled.focus, .btn-raised.btn-danger.custom-file-control:disabled.focus::before,
     .btn-group-raised .btn.btn-danger.disabled:focus,
     .btn-group-raised .btn-danger.disabled.custom-file-control:focus::before,
