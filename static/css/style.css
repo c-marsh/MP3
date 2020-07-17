@@ -1,6 +1,6 @@
 /*Global*/
 body {
-    background-color: #FAEDCA;
+  background-color: #faedca;
 }
 .heading,
 h1,
@@ -12,14 +12,15 @@ h6 {
   font-family: "Comfortaa", cursive;
   color: #903339;
 }
-.badge-secondary{
-    background-color: #f4ffe5;
-    color: #903339;
+.badge-secondary {
+  background-color: #f4ffe5;
+  color: #903339;
 }
 
-.badge-primary{
-    background-color: #ff8f54;
-    color: #903339;}
+.badge-primary {
+  background-color: #ff8f54;
+  color: #903339;
+}
 
 * {
   font-family: "Poiret One", cursive;
@@ -73,8 +74,8 @@ h3 {
 }
 
 .navbar-nav .nav-link {
-    font-family: "Comfortaa", cursive;
-    font-size: 1.2rem;
+  font-family: "Comfortaa", cursive;
+  font-size: 1.2rem;
 }
 /* Side nav bar - adapted from https://colorlib.com/wp/bootstrap-sidebar/ */
 #wrapper .list-group-item {
@@ -192,16 +193,31 @@ h3 {
   right: 20px;
   bottom: 20px;
 }
-
+/* Footer */
+.page-footer {
+  background-color: #f2c078;
+  margin: 0px;
+  height: 30px;
+}
+.page-footer .container p {
+  margin-bottom: 0px;
+  text-align: center;
+}
 /* --------------PAGES----------- */
-
+/* home page */
+.jumbotron {
+  margin-top: 6rem;
+  margin-left: 15px;
+  margin-right: 15px;
+  background-color: #f2c078;
+}
 ul.no-bullet {
   list-style-type: none;
 }
 
 /* Recipe page */
 .recipe-header {
-    border-bottom: #F2C078 solid;
+  border-bottom: #f2c078 solid;
 }
 
 #recipe-modify-btn {
@@ -209,7 +225,7 @@ ul.no-bullet {
 }
 
 .btn.bmd-btn-icon {
-    margin-top: 0.25rem; 
+  margin-top: 0.25rem;
 }
 
 .recipe-icon {
@@ -237,19 +253,19 @@ ul.no-bullet {
   margin: 0px 1px;
 }
 
-div .stats:last-of-type{
-    border-left: #F2C078 solid;
+div .stats:last-of-type {
+  border-left: #f2c078 solid;
 }
 
 .custom-border-left {
-  border-left: #F2C078 solid;
-  overflow-x:auto;
+  border-left: #f2c078 solid;
+  overflow-x: auto;
   height: 500px;
 }
-.custom-border-right{
-  border-right: #F2C078 solid;
-   overflow-x:auto;
-   height: 500px;
+.custom-border-right {
+  border-right: #f2c078 solid;
+  overflow-x: auto;
+  height: 500px;
 }
 .allergen-badges {
   padding-top: 2em;
@@ -257,46 +273,54 @@ div .stats:last-of-type{
 }
 
 .lead {
-    font-size: 1.75rem;
-    font-weight: 200;
-    font-style: oblique;
-    color: #c32500;
-} 
+  font-size: 1.75rem;
+  font-weight: 200;
+  font-style: oblique;
+  color: #c32500;
+}
 .badge-recipe-cuisine {
-    margin-top: 20px;
-    font-size: 150%;
+  margin-top: 20px;
+  font-size: 150%;
 }
 
-.badge-recipe-meal, .badge-recipe-spice{
-    margin-top: 20px;
-    font-size: 125%;
+.badge-recipe-meal,
+.badge-recipe-spice {
+  margin-top: 20px;
+  font-size: 125%;
 }
-.badge-recipe-diff{
-    margin-top: 20px;
-    font-size: 200%;
+.badge-recipe-diff {
+  margin-top: 20px;
+  font-size: 200%;
 }
 
-.badge-recipe-diet{
-    margin-top: 20px;
-    font-size: 100%;
+.badge-recipe-diet {
+  margin-top: 20px;
+  font-size: 100%;
 }
-.recipe-list-title{
-     font-size: 2rem;
- }
+.recipe-list-title {
+  font-size: 2rem;
+}
 .pointer {
-    cursor: pointer;
+  cursor: pointer;
 }
- .ingredient, .method-step {
-     font-size: 1.5rem;
-     line-height: 2rem;
-     color: #c32500;
- }
- .ingredient, .recipe-list-title-ingredient {
-     text-align: end;
- }
+.ingredient,
+.method-step {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: #c32500;
+}
+.ingredient,
+.recipe-list-title-ingredient {
+  text-align: end;
+}
 /* -----search page----- */
 #search {
   font-size: 2rem;
+}
+
+/* error pages */
+.btn.btn-primary.error-btn {
+    color: #903339;
 }
 
 /*----------------Cards------------*/
@@ -354,7 +378,7 @@ div .stats:last-of-type{
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #C1DBB3;
+  background-color: #c1dbb3;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.14);
 }
 
@@ -380,7 +404,7 @@ div .stats:last-of-type{
 /*        Style       */
 
 .card {
-  background: none repeat scroll 0 0 #C1DBB3;
+  background: none repeat scroll 0 0 #c1dbb3;
   border-radius: 4px;
   color: #444444;
 }
@@ -409,7 +433,7 @@ div .stats:last-of-type{
   width: 120px;
 }
 .card .user img {
-  background: none repeat scroll 0 0 #C1DBB3;
+  background: none repeat scroll 0 0 #c1dbb3;
   height: 100%;
 }
 
@@ -439,21 +463,21 @@ div .stats:last-of-type{
   line-height: 20px;
 }
 .card .profession {
-  color: #7EBC89;
+  color: #7ebc89;
   text-align: center;
   margin-bottom: 20px;
 }
 .card .footer {
-  border-top: 1px solid #7EBC89;
+  border-top: 1px solid #7ebc89;
   color: #999999;
   margin: 30px 0 0;
   padding: 10px 0 0;
   text-align: center;
 }
 .front-footer {
-text-align: center;
-background-color: #7EBC89;
-margin: 0;
+  text-align: center;
+  background-color: #7ebc89;
+  margin: 0;
 }
 .card .header {
   padding: 15px 20px;
@@ -475,10 +499,10 @@ margin: 0;
 }
 
 .card .stats:first-child {
-  border-right: 1px solid #7EBC89;
+  border-right: 1px solid #7ebc89;
 }
 .card .stats:last-child {
-  border-left: 1px solid #7EBC89;
+  border-left: 1px solid #7ebc89;
 }
 .card .stats h4 {
   font-weight: 300;
