@@ -83,7 +83,7 @@ def home():
     '''
     recipe = (
         [recipe for recipe in recipes_db.aggregate
-         ([{"$sample": {"size": 4}}])])
+         ([{"$sample": {"size": 6}}])])
     random_motto = (
         [motto for motto in mottos_db.aggregate
          ([{"$sample": {"size": 1}}])])
