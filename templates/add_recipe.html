@@ -54,7 +54,7 @@
             >
             {{ form.recipe_description(id="recipe_description", class="validate
             form-control", minlength="10", maxlength="150",
-            rows="5",render_kw={'required': True}) }}
+            rows="3",render_kw={'required': True}) }}
 
             <span class="bmd-help">Max 150 letters</span>
           </div>
@@ -229,9 +229,6 @@
 
       <!-- Submit/cancel buttons -->
       <div class="form-btns">
-        <a href="{{url_for('home')}}"
-          ><button class="btn btn-default">Cancel</button></a
-        >
         <button type="submit" name="action" class="btn btn-primary btn-raised">
           Submit
         </button>
