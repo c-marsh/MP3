@@ -371,7 +371,7 @@ def error_500(error):
     '''
     Returns 500 error (internal server error) page
     '''
-    return render_template('oops/oops-500.html', error=True,
+    return render_template('error-templates/oops-500.html', error=True,
                            title="Internal Server Error"), 500
 
 if __name__ == '__main__':
