@@ -1,4 +1,5 @@
 <!-- card layout from https://www.creative-tim.com/product/rotating-css-card -->
+<!-- data-category here features all searchable content -->
 <div
   class="card-container recipe-card"
   data-role="recipe"
@@ -25,16 +26,19 @@
         <img
           src="{{ url_for('static', filename='images/thumbs/')
         }}{{recipe.recipe_type}}.png"
-          alt="{{recipe.recipe_type}}"
+          alt="{{ recipe.recipe_type.replace('Meal.png', '').title() }} thumbnail"
         />
       </div>
       <div class="user bg-pan-right">
         <!-- displays the recipe image in the round  -->
-        {%if recipe.image == ""%}
+        {%if recipe.image == ""%} <img class="img-circle"
+        src="{{url_for('static',filename='images/default/default-recipe.jpg')}}
+        alt="spices and ingredients"" /> {%else%}
         <img
           class="img-circle"
-          src="{{url_for('static',filename='images/default/default-recipe.jpg')}}"
-        />{%else%} <img class="img-circle" src="{{recipe.image}}" />{%endif%}
+          src="{{recipe.image}}"
+          alt="{{ recipe.recipe_title }}"
+        />{%endif%}
       </div>
       <div class="content">
         <div class="main">
@@ -55,10 +59,10 @@
         </div>
       </div>
       <div class="front-footer justify-content-center">
-        <p 
-          >{{recipe.recipe_cuisine.replace("Cuisine", "").replace("_", " ").title()
-          }} </p
-        >
+        <p>
+          {{recipe.recipe_cuisine.replace("Cuisine", "").replace("_", "
+          ").title() }}
+        </p>
       </div>
     </div>
     <!-- end front panel -->
@@ -96,4 +100,3 @@
 <!-- end card -->
 
 <!-- end card-container -->
-
