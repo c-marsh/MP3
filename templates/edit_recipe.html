@@ -6,14 +6,8 @@
 			<div class="fields">
 				<div class="form-row align-items-center">
 					<div class="form-group col-8">
-						<label for="recipe_title" class="bmd-label-floating"
-              >Title<span class="align-top muted asterisk">*</span></label>
-
-						{{ form.recipe_title(id="recipe_title", class="validate
-            form-control", minlength="3", maxlength="30",
-            render_kw={'autofocus': True}, value=recipe.recipe_title
-            ,render_kw={'required': True}) }}
-
+						<label for="recipe_title" class="bmd-label-floating">Title<span class="align-top muted asterisk">*</span></label>
+						{{ form.recipe_title(id="recipe_title", class="validate, form-control", minlength="3", maxlength="30", render_kw={'autofocus': True}, value=recipe.recipe_title, render_kw={'required': True}) }}
 						<span class="bmd-help">Max 30 letters</span>
 					</div>
 					<div class="form-group col-4">
@@ -112,8 +106,7 @@
 							<div class="form-check">
 								<input type="radio" name="cuisine" class="custom-control-input"
                 id="{{each.cuisine}}Cuisine" value="{{each.cuisine}}Cuisine"
-                {%if recipe.recipe_cuisine.replace("Cuisine", "") ==
-                each.cuisine %} checked {%endif%} />
+                {%if recipe.recipe_cuisine.replace("Cuisine", "") == each.cuisine %} checked {%endif%} />
 								<label
                   class="custom-control-label"
                   for="{{each.cuisine}}Cuisine"
@@ -200,9 +193,10 @@
 
 						<li>
 							<div class="custom-control form-check">
-								<input type="checkbox" name="{{key}}Allergy"
+								<input type="checkbox"
+                                name="{{key}}Allergy"
                 class="custom-control-input" id="{{key}}Allergy" {%if value ==
-                "on" %} checked {%endif%} />
+                "on" %} checked {%endif%}/>
 								<label class="custom-control-label" for="{{key}}Allergy"
                   >{{key.replace("_", " ").title()}}</label>
 							</div>
@@ -211,17 +205,19 @@
 					</ul>
 				</div>
 				<div class="form-btns">
+					<div class="form-btns">
+						<a href="{{url_for('home')}}" <button><button class="btn btn-default">Cancel</button></a>
 
-					<button
+						<button
             type="submit"
             name="action"
             class="btn btn-primary btn-raised"
           >
             Submit
           </button>
+					</div>
 				</div>
 			</div>
-		</div>
 	</form>
 </div>
 {% endblock %}
