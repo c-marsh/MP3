@@ -219,7 +219,7 @@ def insert_recipe():
             "recipe_difficulty": request.form.get("difficulty"),
             "recipe_allergens": allergens,
             "image": request.form.get("image"),
-            "default": "1"
+            "default": None
         }
     insert_recipe_intoDB = recipes_db.insert_one(new_recipe)
     flash("This recipe has been added!")
