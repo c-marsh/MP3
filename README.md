@@ -32,19 +32,19 @@ The cards were too small to show full titles at 4 on a screen, and to keep them 
 <details>
   <summary>Click to view final screenshot (mobile)!</summary>
 
-![Imgur]
+![Imgur](https://i.imgur.com/aCZupTBm.png)
 
 </details>
 <details>
   <summary>Click to view final screenshot (tablet)!</summary>
 
-![Imgur]
+![Imgur](https://i.imgur.com/XPOmLZRm.png)
 
 </details>
 <details>
   <summary>Click to view final screenshot (desktop)!</summary>
 
-![Imgur]
+![Imgur](https://i.imgur.com/6EubZpHm.png)
 
 </details>
 
@@ -53,28 +53,37 @@ A search box was considered to be easier than having a large checkbox system whi
 <details>
   <summary>Click to view original wireframe!</summary>
 
-
 ![Imgur](https://i.imgur.com/UGtSLXA.png)
 </details>
 
 <details>
   <summary>Click to view final screenshot (mobile)!</summary>
 
-![Imgur]
+![Imgur](https://i.imgur.com/EHJOuXZm.png)
 
 </details>
 
 <details>
   <summary>Click to view final screenshot (tablet)!</summary>
 
-![Imgur]
+![Imgur](https://i.imgur.com/HxCd5Hwm.png)
 
 </details>
 
 <details>
-  <summary>Click to view final screenshot (desktop)!</summary>
+  <summary>Click to view final screenshot (including flipped back of card) (desktop)!</summary>
 
-![Imgur]
+![Imgur](https://i.imgur.com/z7bjXbAm.png)
+
+</details>
+
+#### Features
+The search box acts as a live filter using JS to search the title, description, cuisine, difficulty or diet. As it's just a keyword search, it isn't useful to filter out allergens, however this could be implemented easily using a checkbox and javascript filter.
+
+<details>
+  <summary>See it in action</summary>
+
+[Imgur](https://i.imgur.com/0WOc5nH.gif)
 
 </details>
 
@@ -89,23 +98,30 @@ The layout has changed as it seemed more intuitive to be adding a title and deta
 <details>
   <summary>Click to view final screenshot (mobile)!</summary>
 
-![Imgur]
+![Imgur](https://i.imgur.com/Z2GYfDpm.png)
+![Imgur](https://i.imgur.com/pbeYr0Ym.png)
 
 </details>
 
 <details>
   <summary>Click to view final screenshot (tablet)!</summary>
 
-![Imgur]
+![Imgur](https://i.imgur.com/mqZoXmam.png)
 
 </details>
 
 <details>
   <summary>Click to view final screenshot (desktop)!</summary>
 
-![Imgur]
+![Imgur](https://i.imgur.com/9CXlEotm.png)
+![Imgur](https://i.imgur.com/9GgOyk3m.png)
 
 </details>
+
+#### Features
+The form fields require a minimum level of server side validation, to ensure consistency on what is being entered in to the database. Feedback is provided to the user about this, with the commonly used asterisks marking required fields, instructional information below the fields, and tooltips with guidance on attempted submission of illegal data.
+
+While a cancel button was initially provided on the add page, [arguments](https://www.nngroup.com/articles/reset-and-cancel-buttons/) exist about their redundancy in forms, and that they can cause confusion and do not provide useful user information on what they will actually do. In lieu, the navigation menu is available. The cancel button is still provide for edit page, as users may wish to abandon an edit they're making.
 
 ### Recipe Page
 This has to have a design which could handle vastly different amounts of data. As a result, the final page opted for scroll windows for the ingredients and method section, allowing for any amount of text overflow without impacting the design. For mobile views, where the whole page is displayed as in sequence, instead of in columns, this feature is deemed redundant and disabled.
@@ -119,21 +135,53 @@ This has to have a design which could handle vastly different amounts of data. A
 <details>
   <summary>Click to view final screenshot (mobile)!</summary>
 
-![Imgur]
+![Imgur](https://i.imgur.com/L4AF3U4m.png)
+![Imgur](https://i.imgur.com/DFIWSAsm.png)
+![Imgur](https://i.imgur.com/nCtCEoBm.png)
+![Imgur](https://i.imgur.com/9Xc0rvsm.png)
+
 
 </details>
 
 <details>
   <summary>Click to view final screenshot (tablet)!</summary>
 
-![Imgur]
-
+![Imgur](https://i.imgur.com/xCYBHQ3m.png)
+![Imgur](https://i.imgur.com/hwtMY30m.png)
 </details>
 
 <details>
   <summary>Click to view final screenshot (desktop)!</summary>
 
-![Imgur]
+![Imgur](https://i.imgur.com/RvStA2wm.png)
+
+</details>
+
+#### Features
+
+<details>
+  <summary>Click for example of method/ingredient scrolls which have been implemented to standardise page looks no matter how much content</summary>
+
+![Imgur](https://i.imgur.com/7JCVJe1m.gif)
+
+</details>
+
+<details>
+  <summary>Click for example of allergen index in action. This is to show a key for the allergens.</summary>
+
+![Imgur](https://i.imgur.com/Gz1ZlXTm.gif)
+
+</details>
+<details>
+  <summary>Click for example of edit/delete menu</summary>
+
+![Imgur](https://i.imgur.com/0XHXH11m.png)
+
+</details>
+
+<summary>Click for example of a recipe card in action</summary>
+
+![Imgur](https://i.imgur.com/hNMh6yH.gifv)
 
 </details>
 
@@ -144,6 +192,7 @@ The site sticks to a visual design based around a set colour scheme
   <summary>Click to see design concepts!</summary>
 
 ![Imgur](https://i.imgur.com/AoPG2R5.png)
+
 </details>
 
 ## Under the Hood
@@ -162,6 +211,7 @@ The technologies used to build this website are:
   * Werkzeug==1.0.1
   * WTForms==2.3.1
 - Jinja2
+
 ### Database design
 The site uses a no-SQL database
 
@@ -202,7 +252,24 @@ A screenshot of filenames for comparison</summary>
 
 </details>
 
+### Future Development
+The website also uses partial templates for the recipe cards, nav bars and footers to make the website easy to modify as it scales in size. The use of templates for recipes means that the number of entries can be unlimited, and while currently there is no user registration, this could be implemented in the next sprint.
 
+# Testing
+## Validation and Compliance
+Validator results
+
+## Data Validation
+CRUD features
+
+## Manual Testing
+Browser compatibility
+Responsiveness
+Defensive Design
+
+# Deployment
+
+# Credits and Attribution
 Resources
 Fonts - https://fonts.google.com/
 Allergy Icons - https://erudus.com/standardised-food-allergy-icons/
