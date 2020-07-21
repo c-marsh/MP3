@@ -79,7 +79,7 @@ HOME PAGE
 @ app.route('/home')
 def home():
     '''
-    Main home page.
+    Routes to main home page.
     '''
     recipe = (
         [recipe for recipe in recipes_db.aggregate
@@ -90,7 +90,7 @@ def home():
     return render_template(
         'home.html',
         recipe=recipe,
-        title='Home',
+        title='Welcome Page',
         random_motto=random_motto, allergens=allergens_db)
 
 
@@ -116,24 +116,6 @@ def search():
         difficulty=difficulty_db.find(),
         allergens=allergens_db.find(),
         random_motto=random_motto)
-
-
-'''
-COLLECTIONS
-'''
-
-
-@ app.route('/fish')
-def diets():
-    # this works
-    random_motto = (
-        [motto for motto in mottos_db.aggregate
-         ([{"$sample": {"size": 1}}])])
-    recipe = recipes_db.find({"recipe_allergens.fish": None})
-    return render_template("search.html",
-                           title='Fish free directory',
-                           recipe=recipe,
-                           random_motto=random_motto)
 
 
 '''
@@ -237,7 +219,7 @@ def insert_recipe():
             "recipe_difficulty": request.form.get("difficulty"),
             "recipe_allergens": allergens,
             "image": request.form.get("image"),
-            "default": None
+            "default": "1"
         }
     insert_recipe_intoDB = recipes_db.insert_one(new_recipe)
     flash("This recipe has been added!")
@@ -245,7 +227,6 @@ def insert_recipe():
     return redirect(url_for(
         "recipe",
         recipe_id=insert_recipe_intoDB.inserted_id))
-
 
 
 '''
@@ -331,8 +312,8 @@ def update_recipe(recipe_id):
         })
         flash("This recipe has been updated!")
         return redirect(url_for(
-        "recipe",
-        recipe_id=recipe_id))
+            "recipe",
+            recipe_id=recipe_id))
 
 
 '''
@@ -351,6 +332,7 @@ def delete_recipe(recipe_id):
 def cannot_delete_recipe(recipe_id):
     flash("This recipe is a default recipe and cannot be deleted")
     return redirect(url_for("home"))
+
 
 '''
 ERROR HANDLERS
@@ -373,6 +355,7 @@ def error_500(error):
     '''
     return render_template('error-templates/oops-500.html', error=True,
                            title="Internal Server Error"), 500
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
