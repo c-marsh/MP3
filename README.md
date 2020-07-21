@@ -32,19 +32,19 @@ The cards were too small to show full titles at 4 on a screen, and to keep them 
 <details>
   <summary>Click to view final screenshot (mobile)!</summary>
 
-![Imgur](https://i.imgur.com/aCZupTBm.png)
+![Imgur](https://i.imgur.com/aCZupTB.png)
 
 </details>
 <details>
   <summary>Click to view final screenshot (tablet)!</summary>
 
-![Imgur](https://i.imgur.com/XPOmLZRm.png)
+![Imgur](https://i.imgur.com/XPOmLZR.png)
 
 </details>
 <details>
   <summary>Click to view final screenshot (desktop)!</summary>
 
-![Imgur](https://i.imgur.com/6EubZpHm.png)
+![Imgur](https://i.imgur.com/6EubZpH.png)
 
 </details>
 
@@ -59,21 +59,21 @@ A search box was considered to be easier than having a large checkbox system whi
 <details>
   <summary>Click to view final screenshot (mobile)!</summary>
 
-![Imgur](https://i.imgur.com/EHJOuXZm.png)
+![Imgur](https://i.imgur.com/EHJOuXZ.png)
 
 </details>
 
 <details>
   <summary>Click to view final screenshot (tablet)!</summary>
 
-![Imgur](https://i.imgur.com/HxCd5Hwm.png)
+![Imgur](https://i.imgur.com/HxCd5Hw.png)
 
 </details>
 
 <details>
   <summary>Click to view final screenshot (including flipped back of card) (desktop)!</summary>
 
-![Imgur](https://i.imgur.com/z7bjXbAm.png)
+![Imgur](https://i.imgur.com/z7bjXbA.png)
 
 </details>
 
@@ -98,23 +98,23 @@ The layout has changed as it seemed more intuitive to be adding a title and deta
 <details>
   <summary>Click to view final screenshot (mobile)!</summary>
 
-![Imgur](https://i.imgur.com/Z2GYfDpm.png)
-![Imgur](https://i.imgur.com/pbeYr0Ym.png)
+![Imgur](https://i.imgur.com/Z2GYfDp.png)
+![Imgur](https://i.imgur.com/pbeYr0Y.png)
 
 </details>
 
 <details>
   <summary>Click to view final screenshot (tablet)!</summary>
 
-![Imgur](https://i.imgur.com/mqZoXmam.png)
+![Imgur](https://i.imgur.com/mqZoXma.png)
 
 </details>
 
 <details>
   <summary>Click to view final screenshot (desktop)!</summary>
 
-![Imgur](https://i.imgur.com/9CXlEotm.png)
-![Imgur](https://i.imgur.com/9GgOyk3m.png)
+![Imgur](https://i.imgur.com/9CXlEot.png)
+![Imgur](https://i.imgur.com/9GgOyk3.png)
 
 </details>
 
@@ -135,10 +135,10 @@ This has to have a design which could handle vastly different amounts of data. A
 <details>
   <summary>Click to view final screenshot (mobile)!</summary>
 
-![Imgur](https://i.imgur.com/L4AF3U4m.png)
-![Imgur](https://i.imgur.com/DFIWSAsm.png)
-![Imgur](https://i.imgur.com/nCtCEoBm.png)
-![Imgur](https://i.imgur.com/9Xc0rvsm.png)
+![Imgur](https://i.imgur.com/L4AF3U4.png)
+![Imgur](https://i.imgur.com/DFIWSAs.png)
+![Imgur](https://i.imgur.com/nCtCEoB.png)
+![Imgur](https://i.imgur.com/9Xc0rvs.png)
 
 
 </details>
@@ -146,14 +146,14 @@ This has to have a design which could handle vastly different amounts of data. A
 <details>
   <summary>Click to view final screenshot (tablet)!</summary>
 
-![Imgur](https://i.imgur.com/xCYBHQ3m.png)
-![Imgur](https://i.imgur.com/hwtMY30m.png)
+![Imgur](https://i.imgur.com/xCYBHQ3.png)
+![Imgur](https://i.imgur.com/hwtMY30.png)
 </details>
 
 <details>
   <summary>Click to view final screenshot (desktop)!</summary>
 
-![Imgur](https://i.imgur.com/RvStA2wm.png)
+![Imgur](https://i.imgur.com/RvStA2w.png)
 
 </details>
 
@@ -175,7 +175,7 @@ This has to have a design which could handle vastly different amounts of data. A
 <details>
   <summary>Click for example of edit/delete menu</summary>
 
-![Imgur](https://i.imgur.com/0XHXH11m.png)
+![Imgur](https://i.imgur.com/0XHXH11.png)
 
 </details>
 
