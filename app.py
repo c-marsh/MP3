@@ -183,8 +183,8 @@ def insert_recipe():
         "none": request.form.get("noneDiet"),
         "vegatarian": request.form.get("vegetarianDiet"),
         "kosher": request.form.get("kosherDiet"),
-        "gluten": request.form.get("gluten freeDiet"),
-        "lacto": request.form.get("lacto freeDiet")}
+        "gluten": request.form.get("gluten_freeDiet"),
+        "lacto": request.form.get("lacto_freeDiet")}
 
     allergens = {
         "celery": request.form.get("celeryAllergy"),
