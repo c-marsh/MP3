@@ -30,7 +30,7 @@
         />
       </div>
       <div class="user">
-        <!-- displays the recipe image in the round  -->
+        <!-- displays the recipe image in the round, or the default image if none provided -->
         {%if recipe.image == ""%} <img class="img-circle"
         src="{{url_for('static',filename='images/default/default-recipe.jpg')}}
         alt="spices and ingredients"" /> {%else%}
@@ -46,10 +46,12 @@
             <span class="badge badge-pill badge-secondary"
               >{{ recipe.recipe_type.replace("Meal", "").title() }}</span
             >
+            <!-- display no pill if no content -->
             {%if recipe.recipe_spice == None %}{%else%}
             <span class="badge badge-pill badge-secondary"
               >{{ recipe.recipe_spice.replace("Spice", "").title() }}</span
             >
+            <!-- display no pill if no content -->
             {%endif%} {%if recipe.recipe_difficulty == None %}{%else%}
             <span class="badge badge-pill badge-secondary"
               >{{ recipe.recipe_difficulty.replace("Diff", "").title() }}</span

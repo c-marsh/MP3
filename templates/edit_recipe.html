@@ -74,7 +74,7 @@
         <div class="form-group col-12">
           <label for="recipe_ingredients" class="bmd-label-floating"
             >Ingredients<span class="align-top muted asterisk">*</span></label
-          >
+          ><!-- Remove extra whitespace possibly added by line splitting -->
           <textarea
             class="form-control"
             id="recipe_ingredients"
@@ -95,6 +95,7 @@
           <label for="recipe_method" class="bmd-label-floating"
             >Method<span class="align-top muted asterisk">*</span></label
           >
+          <!-- Remove extra whitespace possibly added by line splitting -->
           <textarea
             class="form-control"
             id="recipe_method"
@@ -102,6 +103,8 @@
             required
             rows="10"
           >
+                    
+
 {% for method in recipe.recipe_method -%}
 {{method}}
 {% endfor -%}
@@ -114,7 +117,7 @@
       <div class="col-4">
         <h3>Cuisine</h3>
         <ul id="cuisine-list" class="list-unstyled no-bullet">
-          <!-- loop through all cuisines  -->
+          <!-- loop through all cuisines and generate a checkbox which is pre checked based on the database record  -->
           {% for each in cuisines %}
 
           <li class="">
@@ -135,6 +138,8 @@
       <div class="col-4">
         <h3>Spice</h3>
         <ul class="list-unstyled no-bullet">
+          <!-- loop through all spices and generate a checkbox which is pre checked based on the database record  -->
+
           {% for each in spice %}
           <li>
             <div class="custom-control form-check">
@@ -153,6 +158,8 @@
 
         <h3>Diet</h3>
         <ul class="list-unstyled no-bullet">
+          <!-- loop through all Diet and generate a checkbox which is pre checked based on the database record using the key and value in the object -->
+
           {% for key, value in recipe.recipe_diet.items() %}
           <li>
             <div class="custom-control form-check">
@@ -170,6 +177,8 @@
         <h3>Type</h3>
         <ul class="list-unstyled no-bullet">
           {% for each in type %}
+          <!-- loop through all spices and generate a checkbox which is pre checked based on the database record  -->
+
           <li>
             <div class="custom-control form-check">
               <input type="radio" name="meal" class="custom-control-input"
@@ -188,6 +197,8 @@
       <div class="col-4">
         <h3>Difficulty</h3>
         <ul class="list-unstyled no-bullet">
+          <!-- loop through all difficulty and generate a checkbox which is pre checked based on the database record  -->
+
           {% for each in difficulty %}
           <li>
             <div class="custom-control form-check">
@@ -206,6 +217,8 @@
 
         <h3>Allergen</h3>
         <ul class="list-unstyled no-bullet">
+          <!-- loop through all allergens and generate a checkbox which is pre checked based on the database record using the key and value in the object -->
+
           {% for key, value in recipe.recipe_allergens.items() %}
 
           <li>
@@ -223,8 +236,11 @@
       </div>
       <div class="form-btns">
         <div class="form-btns">
-          <a href="{{url_for('home')}}" <button
-            ><button class="btn btn-default">Cancel</button></a
+          <a
+            href="{{url_for(
+            'home')}}"
+            <button
+            ><button class="btn btn-default" type="button">Cancel</button></a
           >
 
           <button
