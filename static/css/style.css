@@ -57,7 +57,7 @@ h3 {
 }
 
 #container {
-  margin-top: 5em;
+  margin-top: 70px;
   margin-left: 50px;
 }
 
@@ -339,7 +339,7 @@ text-align: left;
   .custom-border-right {
     border-right: #f2c078 solid;
     overflow-x: auto;
-    height: 80vh;
+    max-height: 80vh;
   }
 }
 
@@ -348,12 +348,14 @@ text-align: left;
   .custom-border-left {
     border-left: #f2c078 solid;
     overflow-x: auto;
-    height: 500px;
+    min-height: 65vh;
+    max-height: 90vh;
   }
   .custom-border-right {
     border-right: #f2c078 solid;
     overflow-x: auto;
-    height: 500px;
+    min-height: 65vh;
+    max-height: 90vh;
   }
   .ingredient,
 .recipe-list-title-ingredient {
@@ -561,4 +563,9 @@ text-align: left;
 }
 .card .stats p {
   color: #903339;
+}
+
+/* Keep footer from floating up */
+main#container {
+    min-height: 90vh;
 }
