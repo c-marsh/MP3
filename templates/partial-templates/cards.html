@@ -29,7 +29,7 @@
           alt="{{ recipe.recipe_type.replace('Meal.png', '').title() }} thumbnail"
         />
       </div>
-      <div class="user bg-pan-right">
+      <div class="user">
         <!-- displays the recipe image in the round  -->
         {%if recipe.image == ""%} <img class="img-circle"
         src="{{url_for('static',filename='images/default/default-recipe.jpg')}}
