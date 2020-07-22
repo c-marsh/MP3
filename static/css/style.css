@@ -195,13 +195,17 @@ h3 {
   right: 20px;
   bottom: 20px;
 }
+
+.material-icons-fab {
+  margin-top: 15px;
+}
 /* Footer */
 .page-footer {
   background-color: #f2c078;
   margin: 0px;
   position: sticky;
-   left: 0;
-   bottom: 0;
+  left: 0;
+  bottom: 0;
 }
 .page-footer .container p {
   margin-bottom: 0px;
@@ -209,7 +213,7 @@ h3 {
 }
 
 .footer-margin {
-    margin-left: 50px;
+  margin-left: 50px;
 }
 /* --------------PAGES----------- */
 /* home page */
@@ -320,21 +324,21 @@ div .stats:last-of-type {
 
 /* Media breakpoints */
 @media only screen and (min-width: 576px) {
-    .custom-border-left {
+  .custom-border-left {
     border-left: #f2c078;
   }
-  .recipe-list-title, .ingredient-list {
-      text-align: left;
+  .recipe-list-title,
+  .ingredient-list {
+    text-align: left;
   }
   .custom-border-right {
     border-right: #f2c078;
-text-align: left;
+    text-align: left;
   }
 }
 
 @media only screen and (min-width: 768px) {
-    .custom-border-left {
-
+  .custom-border-left {
   }
   .custom-border-right {
     border-right: #f2c078 solid;
@@ -343,8 +347,7 @@ text-align: left;
   }
 }
 
-@media only screen and (min-width: 992px){
-
+@media only screen and (min-width: 992px) {
   .custom-border-left {
     border-left: #f2c078 solid;
     overflow-x: auto;
@@ -358,9 +361,9 @@ text-align: left;
     max-height: 90vh;
   }
   .ingredient,
-.recipe-list-title-ingredient {
-  text-align: end;
-}
+  .recipe-list-title-ingredient {
+    text-align: end;
+  }
 }
 
 /* -----search page----- */
@@ -567,5 +570,6 @@ text-align: left;
 
 /* Keep footer from floating up */
 main#container {
-    min-height: 90vh;
+  min-height: 90vh;
 }
+
