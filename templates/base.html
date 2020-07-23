@@ -23,11 +23,13 @@
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
 	</script>
     
-    <!-- show the recipe name as title if the page is a recipe page -->
-    {%if title != "Recipe"%}
+    <!-- show the recipe name as title if the page is a recipe page or it's edit page -->
+    {%if title != "Recipe" and title != "Edit Recipe"%}
 	<title>{{title}}</title>
-    {% else %}
+    {% elif title != "Edit Recipe" %}
     <title>{{recipe.recipe_title}}</title>
+    {% else %}
+    <title>Edit {{recipe.recipe_title}}</title>
     {%endif%}
 </head>
 
