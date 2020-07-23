@@ -12,7 +12,7 @@
 
             {{ form.recipe_title(id="recipe_title", class="validate
             form-control", minlength="3", maxlength="30",
-            render_kw={'autofocus': True}, render_kw={'required': True}) }}
+            render_kw={'autofocus': True}) }}
 
             <span class="bmd-help">Max 30 letters</span>
           </div>
@@ -21,8 +21,8 @@
               >Prep Time<span class="align-top muted asterisk">*</span></label
             >
 
-            {{ form.recipe_prep(id="recipe_prep", class="validate form-control",
-            render_kw={'required': True}) }}
+            {{ form.recipe_prep(id="recipe_prep", class="validate form-control"
+            }}
 
             <span class="bmd-help">In minutes</span>
           </div>
@@ -41,7 +41,7 @@
               >Servings<span class="align-top muted asterisk">*</span></label
             >
             {{ form.recipe_servings(id="recipe_servings", class="validate
-            form-control", render_kw={'required': True})}}
+            form-control")}}
 
             <span class="bmd-help">Full number only</span>
           </div>
@@ -53,8 +53,7 @@
               >Description<span class="align-top muted asterisk">*</span></label
             >
             {{ form.recipe_description(id="recipe_description", class="validate
-            form-control", minlength="10", maxlength="150",
-            rows="3",render_kw={'required': True}) }}
+            form-control", minlength="10", maxlength="150", rows="3") }}
 
             <span class="bmd-help">Max 150 letters</span>
           </div>
@@ -65,8 +64,7 @@
             <label for="recipe_ingredients" class="bmd-label-floating"
               >Ingredients<span class="align-top muted asterisk">*</span></label
             >{{ form.recipe_ingredients(id="recipe_ingredients", class="validate
-            form-control", minlength="10", rows="10",
-            render_kw={'required': True}) }}
+            form-control", minlength="10", rows="10" ) }}
 
             <span class="bmd-help">Use a new line for each ingredient</span>
           </div>
@@ -78,8 +76,7 @@
               >Method<span class="align-top muted asterisk">*</span></label
             >
             {{ form.recipe_method(id="recipe_method", class="validate
-            form-control", minlength="10", rows="10",
-            render_kw={'required': True}) }}
+            form-control", minlength="10", rows="10" ) }}
 
             <span class="bmd-help">Use a new line for each step</span>
           </div>
