@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 /*Global*/
 body {
   background-color: #faedca;
@@ -87,6 +94,8 @@ h3 {
 
 #wrapper {
   padding-left: 50px;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
 #wrapper.toggled {
@@ -103,6 +112,8 @@ h3 {
   overflow-y: auto;
   background: #fe5d26;
   padding-top: 15px;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
 #wrapper.toggled #sidebar-wrapper {
@@ -203,6 +214,7 @@ h3 {
 .page-footer {
   background-color: #f2c078;
   margin: 0px;
+  position: -webkit-sticky;
   position: sticky;
   left: 0;
   bottom: 0;
@@ -386,7 +398,6 @@ div .stats:last-of-type {
 /* entire container, keeps perspective */
 .card-container {
   -webkit-perspective: 800px;
-  -moz-perspective: 800px;
   -o-perspective: 800px;
   perspective: 800px;
   margin-bottom: 30px;
@@ -395,27 +406,24 @@ div .stats:last-of-type {
 .card-container:not(.manual-flip):hover .card,
 .card-container.hover.manual-flip .card {
   -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
-  -o-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
 
 .card-container.static:hover .card,
 .card-container.static.hover .card {
   -webkit-transform: none;
-  -moz-transform: none;
-  -o-transform: none;
-  transform: none;
+  -ms-transform: none;
+      transform: none;
 }
 /* flip speed goes here */
 .card {
   -webkit-transition: -webkit-transform 0.5s;
-  -moz-transition: -moz-transform 0.5s;
   -o-transition: -o-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  -o-transition: transform 0.5s;
   transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
   -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -o-transform-style: preserve-3d;
   transform-style: preserve-3d;
   position: relative;
   font-size: 1rem;
@@ -425,14 +433,13 @@ div .stats:last-of-type {
 .front,
 .back {
   -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  -o-backface-visibility: hidden;
   backface-visibility: hidden;
   position: absolute;
   top: 0;
   left: 0;
   background-color: #c1dbb3;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.14);
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.14);
+          box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.14);
 }
 
 /* front pane, placed above back */
@@ -443,8 +450,6 @@ div .stats:last-of-type {
 /* back, initially hidden pane */
 .back {
   -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
-  -o-transform: rotateY(180deg);
   transform: rotateY(180deg);
   z-index: 3;
 }
@@ -492,7 +497,8 @@ div .stats:last-of-type {
 
 .card .content {
   background-color: rgba(0, 0, 0, 0);
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   padding: 10px 20px 20px;
 }
 .card .back .content .main {
@@ -572,4 +578,3 @@ div .stats:last-of-type {
 main#container {
   min-height: 90vh;
 }
-
