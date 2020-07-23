@@ -192,7 +192,7 @@ h3 {
 }
 
 /* allergen icons */
-.icon-image {
+img .icon-image, .icon-image img, .icon-image {
   width: 25px;
   height: 25px;
   margin-right: 2em;
