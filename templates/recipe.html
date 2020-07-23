@@ -9,7 +9,6 @@
           class="recipe-image"
           src="{{url_for('static',filename='images/default/default-recipe.jpg')}}"
           alt="image of ingredients"
-          srcset=""
         />
         {% else %}
         <img
@@ -18,7 +17,7 @@
 recipe.image
 }}"
           alt="{{ recipe.recipe_title }}"
-          srcset=""
+
         />{% endif %}
       </div>
     </div>
