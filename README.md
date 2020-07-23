@@ -191,7 +191,6 @@ This has to have a design which could handle vastly different amounts of data. A
 
 </details>
 
-## Sea
 ## Other Features
 <details>
 <summary>Feedback messages are displayed below the Nav bar to confirm user actions such as adding, editing and deleting recipes.</summary>
@@ -625,43 +624,186 @@ This section shows general usability issues, indicating navigation problems for 
 #### Priority 2
 6 issues on 161 pages
 
+<details>
+  <summary>Underlined text provided as an unused Materialize class</summary>
 
-	Avoid underlined text - people will click on it and think it's a broken link.
-	Use something other than underlining for highlighting text, because it looks like a link, and users become frustrated when the "link" does not work.  http://cmh-cookbook.herokuapp.com/static/css/bootstrap-material-design.css line 90 2510 2513 4101  https://cmh-cookbook.herokuapp.com/static/css/bootstrap-material-design.css line 90 2510 2513 4101  
-	Guideline: Usability.gov 10:4  
-	Omitting img width or height attributes makes the page layout jump about as images load.
-	This makes the page very hard to read or click while it's loading. Fix by adding width and height attributes to the img tag matching the image dimensions. In responsive layouts, specifying width and height prevents layout jumping because the browser can pre-calculate the final image size when CSS like this is used: img {  max-width: 100%; height: auto }   https://cmh-cookbook.herokuapp.com/ line 71 74 77 80 83 ... https://cmh-cookbook.herokuapp.com/add_recipe line 178 188 198 208 218 ... https://cmh-cookbook.herokuapp.com/home line 433 445 647 659 854 ... https://cmh-cookbook.herokuapp.com/recipe/5f175cc247049df9349fe429 line 178 188 198 208  ... https://cmh-cookbook.herokuapp.com/recipe/5f175e9b47049df9349fe42c line 178 347  581 592 ... https://cmh-cookbook.herokuapp.com/recipe/5f175fb747049df9349fe42e line 178 188 198 347  ... https://cmh-cookbook.herokuapp.com/recipe/5f1760a247049df9349fe42f line 178 188 347  661 ... https://cmh-cookbook.herokuapp.com/recipe/5f17627947049df9349fe432 line 178 347  606 617 ... https://cmh-cookbook.herokuapp.com/recipe/5f17638547049df9349fe433 line 178 347  604 615 ... https://cmh-cookbook.herokuapp.com/recipe/5f17668347049df9349fe438 line 178 188 347  637 ... https://cmh-cookbook.herokuapp.com/recipe/5f1767dd47049df9349fe43a line 178 188 198 347  ... https://cmh-cookbook.herokuapp.com/recipe/5f176c5d6462b9d738c32cc0 line 178 188 198 347  ... https://cmh-cookbook.herokuapp.com/recipe/5f176d386462b9d738c32cc1 line 178 188 347  641 ... https://cmh-cookbook.herokuapp.com/recipe/5f176e8c6462b9d738c32cc3 line 178 188 198 347  ... https://cmh-cookbook.herokuapp.com/recipe/5f17711f6462b9d738c32cc6 line 178 188 347  619 ... https://cmh-cookbook.herokuapp.com/recipe/5f17722f6462b9d738c32cc8 line 178 347  653 664 ... https://cmh-cookbook.herokuapp.com/recipe/5f1777c36462b9d738c32ccf line 178 347  554 565 ... https://cmh-cookbook.herokuapp.com/recipe/5f1778946462b9d738c32cd1 line 178 188 198 208  ... https://cmh-cookbook.herokuapp.com/recipe/5f1779c06462b9d738c32cd3 line 178 188 198 347  ... https://cmh-cookbook.herokuapp.com/search line 466 478 679 691 885 ... 
-	Guideline: Usability.gov 14:3 W3C  
-	On long pages, provide a list of contents with links that take users to the corresponding content farther down the page.
-	For long pages with distinct sections, add a short, clickable list of sections at the top of the page. This provides a page outline, and allows users to quickly navigate to specific information.  http://cmh-cookbook.herokuapp.com/search line 1  https://cmh-cookbook.herokuapp.com/search line 1  
-	Guideline: Usability.gov 7:3  
-	Provide a search option on each page of content-rich web sites.
-	A search option should be provided on all pages where it may be useful - users should not have to return to the homepage to conduct a search. Search engines can be helpful on content-rich web sites, but do not add value on other types of sites.  https://cmh-cookbook.herokuapp.com/ line 1  https://cmh-cookbook.herokuapp.com/add_recipe line 1  https://cmh-cookbook.herokuapp.com/home line 1  https://cmh-cookbook.herokuapp.com/recipe/5f175cc247049df9349fe429 line 1  https://cmh-cookbook.herokuapp.com/recipe/5f175e9b47049df9349fe42c line 1  https://cmh-cookbook.herokuapp.com/recipe/5f175fb747049df9349fe42e line 1  https://cmh-cookbook.herokuapp.com/recipe/5f1760a247049df9349fe42f line 1  https://cmh-cookbook.herokuapp.com/recipe/5f17617147049df9349fe430 line 1  https://cmh-cookbook.herokuapp.com/recipe/5f17627947049df9349fe432 line 1  https://cmh-cookbook.herokuapp.com/recipe/5f17638547049df9349fe433 line 1  https://cmh-cookbook.herokuapp.com/recipe/5f17668347049df9349fe438 line 1  https://cmh-cookbook.herokuapp.com/recipe/5f1767dd47049df9349fe43a line 1  https://cmh-cookbook.herokuapp.com/recipe/5f176c5d6462b9d738c32cc0 line 1  https://cmh-cookbook.herokuapp.com/recipe/5f176d386462b9d738c32cc1 line 1  https://cmh-cookbook.herokuapp.com/recipe/5f176e8c6462b9d738c32cc3 line 1  https://cmh-cookbook.herokuapp.com/recipe/5f17711f6462b9d738c32cc6 line 1  https://cmh-cookbook.herokuapp.com/recipe/5f17722f6462b9d738c32cc8 line 1  https://cmh-cookbook.herokuapp.com/recipe/5f1777c36462b9d738c32ccf line 1  https://cmh-cookbook.herokuapp.com/recipe/5f1778946462b9d738c32cd1 line 1  https://cmh-cookbook.herokuapp.com/recipe/5f1779c06462b9d738c32cd3 line 1  
-	Guideline: Usability.gov 17:4  
-	This page title is not unique. Each page should have a descriptive and meaningfully different title.
-	Title refers to the text displayed on browser tabs, favorites, and in search engines results pages. If two or more pages have the same title, they cannot be differentiated by users or the Favorites capability of the browser.  ' Welcome Page' is also used on https://cmh-cookbook.herokuapp.com/  http://cmh-cookbook.herokuapp.com/home line 50  
-	Guideline: Usability.gov 9:2  
-	Use label elements for each data entry field to show what data is expected.
-	Make sure each input field has an associated label describing the field.  http://cmh-cookbook.herokuapp.com/search line 370  https://cmh-cookbook.herokuapp.com/search line 370  
-	Guideline: Usability.gov 13:5  
+>Avoid underlined text - people will click on it and think it's a broken link.
+>Use something other than underlining for highlighting text, because it looks like a link, and users become frustrated when the "link" does not work.
+>
+>http://cmh-cookbook.herokuapp.com/static/css/bootstrap-material-design.css line 90 2510 2513 4101 
+>
+>https://cmh-cookbook.herokuapp.com/static/css/bootstrap-material-design.css line 90 2510 2513 4101  
 
-Priority 3
+Guideline: [Usability.gov 10:4](https://guidelines.usability.gov/guidelines/95)
 
-1 issues on 15 pages
+</details>
+<details>
+<summary>img width or height attributes</summary>
+
+>Omitting img width or height attributes makes the page layout jump about as images load.
+>This makes the page very hard to read or click while it's loading. Fix by adding width and height attributes to the img tag matching the image dimensions. In responsive layouts, specifying width and height prevents layout jumping because the browser can pre-calculate the final image size when CSS like this is used: 
+>```
+>img {  
+>   max-width: 100%; 
+>   height: auto;
+>}
+>``` 
+>https://cmh-cookbook.herokuapp.com/ line 71 74 77 80 83 
+>
+>https://cmh-cookbook.herokuapp.com/add_recipe line 178 188 198 208 218 ...
+>
+>https://cmh-cookbook.herokuapp.com/home line 433 445 647 659 854 ...
+>
+>https://cmh-cookbook.herokuapp.com/recipe/5f175cc247049df9349fe429 line 178 188 198 208  ...
+>
+>https://cmh-cookbook.herokuapp.com/recipe/5f175e9b47049df9349fe42c line 178 347  581 592 ...
+>
+>https://cmh-cookbook.herokuapp.com/recipe/5f175fb747049df9349fe42e line 178 188 198 347  ...
+>
+>https://cmh-cookbook.herokuapp.com/recipe/5f17627947049df9349fe432 line 178 347  606 617 ...
+>
+>https://cmh-cookbook.herokuapp.com/recipe/5f1760a247049df9349fe42f line 178 188 347  661 ...
+>
+>https://cmh-cookbook.herokuapp.com/recipe/5f17638547049df9349fe433 line 178 347  604 615 ...
+>
+>https://cmh-cookbook.herokuapp.com/recipe/5f17668347049df9349fe438 line 178 188 347  637 ...
+>
+>https://cmh-cookbook.herokuapp.com/recipe/5f1767dd47049df9349fe43a line 178 188 198 347  ...
+>
+>https://cmh-cookbook.herokuapp.com/recipe/5f176c5d6462b9d738c32cc0 line 178 188 198 347  ...
+>
+>https://cmh-cookbook.herokuapp.com/recipe/5f176d386462b9d738c32cc1 line 178 188 347  641 ...
+>
+>https://cmh-cookbook.herokuapp.com/recipe/5f176e8c6462b9d738c32cc3 line 178 188 198 347  ...
+>
+>https://cmh-cookbook.herokuapp.com/recipe/5f17711f6462b9d738c32cc6 line 178 188 347  619 ...
+>
+>https://cmh-cookbook.herokuapp.com/recipe/5f17722f6462b9d738c32cc8 line 178 347  653 664 ...
+>
+>https://cmh-cookbook.herokuapp.com/recipe/5f1777c36462b9d738c32ccf line 178 347  554 565 ...
+>
+>https://cmh-cookbook.herokuapp.com/recipe/5f1778946462b9d738c32cd1 line 178 188 198 208  ...
+>
+>https://cmh-cookbook.herokuapp.com/recipe/5f1779c06462b9d738c32cd3 line 178 188 198 347  ...
+>
+>https://cmh-cookbook.herokuapp.com/search line 466 478 679 691 885 ... 
+
+Guideline: [Usability.gov 14:3](https://guidelines.usability.gov/guidelines/152) [W3C](https://developer.mozilla.org/en-US/docs/Web/Media/images/aspect_ratio_mapping)
+
+</details>
+<details>
+<summary>A search filter is provided on long pages</summary>
+
+>On long pages, provide a list of contents with links that take users to the corresponding content farther down the page.
+>For long pages with distinct sections, add a short, clickable list of sections at the top of the page. This provides a page outline, and allows users to quickly navigate to specific information.
+>
+>http://cmh-cookbook.herokuapp.com/search line 1
+> 
+>https://cmh-cookbook.herokuapp.com/search line 1  
+
+Guideline: [Usability.gov 7:3](https://guidelines.usability.gov/guidelines/69) 
+
+</details>
+<details>
+<summary>A search bar is provided on the Collections page, longer recipe pages would not benefit from a search</summary>
+
+>Provide a search option on each page of content-rich web sites.
+>A search option should be provided on all pages where it may be useful - users should not have to return to the homepage to conduct a search. Search engines can be helpful on content-rich web sites, but do not add value on other types of sites.
+>
+>https://cmh-cookbook.herokuapp.com/ line 1 
+>
+>https://cmh-cookbook.herokuapp.com/add_recipe line 1 
+>
+>https://cmh-cookbook.herokuapp.com/home line 1 
+>
+>https://cmh-cookbook.herokuapp.com/recipe/5f175cc247049df9349fe429 line 1 
+>
+>https://cmh-cookbook.herokuapp.com/recipe/5f175e9b47049df9349fe42c line 1 
+>
+>https://cmh-cookbook.herokuapp.com/recipe/5f175fb747049df9349fe42e line 1 
+>
+>https://cmh-cookbook.herokuapp.com/recipe/5f1760a247049df9349fe42f line 1 
+>
+>https://cmh-cookbook.herokuapp.com/recipe/5f17617147049df9349fe430 line 1 
+>
+>https://cmh-cookbook.herokuapp.com/recipe/5f17627947049df9349fe432 line 1 
+>
+>https://cmh-cookbook.herokuapp.com/recipe/5f17638547049df9349fe433 line 1 
+>
+>https://cmh-cookbook.herokuapp.com/recipe/5f17668347049df9349fe438 line 1 
+>
+>https://cmh-cookbook.herokuapp.com/recipe/5f1767dd47049df9349fe43a line 1 
+>
+>https://cmh-cookbook.herokuapp.com/recipe/5f176c5d6462b9d738c32cc0 line 1 
+>
+>https://cmh-cookbook.herokuapp.com/recipe/5f176d386462b9d738c32cc1 line 1 
+>
+>https://cmh-cookbook.herokuapp.com/recipe/5f176e8c6462b9d738c32cc3 line 1 
+>
+>https://cmh-cookbook.herokuapp.com/recipe/5f17711f6462b9d738c32cc6 line 1 
+>
+>https://cmh-cookbook.herokuapp.com/recipe/5f17722f6462b9d738c32cc8 line 1 
+>
+>https://cmh-cookbook.herokuapp.com/recipe/5f1777c36462b9d738c32ccf line 1 
+>
+>https://cmh-cookbook.herokuapp.com/recipe/5f1778946462b9d738c32cd1 line 1 
+>
+>https://cmh-cookbook.herokuapp.com/recipe/5f1779c06462b9d738c32cd3 line 1  
+
+Guideline: [Usability.gov 17:4](https://guidelines.usability.gov/guidelines/189)
+
+</details>
+<details>
+<summary>The landing page (route '/') and '/home' both have the same title, which shouldn't be a problem as they are the same page</summary> This page title is not unique. Each page should have a descriptive and meaningfully different title.
+
+>Title refers to the text displayed on browser tabs, favorites, and in search engines results pages. If two or more pages have the same title, they cannot be differentiated by users or the Favorites capability of the browser.
+>' Welcome Page' is also used on https://cmh-cookbook.herokuapp.com/ 
+> http://cmh-cookbook.herokuapp.com/home line 50  
+
+Guideline: [Usability.gov 9:2](https://guidelines.usability.gov/guidelines/85)
+
+</details>
+<details> 
+<summary>aria-label ="search" used instead of label elements because of Materialize search bar construction</summary>
 
 
-	Use italic text sparingly - for one or two words or a short phrase.
-	Keep runs of styled text to less than 70 characters. When used well, styled text draws attention to important words, but also decreases reading speed by almost twenty percent.  http://cmh-cookbook.herokuapp.com/edit_recipe/5f1760a247049df9349fe42f line 1638  http://cmh-cookbook.herokuapp.com/edit_recipe/5f1761ea47049df9349fe431 line 1629  http://cmh-cookbook.herokuapp.com/edit_recipe/5f17627947049df9349fe432 line 1622  http://cmh-cookbook.herokuapp.com/edit_recipe/5f17638547049df9349fe433 line 1627  http://cmh-cookbook.herokuapp.com/edit_recipe/5f1779516462b9d738c32cd2 line 1632  http://cmh-cookbook.herokuapp.com/edit_recipe/5f1779c06462b9d738c32cd3 line 1619  http://cmh-cookbook.herokuapp.com/recipe/5f17653147049df9349fe436 line 677  http://cmh-cookbook.herokuapp.com/recipe/5f17737e6462b9d738c32cca line 675  http://cmh-cookbook.herokuapp.com/recipe/5f1773e96462b9d738c32ccb line 610  http://cmh-cookbook.herokuapp.com/recipe/5f1776776462b9d738c32ccd line 656  https://cmh-cookbook.herokuapp.com/edit_recipe/5f17668347049df9349fe438 line 1620  https://cmh-cookbook.herokuapp.com/recipe/5f1761ea47049df9349fe431 line 677  https://cmh-cookbook.herokuapp.com/recipe/5f17638547049df9349fe433 line 693  https://cmh-cookbook.herokuapp.com/recipe/5f17693447049df9349fe43c line 631  https://cmh-cookbook.herokuapp.com/recipe/5f17737e6462b9d738c32cca line 675  
-	Guideline: Usability.gov 11:10  
+>Use label elements for each data entry field to show what data is expected.
+>Make sure each input field has an associated label describing the field.  http://cmh-cookbook.herokuapp.com/search line 370  https://cmh-cookbook.herokuapp.com/search line 370  
+	
+Guideline: [Usability.gov 13:5](https://guidelines.usability.gov/guidelines/130)  
+</details>
 
-Priority 4
+### Priority 3
 
-1 issues on 34 pages
+1 issues on 1 pages
 
+<details> 
+<summary>Italics have only been used for the motto, which may exceed 70 characters occasionally, but is designed to behave as a logo, not part of the text body</summary>
 
-	Make sure one radio button in a radio button group is always selected. If users can choose not to activate any of the radio button choices, provide a choice labeled 'None'.  http://cmh-cookbook.herokuapp.com/add_recipe line 523 548 573 598 623 ... http://cmh-cookbook.herokuapp.com/edit_recipe/5f175fb747049df9349fe42e line 941 958 975  http://cmh-cookbook.herokuapp.com/edit_recipe/5f1777696462b9d738c32cce line 941 958 975  https://cmh-cookbook.herokuapp.com/add_recipe line 523 548 573 598 623 ... https://cmh-cookbook.herokuapp.com/edit_recipe/5f175e9b47049df9349fe42c line 1282 1299 1316  https://cmh-cookbook.herokuapp.com/edit_recipe/5f175fb747049df9349fe42e line 941 958 975  https://cmh-cookbook.herokuapp.com/edit_recipe/5f17617147049df9349fe430 line 946 963 980  https://cmh-cookbook.herokuapp.com/edit_recipe/5f1761ea47049df9349fe431 line 953 970 987  https://cmh-cookbook.herokuapp.com/edit_recipe/5f17627947049df9349fe432 line 946 963 980  https://cmh-cookbook.herokuapp.com/edit_recipe/5f17641947049df9349fe434 line 944 961 978  https://cmh-cookbook.herokuapp.com/edit_recipe/5f1764af47049df9349fe435 line 943 960 977 1271 1288 ... https://cmh-cookbook.herokuapp.com/edit_recipe/5f17653147049df9349fe436 line 943 960 977  https://cmh-cookbook.herokuapp.com/edit_recipe/5f17689647049df9349fe43b line 943 960 977  https://cmh-cookbook.herokuapp.com/edit_recipe/5f17693447049df9349fe43c line 1273 1290 1307  https://cmh-cookbook.herokuapp.com/edit_recipe/5f1773e96462b9d738c32ccb line 942 959 976  https://cmh-cookbook.herokuapp.com/edit_recipe/5f1775f46462b9d738c32ccc line 1286 1303 1320  https://cmh-cookbook.herokuapp.com/edit_recipe/5f1776776462b9d738c32ccd line 1290 1307 1324  https://cmh-cookbook.herokuapp.com/edit_recipe/5f1777696462b9d738c32cce line 941 958 975  https://cmh-cookbook.herokuapp.com/edit_recipe/5f1777c36462b9d738c32ccf line 940 957 974  https://cmh-cookbook.herokuapp.com/edit_recipe/5f1778946462b9d738c32cd1 line 937 954 971  
-	Guideline: Usability.gov 13:23  
+>Use italic text sparingly - for one or two words or a short phrase.
+>Keep runs of styled text to less than 70 characters. When used well, styled text draws attention to important words, but also decreases reading speed by almost twenty percent.
+>
+>http://cmh-cookbook.herokuapp.com/edit_recipe/5f1760a247049df9349fe42f line 1638 
 
+Guideline: [Usability.gov 11:10](https://guidelines.usability.gov/guidelines/115)  
+</details>
+
+#### Priority 4
+
+1 issues on 2 pages
+
+<details> 
+<summary>Radio Buttons don't require use, but a clear isn't provided to encourage input if one has been pressed</summary>
+
+>Make sure one radio button in a radio button group is always selected. If users can choose not to activate any of the radio button choices, provide a choice labeled 'None'.
+>
+>http://cmh-cookbook.herokuapp.com/add_recipe line 523 548 573 598 623 ...
+>
+>http://cmh-cookbook.herokuapp.com/edit_recipe/5f175fb747049df9349fe42e line 941 958 975 
+
+Guideline: [Usability.gov 13:23](https://guidelines.usability.gov/guidelines/10001) 
+</details>
+</details>
 
 
 Validator results
