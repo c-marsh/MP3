@@ -193,8 +193,8 @@ h3 {
 
 /* allergen icons */
 img .icon-image, .icon-image img, .icon-image {
-  width: 25px;
-  height: 25px;
+  max-width: 25px;
+  max-height: 25px;
   margin-right: 2em;
 }
 
@@ -287,6 +287,11 @@ div .stats:last-of-type {
 .custom-border-right {
   border-right: #f2c078;
 }
+
+.top-badge{
+    margin-top: 120px;
+}
+
 .allergen-badges {
   padding-top: 2em;
   padding-bottom: 2em;
