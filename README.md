@@ -285,17 +285,20 @@ The use of templates for recipes means that the number of entries can be unlimit
 
 https://autoprefixer.github.io/ has been used to ensure CSS is as compatible as possible across a range of devices, but the limitations of using Materialize for Bootstrap are that it only supports IE10+ and iOS 7+ according to it's [documentation](https://fezvrasta.github.io/bootstrap-material-design/docs/4.0/migration/#browser-support). 
 
+The Python code complies with PEP8 standards.
+
 #### Automated Report 
 Created by powermapper.com
 
 ![Imgur](https://i.imgur.com/lEScNXC.png)
 
+While this looks like a lot of errors, there have been work arounds provided for the ones which actually impact the page which have been described in the sections below.
 <details>
   <summary>
 Errors</summary>
 This section shows no site quality issues, including broken links and server mis-configurations. 
 
-Spell check was not enabled
+Spell check was not enabled due to to it flagging hundreds of issues with words and names in the recipe content.
 
 </details>
 
@@ -309,7 +312,7 @@ This section shows accessibility issues, indicating problems for older users, pe
 #### Level A
 3 issues on 4 pages
 <details>
-  <summary>Screenreader issues caused by Bootstrap</summary>
+  <summary>Screenreader issues caused by Bootstrap for IE11. Not addressed due to IE11 having such a tiny (1.36%) market share.</summary>
 
 >Content inserted with CSS is not read by some screen readers, and not available to people who turn off style sheets.
 >Move the content from CSS to the HTML page so that all users can see it.Impact on users:
@@ -648,7 +651,7 @@ Guideline: [Usability.gov 10:4](https://guidelines.usability.gov/guidelines/95)
 
 </details>
 <details>
-<summary>img width or height attributes</summary>
+<summary>IMG width or height attributes. However all images which are not given a pre-determined height are hidden behind a container with a determined height, ensuring no jumping on loading. </summary>
 
 >Omitting img width or height attributes makes the page layout jump about as images load.
 >This makes the page very hard to read or click while it's loading. Fix by adding width and height attributes to the img tag matching the image dimensions. In responsive layouts, specifying width and height prevents layout jumping because the browser can pre-calculate the final image size when CSS like this is used: 
@@ -702,7 +705,7 @@ Guideline: [Usability.gov 14:3](https://guidelines.usability.gov/guidelines/152)
 
 </details>
 <details>
-<summary>A search filter is provided on long pages</summary>
+<summary>A search filter is provided on long pages, however as it's a javascript filter the validator doesn't detect it.</summary>
 
 >On long pages, provide a list of contents with links that take users to the corresponding content farther down the page.
 >For long pages with distinct sections, add a short, clickable list of sections at the top of the page. This provides a page outline, and allows users to quickly navigate to specific information.
@@ -803,7 +806,7 @@ Guideline: [Usability.gov 11:10](https://guidelines.usability.gov/guidelines/115
 1 issues on 2 pages
 
 <details> 
-<summary>Radio Buttons don't require use, but a clear isn't provided to encourage input if one has been pressed</summary>
+<summary>Radio Buttons don't require use, but a clear isn't provided as we want to encourage incorrect selections to be corrected, not removed.</summary>
 
 >Make sure one radio button in a radio button group is always selected. If users can choose not to activate any of the radio button choices, provide a choice labeled 'None'.
 >
@@ -815,17 +818,12 @@ Guideline: [Usability.gov 13:23](https://guidelines.usability.gov/guidelines/100
 </details>
 </details>
 
-
-
-
-
-
-
 ## Manual Testing
 ### Browser compatibility
 The website was tested on Chrome 84, Firefox 78, iOS Safari 13 and Safari 13 and modified to render correctly on each.
 Fixes were implemented for Firefox rendering a 1px line on the rear of the flip cards, and bunching the badges over the prep time on the recipe pages.
-There remains a minor bug with the footer occasionally flickering slightly on a fast scroll on Firefox instead of scrolling smoothly. Further investigation is needed, but it is likely to be due to how Firefox renders `position: sticky`. 
+
+There remains a minor bug with the footer occasionally flickering slightly on a fast scroll on Firefox instead of scrolling smoothly. Further investigation is needed, but it is likely to be due to how Firefox renders `position: sticky`.
 
 ### Responsiveness
 The site appears to function well on mobile devices. The hover cards become cards which flip on being tapped.
@@ -844,6 +842,8 @@ CRUD features are functional on all browsers.
 
 [Imgur](https://i.imgur.com/9SQ5VOu.mp4) [link in case of not rendering](https://i.imgur.com/9SQ5VOu.mp4)
 </details> 
+
+Custom 404/500 pages provide error messages along with (hopefully humorous) kitchen based contexts and a button back to safety.
 
 ### User Stories
 #### Add a recipe
@@ -925,7 +925,7 @@ The allergens list. Should only be the 14 EU recognised allergens.
 Input into the allergen field must use "_" instead of " ".
 
 
-### Cusines:
+### Cuisines:
 The cuisine type.
 
  cookbook.cuisines:
