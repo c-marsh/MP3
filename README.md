@@ -268,7 +268,16 @@ A screenshot of filenames for comparison</summary>
 </details>
 
 ### Future Development
-The website also uses partial templates for the recipe cards, nav bars and footers to make the website easy to modify as it scales in size. The use of templates for recipes means that the number of entries can be unlimited, and while currently there is no user registration, this could be implemented in the next sprint.
+The website also uses partial templates for the recipe cards, nav bars and footers to make the website easy to modify as it scales in size. 
+The use of templates for recipes means that the number of entries can be unlimited.
+
+#### Further Features to implementation
+- User Registration
+- User account administration (delete profile/change email/password etc)
+- Restrict editing/deleting recipes to the user who added them
+- Page to view self submitted recipes
+- Ability to bookmark and for a user to review and manage their bookmarked recipes
+- Improved search/filtering to filter out allergens
 
 # Testing
 ## Validation and Compliance
@@ -806,13 +815,35 @@ Guideline: [Usability.gov 13:23](https://guidelines.usability.gov/guidelines/100
 </details>
 
 
-Validator results
 
 
-## Data Validation
-CRUD features
+
+
 
 ## Manual Testing
+### Browser compatibility
+The website was tested on Chrome 84, Firefox 78, iOS Safari 13 and Safari 13 and modified to render correctly on each.
+Fixes were implemented for Firefox rendering a 1px line on the rear of the flip cards, and bunching the badges over the prep time on the recipe pages.
+There remains a minor bug with the footer occasionally flickering slightly on a fast scroll on Firefox instead of scrolling smoothly. Further investigation is needed, but it is likely to be due to how Firefox renders `position: sticky`. 
+
+### Responsiveness
+The site appears to function well on mobile devices. The hover cards become cards which flip on being tapped.
+
+### CRUD features
+CRUD features are functional on all browsers.
+
+## Data Validation/Defensive Design
+<details> 
+<summary>Data validation on Chrome in mobile view</summary>
+
+![Imgur](https://i.imgur.com/k0dzv1B.gifv)
+</details> 
+<details> 
+<summary>Data validation on Edge in desktop view</summary>
+
+[Imgur](https://i.imgur.com/9SQ5VOu.mp4)
+</details> 
+
 ### User Stories
 #### Add a recipe
 Somebody wishing to add a recipe could click the add button in the bottom right corner of any page, add the details to the recipe in the corresponding fields and then press submit. This will take them to page of the added recipe and provide an alert that the recipe has been added.
@@ -826,17 +857,153 @@ Somebody wishing to edit a recipe could click the "recipes" button in the nav ba
 #### Delete a recipe
 Follow the steps of edit a recipe, but select delete from the drop down menu beside the title. If a menu has been provided by the developer, the delete option is greyed out to prevent the database being fully erased. Deletion takes the viewer back to the home page and flashes a confirmation message.
 
-
-Browser compatibility
-Responsiveness
-Defensive Design
-
 # Deployment
+This website was deployed on Heroku and can be found at https://cmh-cookbook.herokuapp.com/
+
+## Heroku Deployment
+First login and create your app on the Heroku site, and select a region. Then in the app settings, under ‘Config Vars’ you can set your MONGO_URI as your database, SECRET_KEY as the secret key you use for forms, and IP, and PORT.
+
+You first create a ‘requirements’ file, which lists all the dependencies by typing in the following command in the bash terminal:
+```
+Pip3 freeze > -v requirements.txt
+```
+
+You will then need to create a ‘Procfile’, which lists the process types in an application.:
+```
+Echo web: python run. py > Procfile
+```
+
+This should then be commited to your repository before Pushing to Heroku:
+```
+Git add . > git commit -m “Setup Heroku” > git push
+```
+
+This will update your repository.
+
+
+Back on the Heroku site, under 'Deploy' , select Select 'Heroku Git'- which allows CLI interaction from the IDE terminal and use the following commands:
+```
+$ heroku login 
+Press any key except q and (key in your credentials in the preview window)
+$ git add .
+$ git commit -am “initial commit to heroku”
+$ git push Heroku master
+```
+
+
+On Heroky, select ‘Open app’ to see your live app.
+
+## Local Deployment
+This can be done by clicking ‘clone or download’ on my GitHub Repository.
+
+Then install all the dependencies listed in the requirements.txt file
+
+Create a .gitignore file containing, to prevent sensitive information being revealed in commits.
+```
+env.py
+__pychache__
+```
+Then create an ‘env.py’ file in the root directory with the following code:
+```
+import os
+
+os.environ["MONGO_URI"] = "[DB URI HERE]"
+os.environ["SECRET_KEY"] = "[A SECRET KEY HERE]"
+```
+
+The user should use MongoDB to create a collection ‘cookbook’ with 7 collections as follows:
+
+### Allergens:
+The allergens list. Should only be the 14 EU recognised allergens.
+
+ cookbook.allergens:
+>  _id: ObjectId(“…”)
+>
+>  allergen: < string >  
+
+Input into the allergen field must use "_" instead of " ".
+
+
+### Cusines:
+The cuisine type.
+
+ cookbook.cuisines:
+>  _id: ObjectId(“…”)
+>
+>  cuisine: < string >  
+
+Input into the cuisines field must use "_" instead of " ".
+
+### Dietary Requirements:
+Any dietary requirements
+
+ cookbook.diet:
+>  _id: ObjectId(“…”)
+>
+>  diet: < string >  
+
+Input into the diet field must use "_" instead of " ".
+
+### Difficulty:
+Difficulty of the recipe
+
+ cookbook.difficulty:
+>  _id: ObjectId(“…”)
+>
+>  difficulty: < string >  
+
+
+### Mottos:
+The catchphrases generated on each page
+
+ cookbook.mottos:
+>  _id: ObjectId(“…”)
+>
+>  motto: < string >  
+
+Input into the motto field must use a space between words.
+
+
+### Recipes
+cookbook.recipes
+
+<details>
+<summary>The records are populated by entry through the website, and look like this when they are</summary>
+
+![Imgur](https://i.imgur.com/TOWGaAv.png)
+</details>
+
+### Spice:
+How Spicy the food is
+
+ cookbook.spice:
+>  _id: ObjectId(“…”)
+>
+>  motto: < string >  
+
+### Type:
+Meal type (eg. Breakfast)
+
+ cookbook.type:
+>  _id: ObjectId(“…”)
+>
+>  motto: < string >  
+
+
+
 
 # Credits and Attribution
-Resources
+### Resources
+Code snippets been attributed in the code itself.
+
 Fonts - https://fonts.google.com/
+
 Allergy Icons - https://erudus.com/standardised-food-allergy-icons/
+
 Side Nav bar - https://colorlib.com/wp/bootstrap-sidebar/
+
 Bootstrap Materialize - https://fezvrasta.github.io/bootstrap-material-design/docs/4.0/material-design/
+
 Default Recipes - BBC Food https://www.bbc.co.uk/food
+
+Stackoverflow, and various sites found via Google have been used to clarify questions, as have Akshat Garg my mentor and Cormac Lawlor  as Code Institute Tutor. 
