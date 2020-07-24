@@ -206,7 +206,7 @@ The site sticks to a visual design based around a set colour scheme
 <details>
   <summary>Click to see design concepts!</summary>
 
-![Imgur](https://i.imgur.com/8b7Eezu.png)
+![Imgur](https://i.imgur.com/AoPG2R5.png)
 
 </details>
 
@@ -561,9 +561,10 @@ This section shows pages that do not comply with W3C standards.
 >https://cmh-cookbook.herokuapp.com/static/css/bootstrap-material-design.css line 11037 11654 11871 12048 12225 ... 
 
 ![Imgur](https://i.imgur.com/28QTS5l.png)
+
 </details>
 
-#### Priority 2
+#### Priority 2
 
 1 issues on 2 pages
 <details>
@@ -836,12 +837,12 @@ CRUD features are functional on all browsers.
 <details> 
 <summary>Data validation on Chrome in mobile view</summary>
 
-![Imgur](https://i.imgur.com/k0dzv1B.gifv)
+![Imgur](https://i.imgur.com/k0dzv1B.gif) [link in case of not rendering](https://i.imgur.com/k0dzv1B.gif)
 </details> 
 <details> 
 <summary>Data validation on Edge in desktop view</summary>
 
-[Imgur](https://i.imgur.com/9SQ5VOu.mp4)
+[Imgur](https://i.imgur.com/9SQ5VOu.mp4) [link in case of not rendering](https://i.imgur.com/9SQ5VOu.mp4)
 </details> 
 
 ### User Stories
@@ -1006,4 +1007,4 @@ Bootstrap Materialize - https://fezvrasta.github.io/bootstrap-material-design/do
 
 Default Recipes - BBC Food https://www.bbc.co.uk/food
 
-Stackoverflow, and various sites found via Google have been used to clarify questions, as have Akshat Garg my mentor and Cormac Lawlor  as Code Institute Tutor. 
+Stackoverflow, [the flask mega-tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world) and various sites found via Google have been used to clarify questions, as have Akshat Garg my mentor and Cormac Lawlor  as Code Institute Tutor. 
