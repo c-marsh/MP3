@@ -833,12 +833,12 @@ CRUD features are functional on all browsers.
 
 ## Data Validation/Defensive Design
 <details> 
-<summary>Data validation on Chrome in mobile view</summary>
+<summary>Data validation on Chrome in mobile view with video showing the criteria of validation and features at play</summary>
 
 ![Imgur](https://i.imgur.com/k0dzv1B.gif) [link in case of not rendering](https://i.imgur.com/k0dzv1B.gif)
 </details> 
 <details> 
-<summary>Data validation on Edge in desktop view</summary>
+<summary>Data validation on Edge in desktop view with video showing the criteria of validation and features at play</summary>
 
 [Imgur](https://i.imgur.com/9SQ5VOu.mp4) [link in case of not rendering](https://i.imgur.com/9SQ5VOu.mp4)
 </details> 
