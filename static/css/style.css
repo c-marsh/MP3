@@ -192,7 +192,9 @@ h3 {
 }
 
 /* allergen icons */
-img .icon-image, .icon-image img, .icon-image {
+img .icon-image,
+.icon-image img,
+.icon-image {
   max-width: 25px;
   max-height: 25px;
   margin-right: 2em;
@@ -288,8 +290,8 @@ div .stats:last-of-type {
   border-right: #f2c078;
 }
 
-.top-badge{
-    margin-top: 120px;
+.top-badge {
+  margin-top: 120px;
 }
 
 .allergen-badges {
@@ -339,7 +341,7 @@ div .stats:last-of-type {
   text-align: left;
 }
 
-/* Media breakpoints */
+/* Media breakpoints for recipe page*/
 @media only screen and (min-width: 576px) {
   .custom-border-left {
     border-left: #f2c078;
@@ -418,7 +420,7 @@ div .stats:last-of-type {
 .card-container.static.hover .card {
   -webkit-transform: none;
   -ms-transform: none;
-      transform: none;
+  transform: none;
 }
 /* flip speed goes here */
 .card {
@@ -444,7 +446,7 @@ div .stats:last-of-type {
   left: 0;
   background-color: #c1dbb3;
   -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.14);
-          box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.14);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.14);
 }
 
 /* front pane, placed above back */
@@ -503,7 +505,7 @@ div .stats:last-of-type {
 .card .content {
   background-color: rgba(0, 0, 0, 0);
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   padding: 10px 20px 20px;
 }
 .card .back .content .main {
