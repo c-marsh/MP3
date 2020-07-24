@@ -3,13 +3,17 @@
     <a class="navbar-brand d-none d-md-block" href="{{url_for('home')}}"
       >{%for motto in random_motto%}
       <p><em>"{{motto.motto}}"</em></p>
-      {%endfor%}</a
+      {%endfor%}
+    </a>
+    <a
+      aria-label="cutlery logo"
+      class="navbar-brand d-md-none"
+      href="{{url_for('home')}} "
     >
-    <a aria-label="cutlery logo" class="navbar-brand d-md-none" href="{{url_for('home')}} "
-      >
-      <p><em><i class="fas fa-utensils"></i></em></p>
-      </a
-    >
+      <p>
+        <em><i class="fas fa-utensils"></i></em>
+      </p>
+    </a>
   </div>
   <div class="float-right">
     <button
@@ -29,8 +33,8 @@
         {%if title == "Home"%}
         <li class="nav-item active">
           <a class="nav-link" href="{{url_for('home')}}"
-            >Home <span class="sr-only">(current)</span></a
-          >
+            >Home <span class="sr-only">(current)</span>
+          </a>
         </li>
         {%else%}
         <li class="nav-item nav-titles">
@@ -39,15 +43,14 @@
         {%endif%} {%if title == "Recipe Collection"%}
         <li class="nav-item active nav-titles">
           <a class="nav-link" href="{{url_for('search')}}"
-            >Recipes <span class="sr-only">(current)</span></a
-          >
+            >Recipes <span class="sr-only">(current)</span>
+          </a>
         </li>
         {%else%}
         <li class="nav-item">
           <a class="nav-link" href="{{url_for('search')}}">Recipes</a>
         </li>
         {%endif%}
-        
       </ul>
     </div>
   </div>
@@ -58,7 +61,11 @@
     <aside class="sidebar">
       <ul>
         <li class="title heading">
-          Allergens<button class="btn btn-default sidebar-toggle float-right" aria-label="toggle allergen sidebar">
+          Allergens
+          <button
+            class="btn btn-default sidebar-toggle float-right"
+            aria-label="toggle allergen sidebar"
+          >
             <svg
               class="bi bi-chevron-right"
               width="32"

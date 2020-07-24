@@ -31,14 +31,19 @@
       </div>
       <div class="user">
         <!-- displays the recipe image in the round, or the default image if none provided -->
-        {%if recipe.image == ""%} <img class="img-circle"
-        src="{{url_for('static',filename='images/default/default-recipe.jpg')}}
-        alt="spices and ingredients"" /> {%else%}
+        {%if recipe.image == ""%}
+        <img
+          class="img-circle"
+          src="{{url_for('static',filename='images/default/default-recipe.jpg')}}"
+          alt="spices and ingredients"
+        />
+        {%else%}
         <img
           class="img-circle"
           src="{{recipe.image}}"
           alt="{{ recipe.recipe_title }}"
-        />{%endif%}
+        />
+        {%endif%}
       </div>
       <div class="content">
         <div class="main">
@@ -53,9 +58,10 @@
             >
             <!-- display no pill if no content -->
             {%endif%} {%if recipe.recipe_difficulty == None %}{%else%}
-            <span class="badge badge-pill badge-secondary"
-              >{{ recipe.recipe_difficulty.replace("Diff", "").title() }}</span
-            >{%endif%}
+            <span class="badge badge-pill badge-secondary">
+              {{ recipe.recipe_difficulty.replace("Diff", "").title() }}
+            </span>
+            {%endif%}
           </p>
           <h3 class="name">{{ recipe.recipe_title }}</h3>
         </div>
@@ -91,9 +97,9 @@
         </div>
       </div>
       <div class="footer">
-        <a href="{{ url_for('recipe', recipe_id=recipe._id) }}" class="name"
-          ><span class="badge badge-pill badge-secondary">More Info</span></a
-        >
+        <a href="{{ url_for('recipe', recipe_id=recipe._id) }}" class="name">
+          <span class="badge badge-pill badge-secondary">More Info</span>
+        </a>
       </div>
     </div>
   </div>

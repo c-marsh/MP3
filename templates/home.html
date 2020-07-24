@@ -1,23 +1,29 @@
 {% extends 'base.html' %}{% block content %}
 <div class="container justify-content-between">
-<div class="jumbotron">
-  <h1 class="display-4">Welcome!</h1>
-  <p class="lead">This is a site dedicated to sharing and browsing recipes.</p>
-  <hr class="my-4">
-  <p>Whether you're a seasoned foodie, or firing up the over for the first time, the recipes here will stir your imagination and whisk you away to the kitchen.</p>
-</div>
-<!-- Card deck -->
-<div class="card-deck ">
-  <!-- Card -->
+  <div class="jumbotron">
+    <h1 class="display-4">Welcome!</h1>
+    <p class="lead">
+      This is a site dedicated to sharing and browsing recipes.
+    </p>
+    <hr class="my-4" />
+    <p>
+      Whether you're a seasoned foodie, or firing up the over for the first
+      time, the recipes here will stir your imagination and whisk you away to
+      the kitchen.
+    </p>
+  </div>
+  <!-- Card deck -->
+  <div class="card-deck">
+    <!-- Card -->
 
-{% for recipe in recipe %}
-<div class="col-lg-4 col-sm-6"> 
-{% include "partial-templates/cards.html" %} </div>
-{%
-  endfor %}
-</div>
-<!-- </div> -->
-<!-- /Card deck -->
+    {% for recipe in recipe %}
+    <div class="col-lg-4 col-sm-6">
+      {% include "partial-templates/cards.html" %}
+    </div>
+    {% endfor %}
+  </div>
+  <!-- </div> -->
+  <!-- /Card deck -->
 </div>
 
 {% endblock %}

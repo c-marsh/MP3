@@ -7,8 +7,8 @@
         <div class="form-row align-items-center">
           <div class="form-group col-8">
             <label for="recipe_title" class="bmd-label-floating"
-              >Title<span class="align-top muted asterisk">*</span></label
-            >
+              >Title<span class="align-top muted asterisk">*</span>
+            </label>
 
             {{ form.recipe_title(id="recipe_title", class="validate
             form-control", minlength="3", maxlength="30") }}
@@ -17,8 +17,8 @@
           </div>
           <div class="form-group col-4">
             <label for="recipe_prep" class="bmd-label-floating"
-              >Prep Time<span class="align-top muted asterisk">*</span></label
-            >
+              >Prep Time<span class="align-top muted asterisk">*</span>
+            </label>
 
             {{ form.recipe_prep(id="recipe_prep", class="validate form-control")
             }}
@@ -32,13 +32,13 @@
 
             {{ form.image(id="image", class="validate form-control")}}
             <span class="bmd-help"
-              >Please provide full URL starting with http://</span
-            >
+              >Please provide full URL starting with http:// or https://
+            </span>
           </div>
           <div class="form-group col-4">
             <label for="recipe_servings" class="bmd-label-floating"
-              >Servings<span class="align-top muted asterisk">*</span></label
-            >
+              >Servings<span class="align-top muted asterisk">*</span>
+            </label>
             {{ form.recipe_servings(id="recipe_servings", class="validate
             form-control")}}
 
@@ -49,8 +49,8 @@
         <div class="form-row">
           <div class="form-group col-12">
             <label for="recipe_description" class="bmd-label-floating"
-              >Description<span class="align-top muted asterisk">*</span></label
-            >
+              >Description<span class="align-top muted asterisk">*</span>
+            </label>
             {{ form.recipe_description(id="recipe_description", class="validate
             form-control", minlength="10", maxlength="150", rows="3") }}
 
@@ -61,7 +61,9 @@
         <div class="form-row">
           <div class="form-group col-12">
             <label for="recipe_ingredients" class="bmd-label-floating"
-              >Ingredients<span class="align-top muted asterisk">*</span></label
+              >Ingredients<span class="align-top muted asterisk"
+                >*</span
+              > </label
             >{{ form.recipe_ingredients(id="recipe_ingredients", class="validate
             form-control", minlength="10", rows="10" ) }}
 
@@ -72,8 +74,8 @@
         <div class="form-row">
           <div class="form-group col-12">
             <label for="recipe_method" class="bmd-label-floating"
-              >Method<span class="align-top muted asterisk">*</span></label
-            >
+              >Method<span class="align-top muted asterisk">*</span>
+            </label>
             {{ form.recipe_method(id="recipe_method", class="validate
             form-control", minlength="10", rows="10" ) }}
 

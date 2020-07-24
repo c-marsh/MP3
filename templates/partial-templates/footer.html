@@ -1,14 +1,17 @@
 <div class="container-fluid py-3 page-footer">
+  <div class="row">
+    <div class="col-md-9 footer-margin">
+      {%for motto in random_motto%}
+      <p>
+        <em><span class="text-muted">©CMH 2020</span> | "{{motto.motto}}"</em>
+      </p>
+      {%endfor%}
+    </div>
+  </div>
 
-
-	<div class="row">
-		<div class="col-md-9 footer-margin"> {%for motto in random_motto%}
-			<p><em><span class="text-muted">©CMH 2020</span>   |    "{{motto.motto}}"</em></p>
-			{%endfor%}</div>
-	</div>
-
-		<span class="btn-group-lg" id="fab-button">
-  <a href="{{url_for('add_recipe')}}" class="btn btn-danger bmd-btn-fab">
-    <i class="material-icons material-icons-fab">add_circle</i>
-  </a></span>
+  <span class="btn-group-lg" id="fab-button">
+    <a href="{{url_for('add_recipe')}}" class="btn btn-danger bmd-btn-fab">
+      <i class="material-icons material-icons-fab">add_circle</i>
+    </a>
+  </span>
 </div>
