@@ -22,18 +22,17 @@ app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 mongo = PyMongo(app)
 
 # MongoDB database variables
-users_db = mongo.db.users
 recipes_db = mongo.db.recipes
 cuisines_db = mongo.db.cuisines
 type_db = mongo.db.type
 spice_db = mongo.db.spice
 difficulty_db = mongo.db.difficulty
 mottos_db = mongo.db.mottos
-features_db = mongo.db.features
 diet_db = mongo.db.diet
 allergens_db = mongo.db.allergens
 
 
+# Form Validation
 class RecipeForm(FlaskForm):
     recipe_title = StringField(
         'Title',
@@ -166,10 +165,9 @@ def add_recipe():
 @ app.route('/insert_recipe', methods=['GET', 'POST'])
 def insert_recipe():
     """
-    Function inserts recalls input from form and inserts a new
+    Function recalls input from form and inserts a new
     record into database.
     """
-    # form = RecipeForm(request.form)
 
     # split ingredients and method outputs into lists, convert
     # checkbox outputs to objects
@@ -203,7 +201,7 @@ def insert_recipe():
         "wheat": request.form.get("wheatAllergy")}
 
     if request.method == 'POST':
-        # and form.validate():
+
         # after submitting form, insert new recipe
         new_recipe = {
             "recipe_title": request.form.get("recipe_title").strip(),
@@ -293,7 +291,7 @@ def update_recipe(recipe_id):
         "wheat": request.form.get("wheatAllergy")}
 
     if request.method == 'POST':
-        # after submitting form, insert new recipe
+        # after submitting form, insert recipe updates
         recipes_db.update({'_id': ObjectId(recipe_id)}, {
             "recipe_title": request.form.get("recipe_title").strip(),
             "recipe_description": request.form.get("recipe_description"),
@@ -326,6 +324,11 @@ def delete_recipe(recipe_id):
     flash("Recipe deleted")
     recipes_db.delete_one({'_id': ObjectId(recipe_id)})
     return redirect(url_for("home"))
+
+
+'''
+HANDLER TO FLASH RECIPES WHICH CAN'T BE DELETED
+'''
 
 
 @ app.route("/cannot_delete_recipe/<recipe_id>")
